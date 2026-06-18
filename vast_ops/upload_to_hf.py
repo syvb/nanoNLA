@@ -1,0 +1,63 @@
+"""Persist the from-scratch NLA artifacts to HuggingFace so they survive box
+teardown: the AV + AR merged checkpoints, the per-penalty RL LoRA adapters, and
+the held-out results. Private repos by default. Idempotent (exist_ok)."""
+
+import argparse
+import glob
+import os
+from pathlib import Path
+
+from huggingface_hub import HfApi
+
+
+def latest_iter(d):
+    its = sorted(glob.glob(os.path.join(d, "iter_*")))
+    return its[-1] if its else None
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--owner", required=True)
+    p.add_argument("--prefix", required=True)
+    p.add_argument("--av", required=True)
+    p.add_argument("--ar", required=True)
+    p.add_argument("--rl-base", required=True)
+    p.add_argument("--results", required=True)
+    p.add_argument("--penalties", required=True, help="space-separated")
+    p.add_argument("--private", action="store_true", default=True)
+    args = p.parse_args()
+    api = HfApi(token=os.environ.get("HF_TOKEN"))
+
+    def push_folder(repo, src, repo_type, **kw):
+        api.create_repo(repo, repo_type=repo_type, private=args.private, exist_ok=True)
+        api.upload_folder(folder_path=src, repo_id=repo, repo_type=repo_type, **kw)
+        print(f"uploaded {repo_type}: {repo}  <- {src}", flush=True)
+
+    # AV / AR merged checkpoints
+    for role, src in [("av", args.av), ("ar", args.ar)]:
+        if Path(src).is_dir():
+            push_folder(f"{args.owner}/{args.prefix}-{role}", src, "model")
+        else:
+            print(f"skip {role}: {src} missing", flush=True)
+
+    # RL LoRA adapters — one repo, a subfolder per penalty
+    rl_repo = f"{args.owner}/{args.prefix}-rl-lora"
+    api.create_repo(rl_repo, repo_type="model", private=args.private, exist_ok=True)
+    for pen in args.penalties.split():
+        slug = f"p{pen}"
+        it = latest_iter(os.path.join(args.rl_base, slug))
+        if it:
+            api.upload_folder(folder_path=it, repo_id=rl_repo, repo_type="model", path_in_repo=slug)
+            print(f"uploaded LoRA {slug} <- {it}", flush=True)
+        else:
+            print(f"skip LoRA {slug}: no iter dir", flush=True)
+
+    # Results (jsonl + markdown + plot) as a dataset
+    res_repo = f"{args.owner}/{args.prefix}-results"
+    push_folder(res_repo, args.results, "dataset",
+                allow_patterns=["heldout/*.jsonl", "heldout/*.summary.json", "*.md", "*.png"])
+    print("ALL_UPLOADS_DONE", flush=True)
+
+
+if __name__ == "__main__":
+    main()
