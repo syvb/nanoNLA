@@ -239,21 +239,27 @@ def main():
                 print(f"  [{i+1}/{len(rows)}] mean_tok={sum_tok/(i+1):.1f} "
                       f"valid_fve={1 - (sum_mse/max(n_valid,1))/baseline:.3f}")
 
-    mean_mse = sum_mse / max(n_valid, 1)
+    # None (not a falsely-perfect 1.0) when no sample was scorable — keeps the
+    # FVE gate honest if extraction collapses.
+    mean_mse = (sum_mse / n_valid) if n_valid else None
+    nmse = (mean_mse / baseline) if mean_mse is not None else None
+    fve = (1.0 - nmse) if nmse is not None else None
     summary = {
         "tag": args.tag,
         "n": len(rows),
         "extraction_rate": n_valid / max(len(rows), 1),
         "mean_tokens": sum_tok / max(len(rows), 1),
         "mean_mse": mean_mse,
-        "nmse": mean_mse / baseline,
-        "fve": 1.0 - mean_mse / baseline,
+        "nmse": nmse,
+        "fve": fve,
         "fve_baseline": baseline,
         "rl_lora": args.rl_lora,
     }
     with open(args.out.replace(".jsonl", ".summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"[{args.tag}] DONE  fve={summary['fve']:.4f}  nmse={summary['nmse']:.4f}  "
+    fve_s = "n/a" if fve is None else f"{fve:.4f}"
+    nmse_s = "n/a" if nmse is None else f"{nmse:.4f}"
+    print(f"[{args.tag}] DONE  fve={fve_s}  nmse={nmse_s}  "
           f"mean_tokens={summary['mean_tokens']:.1f}  ext={summary['extraction_rate']:.0%}")
 
 

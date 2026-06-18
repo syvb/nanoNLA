@@ -11,8 +11,10 @@ echo "=== [setup] torch check ==="
 python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.device_count(), 'gpus')"
 
 echo "=== [setup] deps ==="
-pip install -q -U "transformers>=4.51" "peft>=0.13,<0.18" "accelerate>=0.34" \
-    pyarrow datasets safetensors "huggingface_hub[hf_transfer]" pyyaml numpy wandb matplotlib
+# Pinned pair: transformers 4.53.x has Qwen3 AND still exports HybridCache (peft
+# 0.15 imports it; transformers >=4.54 removed it). peft 0.15.2 matches.
+pip install -q "transformers==4.53.2" "peft==0.15.2" "accelerate>=1.0" \
+    pyarrow datasets safetensors huggingface_hub hf_transfer orjson pyyaml numpy wandb matplotlib
 
 echo "=== [setup] nla package (editable, no extras) ==="
 cd "$NLA_REPO"

@@ -9,8 +9,9 @@ LOGS="$NLA_WORKSPACE/logs"; mkdir -p "$LOGS"
 
 step() { echo "===== $* ($(date)) ====="; }
 
-step "00 setup";       bash "$HERE/00_setup.sh"      2>&1 | tee "$LOGS/00_setup.log"
-step "01 fetch data";  bash "$HERE/01_fetch_data.sh" 2>&1 | tee "$LOGS/01_data.log"
+step "00 setup";       bash "$HERE/00_setup.sh"           2>&1 | tee "$LOGS/00_setup.log"
+step "01 fetch data";  bash "$HERE/01_fetch_data.sh"      2>&1 | tee "$LOGS/01_data.log"
+step "01b regen acts"; bash "$HERE/01b_regen_activations.sh" 2>&1 | tee "$LOGS/01b_regen.log"
 
 # AV + AR SFT — parallel on two GPUs if available, else sequential on GPU 0.
 if [ "${SWEEP_GPUS:-1}" -ge 2 ]; then

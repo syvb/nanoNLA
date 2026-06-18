@@ -33,10 +33,15 @@ if [ ! -f "$RESULTS/heldout/base.samples.jsonl" ]; then
     --tag base --out "$RESULTS/heldout/base.samples.jsonl"
 fi
 FVE_BASELINE="$(python3 -c "import json;print(json.load(open('$RESULTS/heldout/base.summary.json'))['fve_baseline'])")"
-BASE_FVE="$(python3 -c "import json;print(json.load(open('$RESULTS/heldout/base.summary.json'))['fve'])")"
-echo "=== base FVE=$BASE_FVE  (shared baseline mse=$FVE_BASELINE) ==="
-python3 -c "import sys;f=float('$BASE_FVE');sys.exit(0 if f>0.15 else 1)" || {
-  echo "!! base FVE $BASE_FVE below 0.15 gate — warm-start looks broken. STOPPING before the sweep."; exit 2; }
+# FVE gate: require a scorable base NLA (valid FVE above floor AND real extraction).
+python3 - "$RESULTS/heldout/base.summary.json" <<'PY' || { echo "!! FVE GATE FAILED — warm-start looks broken. STOPPING before the sweep."; exit 2; }
+import json, sys
+s = json.load(open(sys.argv[1]))
+fve, ext = s.get("fve"), s.get("extraction_rate", 0)
+print(f"=== base FVE={fve}  extraction={ext:.0%}  (baseline mse={s['fve_baseline']:.4f}) ===")
+ok = isinstance(fve, (int, float)) and fve > 0.15 and ext > 0.5
+sys.exit(0 if ok else 1)
+PY
 
 # ---- one penalty: RL train + held-out eval, pinned to GPU $2 ----
 run_penalty() {  # pen  gpu

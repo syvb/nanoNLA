@@ -31,6 +31,12 @@ def main():
         raise SystemExit(f"no *.summary.json in {args.heldout_dir}")
     # order by penalty (base first), which is also ~descending token count
     summaries.sort(key=lambda s: pen_of(s["tag"]))
+    # drop models that produced no scorable samples (fve is null) from the
+    # quantitative tables — they'd poison the arithmetic; note them instead.
+    broken = [s["tag"] for s in summaries if not isinstance(s.get("fve"), (int, float))]
+    summaries = [s for s in summaries if isinstance(s.get("fve"), (int, float))]
+    if not summaries:
+        raise SystemExit("no models with a valid FVE")
     base = next((s for s in summaries if s["tag"] == args.base), summaries[0])
     base_fve = base["fve"]
 
@@ -77,6 +83,8 @@ def main():
                      f"{dfve:+.3f} FVE → {dfve/dtok:.4f} FVE per token saved on average.")
         L.append("")
 
+    if broken:
+        L.append(f"> ⚠️ models with no scorable samples (extraction collapsed), excluded: {', '.join(broken)}\n")
     L.append("## Notes")
     L.append("- `λ` is per **token** (GRPO normalizes advantages within each prompt "
              "group, so only the length spread matters — a single coefficient).")

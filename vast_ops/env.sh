@@ -21,11 +21,23 @@ export MODEL="${MODEL:-Qwen/Qwen3-8B}"
 export LAYER="${LAYER:-24}"
 export HF_DATASET="${HF_DATASET:-ceselder/qwen3-8b-nla-L24-finefineweb-100k}"
 
-# ---- warm-start parquets (the HF dataset's actual files; each + .nla_meta.yaml) ----
-export AV_SFT_PARQUET="${AV_SFT_PARQUET:-$DATA/av_sft_shuf.parquet}"
-export AR_SFT_PARQUET="${AR_SFT_PARQUET:-$DATA/ar_sft_shuf.parquet}"
-export RL_PARQUET="${RL_PARQUET:-$DATA/rl_shuf.parquet}"
+# ---- warm-start data ----
+# The published dataset is SLIM (no activation_vector — it's regenerated from
+# detokenized_text_truncated with one forward pass). 01_fetch downloads the slim
+# parquets; 01b_regen produces the _full parquets (activation_vector re-added),
+# which is what SFT/RL/eval actually train on.
+export AV_SLIM="${AV_SLIM:-$DATA/av_sft_shuf.parquet}"
+export AR_SLIM="${AR_SLIM:-$DATA/ar_sft_shuf.parquet}"
+export RL_SLIM="${RL_SLIM:-$DATA/rl_shuf.parquet}"
+export AV_SFT_PARQUET="${AV_SFT_PARQUET:-$DATA/av_sft_full.parquet}"
+export AR_SFT_PARQUET="${AR_SFT_PARQUET:-$DATA/ar_sft_full.parquet}"
+export RL_PARQUET="${RL_PARQUET:-$DATA/rl_full.parquet}"
 export VAL_PARQUET="${VAL_PARQUET:-$RL_PARQUET}"
+# how many rows to regenerate per split (bounds the GPU cost; only what we train/eval on)
+export REGEN_AV_ROWS="${REGEN_AV_ROWS:-50000}"
+export REGEN_AR_ROWS="${REGEN_AR_ROWS:-50000}"
+export REGEN_RL_ROWS="${REGEN_RL_ROWS:-30000}"   # covers RL train (0:20k) + eval (25k:26k)
+export REGEN_BATCH="${REGEN_BATCH:-32}"
 
 # ---- checkpoints (self-contained SFT saves merged HF directly — AV_HF/AR_HF ARE these dirs) ----
 export AV_HF="${AV_HF:-$CKPTS/av_sft}"          # merged base+LoRA causal LM
