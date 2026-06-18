@@ -807,7 +807,15 @@ def main():
             [lp.numel() for lp in all_old_logps], dtype=torch.float32, device=device,
         )
         if args.length_penalty != 0.0:
-            rewards_t = rewards_t - args.length_penalty * n_resps_t
+            # Apply only to successfully-scored samples. A failed extraction
+            # already sits at the -2.0 floor (worst possible); penalizing its
+            # length would push it below the floor and create a perverse
+            # incentive toward short garbage. Matches nla/reward.py, which
+            # applies the penalty inside the valid-extraction branch only.
+            valid_mask = torch.tensor(
+                [r is not None for r in rewards], dtype=torch.float32, device=device,
+            )
+            rewards_t = rewards_t - args.length_penalty * n_resps_t * valid_mask
 
         # ---- GRPO group-relative advantage (per-prompt mean & std) ----
         group_t = torch.tensor(all_prompt_group, dtype=torch.long, device=device)
