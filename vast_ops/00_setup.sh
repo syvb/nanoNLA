@@ -11,7 +11,7 @@ echo "=== [setup] torch check ==="
 python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.device_count(), 'gpus')"
 
 echo "=== [setup] deps ==="
-pip install -q -U "transformers>=4.50" "peft>=0.13,<0.18" "accelerate>=0.34" \
+pip install -q -U "transformers>=4.51" "peft>=0.13,<0.18" "accelerate>=0.34" \
     pyarrow datasets safetensors "huggingface_hub[hf_transfer]" pyyaml numpy wandb matplotlib
 
 echo "=== [setup] nla package (editable, no extras) ==="
