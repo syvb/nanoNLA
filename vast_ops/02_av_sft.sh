@@ -35,4 +35,4 @@ bash "$NLA_REPO/configs/actor_sft.sh" \
   ${WANDB_API_KEY:+--use-wandb --wandb-project "$WANDB_PROJECT"}
 
 echo "=== AV SFT END ($(date)) ==="
-ls -d "$SAVE_DIR"/iter_* 2>/dev/null | tail -1
+ls -d "$SAVE_DIR"/iter_* 2>/dev/null | tail -1 || true

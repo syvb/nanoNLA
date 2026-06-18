@@ -41,11 +41,11 @@ pip install -e . -q
 # ---- 2. flash-attn (prebuilt wheel — do NOT compile from source) ----
 # Match the cu12/torch2.x/cp312 ABI of the box's torch. Adjust the wheel URL if
 # the box ships a different torch/python (check: python -c 'import torch;print(torch.__version__)').
-python - <<'PY'
-import importlib.util, sys
-sys.exit(0 if importlib.util.find_spec("flash_attn") else 1)
-PY
-if [ $? -ne 0 ]; then
+# NOTE: `if cmd; then` so a non-zero "not found" exit feeds the conditional
+# rather than tripping `set -e`.
+if python -c 'import importlib.util,sys; sys.exit(0 if importlib.util.find_spec("flash_attn") else 1)'; then
+  echo "  flash-attn already present"
+else
   echo "=== [setup] installing prebuilt flash-attn wheel ==="
   pip install flash-attn --no-build-isolation -q || {
     echo "!! flash-attn pip build failed — install a prebuilt wheel matching the box's torch/cuda/python."
@@ -61,6 +61,7 @@ python -c "import sglang" 2>/dev/null || pip install "sglang[all]>=0.5.6" -q
 cd "$NLA_REPO"
 pip install -e . -q
 pip install "peft==0.13.0" -q
+pip install matplotlib -q                # for vast_ops/plot_tradeoff.py (optional offline plot)
 
 # ---- verify ----
 echo "=== [setup] verify ==="

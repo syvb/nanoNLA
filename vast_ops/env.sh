@@ -61,7 +61,7 @@ export PENALTIES="${PENALTIES:-0.0 0.001 0.002 0.004 0.006}"
 # ---- held-out eval ----
 export EVAL_N="${EVAL_N:-1000}"                           # samples per model to persist
 export EVAL_SKIP_ROWS="${EVAL_SKIP_ROWS:-25000}"          # doc-disjoint from the RL training cursor
-export EVAL_MAX_NEW="${EVAL_MAX_NEW:-150}"
+export EVAL_MAX_NEW="${EVAL_MAX_NEW:-$RL_MAX_NEW}"   # match the RL generation cap so lengths are comparable
 export EVAL_TEMP="${EVAL_TEMP:-1.0}"
 
 mkdir -p "$NLA_WORKSPACE" "$DATA" "$CKPTS" "$RESULTS" "$HF_HOME"

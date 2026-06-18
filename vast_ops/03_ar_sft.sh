@@ -48,4 +48,4 @@ bash "$NLA_REPO/configs/critic_sft.sh" \
   ${WANDB_API_KEY:+--use-wandb --wandb-project "$WANDB_PROJECT"}
 
 echo "=== AR SFT END ($(date)) ==="
-ls -d "$SAVE_DIR"/iter_* 2>/dev/null | tail -1
+ls -d "$SAVE_DIR"/iter_* 2>/dev/null | tail -1 || true

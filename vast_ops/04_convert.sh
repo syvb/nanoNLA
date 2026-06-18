@@ -9,7 +9,7 @@ source "$HERE/env.sh"
 [ -f "$HOME/.hf_token" ] && export HF_TOKEN="${HF_TOKEN:-$(tr -d '\r\n' < "$HOME/.hf_token")}"
 cd "$NLA_REPO"
 
-latest_iter() { ls -1d "$1"/iter_* 2>/dev/null | sort | tail -1; }
+latest_iter() { ls -1d "$1"/iter_* 2>/dev/null | sort | tail -1 || true; }
 
 AV_ITER="$(latest_iter "$AV_SFT_DIR")"; test -n "$AV_ITER" || { echo "no AV iter in $AV_SFT_DIR"; exit 1; }
 AR_ITER="$(latest_iter "$AR_SFT_DIR")"; test -n "$AR_ITER" || { echo "no AR iter in $AR_SFT_DIR"; exit 1; }

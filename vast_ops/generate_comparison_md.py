@@ -44,12 +44,16 @@ def main():
     for f in files:
         tag = f.name.split(".samples")[0]
         rows = {r["idx"]: r for r in load(f)}
-        models.append((tag, rows))
+        # FVE baseline read straight from the summary (same value across models) —
+        # robust vs back-solving mse/nmse from a row (which breaks when nmse==0).
+        sfile = Path(str(f).replace(".jsonl", ".summary.json"))
+        baseline = json.load(open(sfile))["fve_baseline"] if sfile.exists() else None
+        models.append((tag, rows, baseline))
     if not models:
         raise SystemExit(f"no *.samples.jsonl in {d}")
 
     # common idx set across all models
-    common = sorted(set.intersection(*[set(r.keys()) for _, r in models]))
+    common = sorted(set.intersection(*[set(r.keys()) for _, r, _ in models]))
     n = min(args.n_examples, len(common))
 
     lines = []
@@ -64,14 +68,16 @@ def main():
     lines.append("## Aggregate (all common prompts)\n")
     lines.append("| model | mean tok | NMSE | FVE | extraction |")
     lines.append("|---|--:|--:|--:|--:|")
-    for tag, rows in models:
+    for tag, rows, baseline in models:
         rr = [rows[i] for i in common]
         valid = [r for r in rr if r["mse"] is not None]
         mean_tok = sum(r["n_tokens"] for r in rr) / len(rr)
-        mean_mse = sum(r["mse"] for r in valid) / max(len(valid), 1)
-        base_mse = valid[0]["mse"] / valid[0]["nmse"] if valid and valid[0]["nmse"] else None
-        nmse = (mean_mse / base_mse) if base_mse else None
-        fve = (1 - nmse) if nmse is not None else None
+        if valid and baseline:
+            mean_mse = sum(r["mse"] for r in valid) / len(valid)
+            nmse = mean_mse / baseline
+            fve = 1 - nmse
+        else:
+            nmse = fve = None
         lines.append(f"| {tag} | {mean_tok:.0f} | {fmt(nmse)} | {fmt(fve)} | "
                      f"{len(valid)/len(rr):.0%} |")
     lines.append("")
@@ -85,7 +91,7 @@ def main():
             lines.append(f"> _source ctx:_ {src[:300]}\n")
         lines.append("| model | tok | NMSE | FVE | explanation |")
         lines.append("|---|--:|--:|--:|---|")
-        for tag, rows in models:
+        for tag, rows, _ in models:
             r = rows[idx]
             expl = (r.get("explanation") or "_<extraction failed>_").replace("\n", " ").replace("|", "\\|")
             lines.append(f"| {tag} | {r['n_tokens']} | {fmt(r['nmse'])} | {fmt(r['fve'])} | {expl[:300]} |")

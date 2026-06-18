@@ -84,11 +84,14 @@ def user_text(prompt_msgs, inject_char):
 
 
 def n_generated_tokens(resp_ids, eos_id):
-    """Generated token count (what the length penalty acts on): trim a trailing EOS."""
-    n = len(resp_ids)
-    while n > 0 and resp_ids[n - 1] == eos_id:
-        n -= 1
-    return n
+    """Generated token count, matching the RL trainer's len(old_logp) exactly:
+    one step per generated token INCLUDING the terminal EOS. Stops at the first
+    EOS so any post-EOS padding isn't counted. This is the quantity the length
+    penalty acts on, so eval-reported length is comparable to training."""
+    for i, t in enumerate(resp_ids):
+        if t == eos_id:
+            return i + 1
+    return len(resp_ids)
 
 
 def fve_baseline(parquet, mse_scale_f, n=2000):
