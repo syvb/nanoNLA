@@ -546,6 +546,12 @@ def main():
                    help="cap rows from rl parquet (avoids 3.7GB full-load for smoke runs)")
     p.add_argument("--clip-eps", type=float, default=0.2)
     p.add_argument("--kl-beta", type=float, default=0.04)
+    p.add_argument("--length-penalty", type=float, default=0.0,
+                   help="Per-token reward cost on the AV's explanation: "
+                        "reward -= length_penalty * num_response_tokens. "
+                        "0.0 = off (default). GRPO normalizes advantages within "
+                        "each prompt group, so only the length SPREAD across a "
+                        "group's samples matters — a single coefficient suffices.")
     p.add_argument("--wandb-project", default="nla-qwen3-8b")
     p.add_argument("--wandb-name", default=None)
     p.add_argument("--no-wandb", action="store_true")
@@ -791,6 +797,18 @@ def main():
         rewards_filled = [-2.0 if r is None else r for r in rewards]
         rewards_t = torch.tensor(rewards_filled, dtype=torch.float32, device=device)
 
+        # ---- length penalty ----
+        # response_length = the AV's generated token count for each sample
+        # (one log-prob per generated token). Subtract BEFORE the group-relative
+        # normalization below so the length signal enters the advantage; no-op
+        # when --length-penalty 0.0. Computed here (not just at logging time)
+        # because the penalty needs it now; reused for mean_resp_len below.
+        n_resps_t = torch.tensor(
+            [lp.numel() for lp in all_old_logps], dtype=torch.float32, device=device,
+        )
+        if args.length_penalty != 0.0:
+            rewards_t = rewards_t - args.length_penalty * n_resps_t
+
         # ---- GRPO group-relative advantage (per-prompt mean & std) ----
         group_t = torch.tensor(all_prompt_group, dtype=torch.long, device=device)
         adv = torch.zeros_like(rewards_t)
@@ -907,10 +925,7 @@ def main():
         mean_cjk = (
             sum(cjk_fraction(t) for t in all_response_text) / max(len(all_response_text), 1)
         )
-        # Response lengths come from the rollout's old_logps (one entry per sample).
-        n_resps_t = torch.tensor(
-            [lp.numel() for lp in all_old_logps], dtype=torch.float32, device=device,
-        )
+        # Response lengths (n_resps_t) were computed above at the length-penalty site.
         # FVE on valid (non-extraction-failed) samples — gives an
         # interpretable curve in wandb that maps to paper's reported numbers.
         # Use valid rewards only so extraction failures don't bias FVE down.
@@ -934,6 +949,7 @@ def main():
             "extraction_rate": extraction_rate,
             "mean_cjk": mean_cjk,
             "mean_resp_len": n_resps_t.mean().item(),
+            "length_penalty": args.length_penalty,
             "kl_mean": grpo_metrics.get("kl_mean", 0.0),
             "clip_frac": grpo_metrics.get("clip_frac", 0.0),
             "critic_loss": critic_loss_val,
