@@ -66,7 +66,8 @@ export RL_LORA_ALPHA="${RL_LORA_ALPHA:-32}"
 export RL_MAX_ROWS="${RL_MAX_ROWS:-20000}"
 
 # ---- the sweep (penalties, in the requested order) ----
-export PENALTIES="${PENALTIES:-0.006 0.002 0.001 0.015}"
+# 0.0 = control RL (isolates the penalty's effect from RL itself); 0.03 = aggressive end.
+export PENALTIES="${PENALTIES:-0.006 0.002 0.001 0.015 0.0 0.03}"
 
 # ---- held-out eval ----
 export EVAL_N="${EVAL_N:-1000}"
