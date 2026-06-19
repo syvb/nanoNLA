@@ -17,9 +17,9 @@ Same 1000 held-out prompts scored by every model; 100 examples shown. Metrics: *
 ## Examples
 
 ### Example 1
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
+> _source ctx:_ Stacy Clark Named Tabitha TEAMember of the Year
+Tabitha, Nebraska’s industry-leading Senior Care provider, congratulates Tabitha TEAMember of the Year, Stacy Clark. Clark is a continuum navigator in Tabitha’s central and western regions, which includes the cities of Grand Island and York, Nebraska.
 
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -32,9 +32,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.634 | 0.366 | and services |
 
 ### Example 2
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Stemmen van de Stad
+"Stemmen van de Stad" is an audio-visual work that emerged from research by the Erasmus Initiative Vital Cities and Citizens. The work explores how different residents of Rotterdam perceive and experience their city. The project is an exploration of different perspectives, experi
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -47,9 +46,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.525 | 0.475 | of the |
 
 ### Example 3
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Under leadership of new CEO, the chemistry technology company unveils strategic growth plan
+OXFORD, England – OXECO, a chemistry technology company transforming product design and manufacturing, today announced the closing of a $10.5 million funding round secured by new Chief Executive Officer, Vass
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -62,9 +60,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.583 | 0.417 | Lincoln Partners |
 
 ### Example 4
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Shoppers wary of crowds and bored with the pandemic are increasingly filling their online carts, and EBay said it ended the fourth quarter of 2020 with 185 million active buyers, an increase of 7 percent.
+EBay Inc. gave revenue and profit forecasts for the current period that
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -77,9 +74,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.745 | 0.255 | results that |
 
 ### Example 5
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ |FREE SHIPPING AVAILABLE ON THIS PRODUCT!*
+* Please see our Terms & Conditions for details about Free Shipping Offers on selected products.
+Hemavo2 Max by iForce Nutrition
+PUMPS & ENDURANCE ENHANCEMENT:
+HEMAVO2 MAX™ is the King of Pump for its unmatched Nitric Oxide boost for vasodilation combined w
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -92,9 +91,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.874 | 0.126 | Mix in a |
 
 ### Example 6
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ How Logistics Leaders Are Using Wireless Charging
+Charging for industrial electric vehicles like forklifts is a constant struggle. Just like charging for passenger and commercial electric vehicles, electric forklift charging relies primarily on plug-in charging, which is a time consuming task and ma
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -107,9 +105,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.774 | 0.226 | A few |
 
 ### Example 7
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The Rams are getting good at this, wouldn’t you say? Bobby Wagner. Yeah, that Bobby Wagner. That’ll take a little of the sting out of losing Von Miller to the Bills. I know . Wagner is 31. But I also know he made a career high 170 tackles in what turned out to be his final season in Seattle.
+I find 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -122,9 +119,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 0.555 | 0.445 | _<extraction failed>_ |
 
 ### Example 8
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ GZA has worked at numerous airports in New England on stormwater permitting related projects. GZA has prepared and peer reviewed SWPPPs under the NPDES MSGP program for many airports including Martha’s Vineyard Airport, Beverly Municipal Airport, Mansfield Airport, Westfield Barnes Airport, New Bedf
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -137,9 +132,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.711 | 0.289 | including |
 
 ### Example 9
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ “The Avengers” is adding another female face to its mostly male cast, and the four women up above are the current front-runners.
+Morena Baccarin (“V”) and Cobie Smulders (“How I Met Your Mother”) are among those testing for the role later this week, according to The Hollywood Reporter. So are former
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -152,9 +146,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.789 | 0.211 | Joshua is |
 
 ### Example 10
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ 🎯 Transform into a trolley in 3 seconds, take everything you need with you wherever you go
+Traffic congestion takes up 1% of Europe's GDP yearly, and parking alone can take up to 40% of driving time, 10% of CO2 emissions.
+Personal mobility devices such as bicycle and cargo bicycle (with or without e
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -167,9 +161,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.473 | 0.527 | MEC C |
 
 ### Example 11
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Universal Filmed Entertainment has taken a minority stake in the film and television production company headed up by Steven Spielberg.
+Universal strengthens its relationship with Amblin Partners with its investment. The division of Universal Studios, in Universal City, had already been distributing 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -182,9 +175,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.694 | 0.306 | the company that |
 
 ### Example 12
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ NARAHA, Japan (AP) — A drone nearly the dimensions of a slice of bread is Japan’s latest hope to get clearer footage of one of many reactors contained in the tsunami-hit Fukushima Daiichi nuclear power plant the place a whole bunch of tons of broken gas stay nearly 13 years after the catastrophe.
+A 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -197,9 +189,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.914 | 0.086 | they had capable |
 
 ### Example 13
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Look, I tell you, lift up your eyes, and see that the fields are white for harvest (John 4:35). Soon after beginning his public ministry, Jesus turns to his small band of disciples and speaks these words. He goes out of his way to grab the attention of his listeners before making a simple statement.
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -212,9 +202,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 1.430 | -0.430 | When am I discouraged? |
 
 ### Example 14
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ There was a good article in the Globe & Mail recently outlining New Brunswick’s demographic challenges and how that is dampening the economic potential of the province. It certainly wasn’t a positive article – but it wasn’t the typical hatchet job either. It’s behind the paywall so I can’t link it h
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -227,9 +215,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 1.147 | -0.147 | first generation |
 
 ### Example 15
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ DNR spring egg taking operations ramp up
+Now through mid-April, Minnesota Department of Natural Resources (DNR) fisheries staff will be working at lakes and rivers throughout Minnesota on the spring fish egg take to support the state's 17 hatchery operations.
+Are you a newspaper subscriber but you d
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -242,9 +230,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.695 | 0.305 | help you |
 
 ### Example 16
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ When I found out that my third sweet baby was going to be a girl, I couldn’t wait to play dress up. I had played dress up with my boys, and love the world of boy clothes. But they don’t make all the things for boys that they do for girls. The night I found out Lyla was coming, I started shopping the
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -257,9 +243,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.780 | 0.220 | Hand |
 
 ### Example 17
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Play now free mobile games on m.spellen.nl
+The fast paced arcade game Fly With Rope is back! In Fly With Rope 2, you again use a rope to swing over the roofs of the coolest cities. Be careful not to kill the poor guy by releasing the rope at the wrong moment. Moreover, beware that the rope is elasti
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -272,9 +257,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.488 | 0.512 | fun and |
 
 ### Example 18
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ On Thursday in Sacramento, the Fish and Game Commission will hold the last big public comment hearing on a bold new plan to protect coastal waters off California’s north central coast. It promises to be a packed house and a lively debate, teeming with opinions as diverse as our state’s ocean wildlif
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -287,9 +270,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.670 | 0.330 | we all |
 
 ### Example 19
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ 60 x 80 cm
+Acrylic on canvas
+Framed in white floating frame
+Featuring Edmund de Waal (The hare with amber eyes)
+This painting is part of the "Books on Canvas" Series. It is an interpretation of Edmund
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -302,9 +287,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.636 | 0.364 | about Edmund |
 
 ### Example 20
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Mark Zuckerberg last edited by
+A public institution for lending money to the poor at
+a moderate interest, upon articles deposited and pledged; -- called
+also mont de piete.
+* These videos are coming directly from Youtube, they may or may not be most relevant to the word "Lom
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -317,9 +304,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.509 | 0.491 | Lom |
 
 ### Example 21
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Sneak Peeks for LEGO VIP Members
+Posted on Thursday, February 7th, 2013 at 11:36pm by William, BZPower Reporter
+An exclusive package has gone out to LEGO VIP members this month. In addition to a special VIP keychain minifigure, this package includes sneak peeks of upcoming sales and benefits at LEGO
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -332,9 +319,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 16 | 1.262 | -0.262 | the "m" or |
 
 ### Example 22
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Maksim Mrvica, virtuoso pianist, winner of the MTV Music Awards and holder of several first prizes in prestigious international musical competitions, will perform at St. Michael's Fortress in Šibenik on July 1st!
+After his tour in Australia and Asia, one of the most successful Croatian musicians wil
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -347,9 +333,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.626 | 0.374 | the biggest |
 
 ### Example 23
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Madura Coats Private Limited manufactures and distributes cotton and synthetic thread, yarn and industrial fabrics and operates as a subsidiary of Coats. The objective was to create an environment to experience and evaluate their special application categories like Apparel & Embroidery, Kite Flying 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -362,9 +346,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.698 | 0.302 | the product features are |
 
 ### Example 24
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Search the Community
+Showing results for tags 'subqueries'.
+I am trying to calculate a metric to show the average percentage of incidents associated with changes by dividing 'the number of incidents linked to changes' by 'the total number of changes' and multiplying the result by 100. I would like t
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -377,9 +361,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 1.026 | -0.026 | ita_itam |
 
 ### Example 25
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Opinion by Frank Short: Some weeks ago I wrote about the need for hearing aids for those in the Solomon Islands communities that have impaired hearing and hearing loss, especially affecting several young children.
+In the United States I know of one or more charity organizations that donate hearing a
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -392,9 +375,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.641 | 0.359 | considering |
 
 ### Example 26
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Sensitivity Enhancement of Ammonia Gas Sensor based on hydrothermally synthesized rGO/WO3 nanocomposites
+Authors: Deepak Punetha and Saurabh Kumar Pandey
+Abstract: An ultrasensitive ammonia gas sensor based on hydrothermally synthesized rGO/WO3 nanocomposite with interdigitated chromium electrode ha
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -407,9 +390,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 1.369 | -0.369 | Publication Date |
 
 ### Example 27
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ More than 60% of market drugs aimed at fighting disease target molecular proteins in the cell membranes – but techological limitations have previously limited researchers’ ability to observe these proteins in their natural environment.
+Now, scientists in the lab of Yale School of Medicine’s Kallol G
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -422,9 +404,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.789 | 0.211 | to retain their ability |
 
 ### Example 28
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ On line journey company Journey.com produced a powerful debut in Hong Kong on Monday, with shares growing all around 4.55% from their challenge rate.
+The China-based business now joins other U.S.-detailed Chinese tech heavyweights these types of as Alibaba,
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -437,9 +418,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.528 | 0.472 | Alibaba, |
 
 ### Example 29
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ How Georgia Power Generates Electricity
+Georgia Power has a number of different types of electric generating plants in its fleet. The diversity of fuels used in these plants enables us to provide a reliable power supply for our customers.
+Traditional fuel sources such as coal, natural gas, hydro and
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -452,9 +433,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.726 | 0.274 | equipment |
 
 ### Example 30
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Gardening has been a happy place for so many of us over the past few years, even those of us with no outdoor space. Undeterred, we’ve grown whatever we can indoors.
+Among the most intriguing projects I’ve come across is growing an oak tree indoors. If you’ve never tried to germinate acorns, you must
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -467,9 +447,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 0.866 | 0.134 | _<extraction failed>_ |
 
 ### Example 31
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Consumers pay large sums for diamonds with perfect clarity, cut, color and carat. This technology capitalizes on the diamonds with imperfections or quantum defects. By measuring the spin properties of these defects, the lab can make drift-free precision sensors that are tied to fundamental physical 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -482,9 +460,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.860 | 0.140 | techno1 |
 
 ### Example 32
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Kristin Asbjørnsen Quartet:
+(together with Thomas Dahl – guitars/vocals, Gjermund Silset – bass/vocals, Rune Arnesen – drums/Vocals and David Solheim – sound)
+mars 7, 2014
+Kristin Asbjørnsen Quartet will perform six concerts in Norway and Germany
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -497,9 +476,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.685 | 0.315 | in Germany |
 
 ### Example 33
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ I recently found that you can fix the hotplug problem (When you connect a USB device to the computer it doesn't activate automatically, you have to reboot), when using linux on HP Pavilion dv6220la.
+In a previous post I wrote you have to add some flags to the linux kernel when you boot the computer.
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -512,9 +490,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.728 | 0.272 | the package |
 
 ### Example 34
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Remarkable Trees Tour on Oct. 21 and 22
+Oct. 14, 2008
+- Five remarkable trees across Fairfax County are part of a free self-guided public tour on Oct. 21 and 22.
+- Some of the trees are showcased in “Remarkable Trees of Virginia,” which features 120 great trees from across the state.
+- Trees benefit
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -527,9 +507,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.863 | 0.137 | can cut |
 
 ### Example 35
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Well-differentiated neuroendocrine tumors (NETs) express high levels of the transmembrane somatostatin receptor subtype 2 (sstr2). Diagnostic and therapeutic radionuclides targeting this receptor have been successful in the clinic, resulting in the FDA-approval of 68Ga-DOTA-TATE for NET imaging and 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -542,9 +520,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 17 | 0.759 | 0.241 | for radionuclide imaging |
 
 ### Example 36
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Poly aluminium chloride (PAC) , the white or yellow powder, is an inorganic polymer coagulant.Compared with traditional inorganic coagulants, fengbai poly aluminum chloride flocculation precipitation speed is fast, the PH value applicable range is wide, water purification effect is obvious and non-c
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -557,9 +533,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 16 | 0.450 | 0.550 | aluminum hydroxide, |
 
 ### Example 37
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Construction of recycled water storage tank in Anthoupoli
+The project consists of the construction of a 500 000m3 Water Storage Tank. It aims to collect water during the winter months which will be used for irrigation purposes during the summer months.
+The Construction of the Anthoupolis Recycled Wa
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -572,9 +548,12 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.483 | 0.517 | Project duration |
 
 ### Example 38
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Car Crash Compilation # 63
+✔Like Us On Facebook http://www.facebook.com/CarCrashCompilationTV
+All crashes in this video are non-fatal.Take this video as a learning tool.
+This video is only for educational purposes. Be careful on the road. Drive
+safely and keep yourself and others safe.
+Watch Dash Ca
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -587,9 +566,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.992 | 0.008 | that 1 |
 
 ### Example 39
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Director Lokesh Kanagaraj’s new film Master features Vijay and Vijay Sethupathi in the lead roles. The film, which is produced by Xavier Britto, is off to a flying start at the box office in India and the international market. Master has taken a fantastic opening in Tamil Nadu and has managed to gra
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -602,9 +579,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.989 | 0.011 | Vikram Ram |
 
 ### Example 40
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ First Bank of Nigeria Limited (FirstBank) is Nigeria’s largest financial services institution by total assets and gross earnings. With more than 10 million customer accounts, FirstBank has over 750 branches providing a comprehensive range of retail and corporate financial services. The Bank has inte
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -617,9 +592,12 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.654 | 0.346 | In addition |
 
 ### Example 41
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Please use this identifier to cite or link to this item:
+LONG TERM PRESENCE OF ISLAND MASS EFFECT AT TIPUTA CHANNEL, RANGIROA ATOLL
+|Title:||LONG TERM PRESENCE OF ISLAND MASS EFFECT AT TIPUTA CHANNEL, RANGIROA ATOLL|
+|Contributors:||McManus, Margaret A. (advisor)|
+Island Mass Effect
+|Publisher:||Uni
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -632,9 +610,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 2.140 | -1.140 | distribution in |
 
 ### Example 42
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The Hikvision DS-2CE76U1T-ITMF is a 8 Megapixel (8MP) 4K Turret camera that incorporates Hikvision‘s EXIR infrared array technology. As a result, it provides industry-leading illumination in any low or zero-light environment.
+Benefiting from an advanced, highly efficient light source that provides u
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -647,9 +624,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 1.174 | -0.174 | Up to |
 
 ### Example 43
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Precision profiling the breast cancer microenvironment
+Prof V Speirs, Dr R Abu Eid
+29 March 2019
+The cancer microenvironment contains many different cell types, including various subsets of immune cells and cancer-associated fibroblasts, which support cancer growth.
+Transcriptome Pattern Recognition
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -662,9 +641,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.842 | 0.158 | Plant Path |
 
 ### Example 44
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Temperature Measurements of the Piston surface in a Research Compression Ignition Engine in Transient Conditions for 1d Model of Heat Transfer
+Analysis of heat losses in internal combustion engines (ICEs) is fundamental to evaluate and improve the engine efficiency. Detailed and reliable heat transf
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -677,9 +655,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.931 | 0.069 | represent |
 
 ### Example 45
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ We need to challenge the assumption that fewer deer means more trees - Tom Turnbull
+As a backdrop there’s the perhaps simplistic and poorly evidenced assumption that fewer deer will result automatically in more trees and an environment better equipped to combat climate change. But is this true – and
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -692,9 +669,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 16 | 1.207 | -0.207 | to comment on this article |
 
 ### Example 46
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ ok so maybe someone with a little more handcent experience can help me with what i'm trying to do. when i first got handcent i'll admit i was hooked on the iphone bubbles, but 2 weeks later i guess i got that phase out of me, cause i switched to the
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -707,9 +682,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.678 | 0.322 | now using the |
 
 ### Example 47
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ **FINANCING AVAILABLE**BUILDING PERMIT IN HAND! San Bernardino County Approved plans for 1618 square feet of living space, plus an oversized 492 square foot garage, 113 square foot front porch, and a 372 square foot covered patio for a total of 2595 square feet are INCLUDED! Water meter has been ins
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -722,9 +695,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 0.665 | 0.335 | P |
 
 ### Example 48
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ WGM was pleased to attend the 2018 Canadian Space Summit. WGM represented the mining and mine finance industries to the Canadian Government and aerospace industries. Both are seeking to build on Canada’s rich mining expertise by directing their expertise to space resource exploration and development
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -737,9 +708,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 16 | 0.335 | 0.665 | likely to be pioneers in |
 
 ### Example 49
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The What Athens bag fits everything! Sunglasses, city maps, a bottle of water, suntan lotion, cell-phone, hotel room pass..have you forgotten something?! Put a What Athens bag in your shoulder and start discovering the beauties of the city!
+The Parthenon, the Acropolis, classical stadiums and statue
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -752,9 +722,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.484 | 0.516 | For more details, |
 
 ### Example 50
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Healthy teeth and gums are essential to enjoying everyday life. Taking good care of your oral health protects your smile. It also promotes better overall health. That’s because a lack of dental care can cause serious medical problems. Review six ways poor oral health can affect overall health.
+1. He
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -767,9 +736,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.592 | 0.408 | Patients with HIV/AIDS. |
 
 ### Example 51
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Fans of the Buffalo Bills can all let out a collective sigh of relief.
+After appearing to suffer what the Bills announced as a "chip fracture in his sternum," Bills wide receiver Jordan Matthews returned to practice on Sunday. Matthews wasn't dressed in pads meaning that he wouldn't partake in team 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -782,9 +750,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.835 | 0.165 | and the |
 
 ### Example 52
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Google's ad-slinging juggernaut gobbles more BEEELLIONS in revenue
+With no more Motorola to drag it down, sky's the limit for clicks and banners
+Updated Google turned in another impressive earnings report on Thursday, with the giant ad-slinger's revenues reaching record highs both for the fourth qua
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -797,9 +765,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.402 | 0.598 | revenues were |
 
 ### Example 53
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Under the bankruptcy procedure the assets of Armavir Electrometallurgical Works LLC will be sold at an auction.
+In particular, a site for steel manufacture will be sold.
+The construction of the works has been carried out by the Industrial Union of Donbass since 2007. Investments were expected to hit
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -812,9 +780,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.836 | 0.164 | design works |
 
 ### Example 54
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ 27 Nov (NucNet): Installation of the core catcher for the Belarusian-2 nuclear power plant at Ostrovets in western Belarus will begin in March 2015 with the construction of both units at the site remaining on schedule, the operating company Belarus Nuclear Power Plant said.
+The core catcher is alrea
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -827,9 +794,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.938 | 0.062 | Both, both |
 
 ### Example 55
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The third story about dragoon Matthew Hervey. The series seems to get better each novel - no more simple, heroic adventures. Instead, the stories illustrate the complexities of the times (in this case circa 1817).
+Hervey is also a thoughtful observer of what is going
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -842,9 +808,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.487 | 0.513 | what is going |
 
 ### Example 56
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
+> _source ctx:_ CN C44-9WLs 2513 and 2503 have M348's train at 50mph approaching Henry House. With the rapid rebuilding of CN's Dash 9 fleet, it's a wonder how many more opportunities one will have to shoot a pai... (more)
+The first revenue trip, leading, for Metra's rebuilt SD70MACHs as 2135 arrives at Long Lake.
 
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -857,9 +823,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 0.491 | 0.509 | _<extraction failed>_ |
 
 ### Example 57
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ You might realize that you whenever you go home for break – winter, summer or spring – you always seem to run into people you went to high school with. Whether you come from a small town or a big city chances are you still end up seeing someone you know. For some people that may be a great thing, bu
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -872,9 +836,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.860 | 0.140 | what you're doing |
 
 ### Example 58
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Both myeloablative and reduced-intensity conditioning regimens used prior to hematopoietic cell transplantation (HCT) will cause some degree of post-transplant immunodeficiency in recipients. In addition, both chemotherapy- and radiation-based conditioning regimens can cause organ and tissue damage.
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -887,9 +849,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.740 | 0.260 | oral muc |
 
 ### Example 59
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ We are Accountable to God
+Romans 14:12 So then every one of us shall give account of himself to God
+2 Corinthians 5:10 For we must all appear before the judgment seat of Christ; that every one may receive the things done in his body, according to that he hath done, whether it be good or bad.
+We are 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -902,9 +865,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 1.547 | -0.547 | and go in, |
 
 ### Example 60
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Progress continues on the new Interstate 85 bridge that will span the Yadkin River between Davidson and Rowan counties.
+Progress continues on the new Interstate 85 bridge that will span the Yadkin River between Davidson and Rowan counties. Crews have recently began fitting girders along the eventual
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -917,9 +879,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.661 | 0.339 | and we |
 
 ### Example 61
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Turquoise Geometric Doormat
+This product is currently sold out.
+Strong fibers made from the husks of coconuts set the tone for a sustainable home. This durable doormat features a bold geometric pattern in a versatile muted turquoise color making it the perfect addition to any front door.
+- 18 x 30 i
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -932,9 +895,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.839 | 0.161 | 100 |
 
 ### Example 62
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Originally Posted by pvaudio
+This corkscrew spin business is not easy to understand because you cannot picture it easily. Here is the best way to do so, IMO. Either imagine or put a tennis ball in front of you. There are 3 directions: x (left and right), y (forward and backwards) and z (upwards and 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -947,9 +909,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.473 | 0.527 | This is |
 
 ### Example 63
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ It was … a Rock Monster. Naturally, this movie takes place out in the wilderness (somewhere in Europe, as a matter of fact) … and there is a reference to King Arthur’s legendary Sword in the Stone. I love that Disney cartoon.
+But be forewarned!! Some quiet afternoon while watching TV, you, too, may
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -962,9 +923,12 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.633 | 0.367 | you may |
 
 ### Example 64
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ artropolis art find #1: vadim katznelson
+i was completely enthralled by the unique style & colors used by this artist
+when i first encounterd this piece…i thought it was plastic
+but the curator at the show said he created it
+by forcing acrylic resin polymer through cloth ~ cool!
+shown at artropolis:
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -977,9 +941,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 2.133 | -1.133 | ro boy |
 
 ### Example 65
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Earlier this year, federal investigators began requesting corporate documents and questioning staff at American Media Inc., the company run by Donald Trump’s longtime friend David Pecker, about a special issue of the National Enquirer it produced that lavished praise on Saudi Arabia and its controve
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -992,9 +954,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.971 | 0.029 | tour tour |
 
 ### Example 66
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ About These 3 Apps
+Cellular Apps Is Easier Than Ever. Many people have cellphones than ever before. There is much more possibility for the user to get hurt on the street. The possibility is so authentic motorists with diverted attention are caught up in their apparatus and also will need to find inf
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1007,9 +968,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 0.376 | 0.624 | _<extraction failed>_ |
 
 ### Example 67
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ CLOVIS, N.M. - Ellen P. Olguin, 67, died Saturday, Oct. 14, 2000, in Lubbock, Texas.
+Rosary will be at 7 p.m. today at Our Lady of Guadalupe Catholic Church. Mass will be celebrated at 11 a.m. Wednesday at the church. Burial will be at Texico Cemetery in Texico by Steed-Todd Funeral Home.
+Mrs. Olgui
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1022,9 +983,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 11 | 1.071 | -0.071 | M |
 
 ### Example 68
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Garrett County Commissioners oversee day-to-day local decisions on issues such as roads, hiring county employees, allocating funding for special projects, and establishing an annual budget. They oversee several county entities like Economic Development, Community Action, Police and First Responders.
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1037,9 +996,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.861 | 0.139 | will they |
 
 ### Example 69
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The Veil Nebula is a diffuse nebula located in the northern constellation Cygnus, the Swan. Also known as Witch’s Broom Nebula, Bridal Veil Nebula, Cirrus Nebula, or Filamentary Nebula, it constitutes the visible parts of the Cygnus Loop, a supernova remnant in Cygnus. It is located at an approximat
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1052,9 +1009,12 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 1.474 | -0.474 | cele |
 
 ### Example 70
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Promaster Wheel Well Cabinets
+Pairs well with...
+- DIY Installation
+- Policies, Shipping, Warranty
+- Installation Services
+Elevate your van conversion project to new heights with our Promaster Van Wheel Well Cabinets and create a usable and functional space in the garage of your campervan. Crafted w
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1067,9 +1027,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.935 | 0.065 | regarding |
 
 ### Example 71
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Choosing a Woolbabe Sleeping Bag is one of the best steps towards introducing a sleep association for your baby, but what is a sleep association and what else can you do to help your Woolbabe bag work it’s magic?\nWhether you call it a sleep association, a sleep prop or routine, we’re talking about 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1082,9 +1040,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.786 | 0.214 | and big changes |
 
 ### Example 72
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Gold Ore Crusher. In gold concentration, high-tech gold mining equipment, such as gold detectors, elegant modern dredgers, and light locks will be needed. The gold crusher was also used as the main crusher in the gold crushing industry. Jaw crusher is the most commonly used mining equipment for gold
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1097,9 +1053,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.385 | 0.615 | stone crushing plant is |
 
 ### Example 73
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Painting & Handyman Service Company of Ft Lauderdale, Florida in Broward County
+Do you have Painting needs?
+Do you need Interior & Exterior Painting?
+If you have any painting or Handyman needs, do not hesitate! Call Affordable Painting & Handyman in Ft Lauderdale! We specialize in all types of inter
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1112,9 +1069,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.708 | 0.292 | with over 3 |
 
 ### Example 74
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Fear of dentistry is an unfortunately common and potentially devastating condition. A surprisingly large number of patients go for years without seeing a dentist because they’re so afraid of undergoing dental treatment. These same patients end up suffering from dental decay, gum disease, and tooth l
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1127,9 +1082,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.647 | 0.353 | and |
 
 ### Example 75
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Warwick. Baron Security, a consumer-focused website dealing in matters of security, released its list of the top 50 safest cities, towns and villages in New York State.
+The Town of Warwick was listed as the 36th-safest community while the Town of Chester was ranked as the fourth safest.
+The Village 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1142,9 +1097,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.837 | 0.163 | 147 |
 
 ### Example 76
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Bill Murray and Ernie Hudson Teach Jimmy How to Wield a Ghostbusters Proton Pack
+Bill Murray is an award-winning actor, comedian and writer. He first gained national attention as a cast member on NBC’s Saturday Night Live. After leaving the show in 1980, he successfully transitioned into films. His 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1157,9 +1111,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.401 | 0.599 | will star in |
 
 ### Example 77
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ JOHN JAMES BLUNT (1794-1855), English divine, was born at Newcastle-under-Lyme in Staffordshire, and educated at St John's College, Cambridge, where he took his degree as fifteenth wrangler and obtained a fellowship (1816).
+Damian didn't care; Sofia liked Pierre, and he had a feeling Pierre's blunt 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1172,9 +1125,7 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.934 | 0.066 | the base on |
 
 ### Example 78
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Cat Tesla's artwork includes both ethereal landscapes and abstract designs. and she is intrigued by texture, color, and the juxtaposition of shapes. Tesla's painting's subjects are organic, either originating from Mother Nature, or inspired by her. One of her goals with her work is to transport the 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1187,9 +1138,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 17 | 1.031 | -0.031 | appreciate the artistry |
 
 ### Example 79
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Sunday, 28 April 2013
+Leviathan Rising: Redux
+Mssr Blease has commented on this book here before but I add my own commentary, some years later it must be admitted, as I am thoroughly enjoying this great series.
+Leviathan Rising is a wonderful combination of the 20,000 Leagues under the Sea, Murder o
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1202,9 +1154,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.539 | 0.461 | and eagerly |
 
 ### Example 80
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Making a Statement: The Benefits of Colored Concrete Sidewalks for Your Texas Property
+When it comes to enhancing the curb appeal of your Texas property, colored concrete sidewalks can make a bold statement. Not only do they provide a durable and long-lasting surface for pedestrians, but they also a
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1217,9 +1168,13 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 17 | 0.585 | 0.415 | what are the options for concrete |
 
 ### Example 81
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Sept. 10, 2011
+- USA Field Hockey
+- Download your Iowa Hawkeye iPhone app!
+- Iowa and the Big Ten Network
+- Big Ten Network: Free Hawkeye Video
+- 24 Hawkeyes to Watch
+PROVIDENCE, R.I. — The University of Iowa field hockey team shutout Brown University Saturday, 7-0. The 15th-ranked Hawkeyes move to 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1232,9 +1187,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 1.154 | -0.154 | third |
 
 ### Example 82
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ LLANO — A Llano couple accused of bilking their hardware-company employer out of $300,000 worth of merchandise they sold on the Internet have accepted plea deals in the case, officials said.
+According to prosecutors, the couple from 2004-2010 sold inventory from the Buttery Co. LLP
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1247,9 +1201,13 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 160 | — | — | _<extraction failed>_ |
 
 ### Example 83
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ i am beginner in java, i am used to VB.
+Here is my case:
+1. i've made a desktop application using netbeans
+2. it contains main.class that launch the myForm.class.
+3. it works when run from its project and netbeans
+4. then, i made it became a jar file
+5. i put the jar file in a specific folder (eg. a
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1262,9 +1220,11 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.602 | 0.398 | my original |
 
 ### Example 84
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ As Calgary gets ready to connect to the South West Ring
+Road, ENMAX is preparing its connections as well.
+be resuming work on the distribution system from Anderson Road to 146 Avenue
+SW. Some construction will start this month with the majority of the work
+happening between January to August 2017. T
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1277,9 +1237,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 20 | 0.947 | 0.053 | Route 17 and 92 |
 
 ### Example 85
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ |August 23, 2012
+It's now been a little more than a month since my procedure. I am completely healed and my hair is growing back. I had such an amazing experience and I talked about every detail with Dr. Bauman during a live TV and radio show taping on August 22nd. Check back here to find out when y
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1292,9 +1251,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.897 | 0.103 | Dr. and one |
 
 ### Example 86
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ An Israeli journalist is to be indicted for possession of classified Israel Defence Forces (IDF) documents in a decision strongly criticised yesterday by the head of the country's Press Council.
+Israel's Attorney General, Yehuda Weinstein, announced yesterday that Uri Blau, a reporter for the libera
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1307,9 +1265,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.522 | 0.478 | the security apparatus |
 
 ### Example 87
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Watch: Road workers use Lorry to smooth pavement fix - 'waste of time' says councillor
+Video has emerged of road workers using a lorry to apply a smooth finish to their fix on a pot-holed pavement.
+The footage was reported by the news organisation, the Armagh i.
+Shot from a nearby property on the Ar
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1322,9 +1281,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.585 | 0.415 | The Department |
 
 ### Example 88
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ STATEN ISLAND, N.Y. -- Dough By Licastri mourns the loss of its owner and namesake, Stephen Licastri, who passed away suddenly in early June. The Dongan Hills entrepreneur left behind a successful little restaurant -- and a famed dough recipe.
+Chef Robert Nilsen will step foot into the position of c
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1337,9 +1295,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 16 | 0.600 | 0.400 | the bò mì |
 
 ### Example 89
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ This review is the first in a series I intend to write on each of the published works of Gordon H. Clark. That is, I hope to summarize and comment on of each of his many books.
+But first we start with Clark’s Ph. D. dissertation. Before he wrote any books for publication he completed his 1929 disser
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1352,9 +1309,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.661 | 0.339 | the thesis is |
 
 ### Example 90
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Energy Efficiency in Humanitarian Infrastructure - A Practitioners Guideline
+Background of these Guidelines
+The findings presented here are based on the desktop and field assessment of the humanitarian infrastructure in Ethiopia’s Gambella region by the consultants. Nevertheless, these findings and 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1367,9 +1324,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.586 | 0.414 | an energy |
 
 ### Example 91
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The Institute has collaborated with S. N. Bose National Centre for Basic Sciences, Kolkata; Anhui University, China, and Universidad de Sevilla, Spain, for the research
+Thiruvananthapuram, 10th April 2023: Scientists at the Indian Institute of Science Education and Research (IISER) Thiruvananthapura
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1382,9 +1338,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 1.694 | -0.694 | 9 |
 
 ### Example 92
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Youth Sport Health Edition
+Often overlooked yet most important component to youth sports participation is the impact on health. Physical and mental health. This week we explore how to make health stays as a top priority.
+Health benefits of regular physical activity have been documented for years, ye
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1397,9 +1353,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 12 | 0.828 | 0.172 | any |
 
 ### Example 93
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Come and paint the day in Coos Bay!
+Plein Air Paint Out
+Plein Air painters are invited to participate in Coos Art Museum’s “Plein Air Paint Out” adventure which will be taking place early morning through mid-day on Saturday, July 8, 2017. Participating artists will be located around the Coos Bay are
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1412,9 +1368,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.840 | 0.160 | will be returned by |
 
 ### Example 94
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ The Good Place is an American fantasy-comedy television series created by Michael Schur. The series premiered on September 19, 2016, on NBC.
+The series focuses on Eleanor Shellstrop (Kristen Bell), a woman who wakes up in the afterlife and is introduced by Michael (Ted Danson) to "The Good Place", a
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1427,9 +1382,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.645 | 0.355 | become a |
 
 ### Example 95
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Is the light behind the LCD a candle in the wind for the future of our area?
+Micro-LED are not readily available as of yet, but already there is dialogue about whether this new technology will replace LCD and OLED in future. This is due to its strong potential to be a thinner, lighter, and brighter 
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1442,9 +1396,15 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.913 | 0.087 | the light |
 
 ### Example 96
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ [isabelle] Defining a recursive function
+Dear Isabelle list,
+I am defining a datatype and a recursive function as below:
+comm = Init "nat list" "nat"
+| Cond "comm list"
+primrec denoFunDef::"commâMatâMat" where
+"denoFunDef (Init m n) p=p"|
+"denoFunDef (Cond mcl) p = (case mcl of  â p
+| ac#la â(denoFu
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1457,9 +1417,9 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 0.562 | 0.438 | don't know why |
 
 ### Example 97
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Nov 1 2010
+IDT Systems, provider of 3D and 2D in-surface decoration solutions, has inked a partnership contract with Ingenia Technology. The agreement will enable IDT to provide Ingenia’s proprietary Laser Surface Authentication (LSA) technology to its consumers.
+IDT will incorporate the LSA technol
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1472,9 +1432,10 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 14 | 0.687 | 0.313 | in-surface |
 
 ### Example 98
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Today 2 Aug Ventura County Mountains
+Sunny. Highs from 96 to 104 at low Elevations to the mid 80s to mid 90s at high Elevations. Southwest Winds 10 to 20 Mph in the afternoon.
+Tonight 2 Aug Ventura County Mountains
+Clear. Lows from the mid 60s to lower 70
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1487,9 +1448,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 15 | 1.200 | -0.200 | the 70 |
 
 ### Example 99
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ Choosing an Online Casino
+If you’re looking for a casino online, there are many different factors to consider. You’ll want to find a site that offers a variety of games, great bonuses, excellent customer service, and secure payment methods. Choosing an online casino that meets all of these requireme
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
@@ -1502,9 +1462,8 @@ We will pass the vector enclosed in <concept> tags into your context. You must t
 | p0.03 | 13 | 0.565 | 0.435 | you should |
 
 ### Example 100
-> _source ctx:_ You are a meticulous AI researcher conducting an important investigation into activation vectors from a language model. Your overall task is to describe the semantic content of that activation vector.
-
-We will pass the vector enclosed in <concept> tags into your context. You must then produce an exp
+> _source ctx:_ NEW YORK (DTN) -- New York Mercantile Exchange crude oil futures pared losses after the U.S. Energy Information Administration reported a less-than-expected crude oil stock build as refiners ramped up operations and increased demand last week ahead of this Thanksgiving holiday week.
+The EIA reported
 
 | model | tok | NMSE | FVE | explanation |
 |---|--:|--:|--:|---|
