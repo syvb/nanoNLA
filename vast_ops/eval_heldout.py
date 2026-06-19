@@ -183,8 +183,8 @@ def main():
 
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     n_valid = 0
-    sum_mse = 0.0
-    sum_tok = 0
+    sum_mse = sum_mse_sq = 0.0
+    sum_tok = sum_tok_sq = 0
     with open(args.out, "w") as fout:
         for i, row in enumerate(rows):
             msgs = [{**m, "content": m["content"].replace("<INJECT>", inject_char)}
@@ -243,7 +243,9 @@ def main():
             if mse is not None:
                 n_valid += 1
                 sum_mse += mse
+                sum_mse_sq += mse * mse
             sum_tok += n_tok
+            sum_tok_sq += n_tok * n_tok
             if (i + 1) % 100 == 0:
                 print(f"  [{i+1}/{len(rows)}] mean_tok={sum_tok/(i+1):.1f} "
                       f"valid_fve={1 - (sum_mse/max(n_valid,1))/baseline:.3f}")
@@ -253,14 +255,29 @@ def main():
     mean_mse = (sum_mse / n_valid) if n_valid else None
     nmse = (mean_mse / baseline) if mean_mse is not None else None
     fve = (1.0 - nmse) if nmse is not None else None
+    # spread for error bars: std of the per-sample distribution + SEM of the mean.
+    nrow = max(len(rows), 1)
+    mean_tok = sum_tok / nrow
+    tok_std = max(0.0, sum_tok_sq / nrow - mean_tok ** 2) ** 0.5
+    tok_sem = tok_std / nrow ** 0.5
+    if n_valid:
+        mse_std = max(0.0, sum_mse_sq / n_valid - mean_mse ** 2) ** 0.5
+        fve_std = mse_std / baseline            # fve = 1 - mse/baseline, so same std up to the constant
+        fve_sem = fve_std / n_valid ** 0.5
+    else:
+        fve_std = fve_sem = None
     summary = {
         "tag": args.tag,
         "n": len(rows),
         "extraction_rate": n_valid / max(len(rows), 1),
-        "mean_tokens": sum_tok / max(len(rows), 1),
+        "mean_tokens": mean_tok,
+        "mean_tokens_std": tok_std,
+        "mean_tokens_sem": tok_sem,
         "mean_mse": mean_mse,
         "nmse": nmse,
         "fve": fve,
+        "fve_std": fve_std,
+        "fve_sem": fve_sem,
         "fve_baseline": baseline,
         "rl_lora": args.rl_lora,
     }
