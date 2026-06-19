@@ -10,6 +10,7 @@ source "$HERE/env.sh"
 [ -f "$HOME/.wandb_key" ] && export WANDB_API_KEY="${WANDB_API_KEY:-$(tr -d '\r\n' < "$HOME/.wandb_key")}"
 export PYTHONUNBUFFERED=1
 
+if [ -f "$AV_HF/config.json" ]; then echo "=== AV SFT already done ($AV_HF) — skip ==="; exit 0; fi
 WB=(--no-wandb); [ -n "${WANDB_API_KEY:-}" ] && WB=(--wandb-project "$WANDB_PROJECT" --wandb-name av_sft)
 echo "=== AV SFT (LoRA) START ($(date)) on GPU ${CUDA_VISIBLE_DEVICES:-0} ==="
 cd "$NLA_REPO"

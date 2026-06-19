@@ -11,6 +11,8 @@ source "$HERE/env.sh"
 export PYTHONUNBUFFERED=1
 cd "$NLA_REPO"
 
+if [ -f "$AR_HF/config.json" ]; then echo "=== AR SFT already done ($AR_HF) — skip ==="; exit 0; fi
+
 # (a) critic init (one-time, fast, CPU/GPU model surgery — no Miles)
 if [ ! -f "$CRITIC_INIT/config.json" ]; then
   echo "=== prepare_critic_checkpoint ($(date)) ==="

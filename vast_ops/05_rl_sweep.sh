@@ -32,9 +32,9 @@ if [ ! -f "$RESULTS/heldout/base.samples.jsonl" ]; then
     --max-new "$EVAL_MAX_NEW" --temperature "$EVAL_TEMP" \
     --tag base --out "$RESULTS/heldout/base.samples.jsonl"
 fi
-FVE_BASELINE="$(python3 -c "import json;print(json.load(open('$RESULTS/heldout/base.summary.json'))['fve_baseline'])")"
+FVE_BASELINE="$(python3 -c "import json;print(json.load(open('$RESULTS/heldout/base.samples.summary.json'))['fve_baseline'])")"
 # FVE gate: require a scorable base NLA (valid FVE above floor AND real extraction).
-python3 - "$RESULTS/heldout/base.summary.json" <<'PY' || { echo "!! FVE GATE FAILED — warm-start looks broken. STOPPING before the sweep."; exit 2; }
+python3 - "$RESULTS/heldout/base.samples.summary.json" <<'PY' || { echo "!! FVE GATE FAILED — warm-start looks broken. STOPPING before the sweep."; exit 2; }
 import json, sys
 s = json.load(open(sys.argv[1]))
 fve, ext = s.get("fve"), s.get("extraction_rate", 0)
