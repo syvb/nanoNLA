@@ -12,4 +12,10 @@ python vast_ops/upload_to_hf.py \
   --owner "$HF_OWNER" --prefix "$HF_PREFIX" \
   --av "$AV_HF" --ar "$AR_HF" --rl-base "$RL_BASE" \
   --results "$RESULTS" --penalties "$PENALTIES"
+
+# Consolidated completions dataset (1000 per model, with FVE) for later analysis
+python vast_ops/build_completions_dataset.py \
+  --heldout-dir "$RESULTS/heldout" --out "$RESULTS/completions.parquet" \
+  --repo "$HF_OWNER/$HF_PREFIX-completions"
+
 echo "=== upload DONE -> https://huggingface.co/$HF_OWNER ($HF_PREFIX-*) ==="
