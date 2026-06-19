@@ -198,23 +198,33 @@ def rollout_one_prompt(
     # as LoRA weights update).
     scores = gen_out.logits  # tuple of [G, V]
     prompt_len = prompt_t.shape[1]
+    eos_id = tokenizer.eos_token_id
     responses = []
     for g in range(group_size):
         resp_ids = full_ids[g, prompt_len:].tolist()
+        # Batched generate() right-pads EVERY sample to the group's longest
+        # sequence, so resp_ids carries trailing EOS-padding. Trim to the TRUE
+        # generated length (up to and including the first EOS). Critical for the
+        # length penalty: without trimming, all group members share the same
+        # padded length, so -λ·length is a constant offset that cancels exactly
+        # in the group-relative advantage → length gets zero gradient.
+        if eos_id in resp_ids:
+            true_len = resp_ids.index(eos_id) + 1
+        else:
+            true_len = len(resp_ids)
+        resp_ids = resp_ids[:true_len]
         text = tokenizer.decode(resp_ids, skip_special_tokens=True)
-        # Collect old log_p for each generated token.
+        # Collect old log_p for each REAL generated token (not padding).
         old_logp = []
-        for t, step_logits in enumerate(scores):
-            if t >= len(resp_ids):
-                break
-            lp = F.log_softmax(step_logits[g].float(), dim=-1)
+        for t in range(true_len):
+            lp = F.log_softmax(scores[t][g].float(), dim=-1)
             old_logp.append(lp[resp_ids[t]].item())
         responses.append({
             "text": text,
             "full_ids": full_ids[g],
             "prompt_len": prompt_len,
             "old_logp": torch.tensor(old_logp, dtype=torch.float32),
-            "n_resp": len(old_logp),
+            "n_resp": true_len,
         })
     return responses
 
@@ -337,8 +347,12 @@ def grpo_update_microbatched(
         # --- per-sample GRPO loss for this chunk ---
         chunk_losses = []
         for row, i in enumerate(idxs):
-            L = full_ids_list[i].numel()
             p_len = prompt_lens[i]
+            # old_logp is EOS-trimmed to the TRUE generated length in rollout;
+            # slice the loss to it, NOT full_ids (right-padded to the group max),
+            # so we train only on real generated tokens — and so new_lp aligns
+            # with old_lp (which is now true-length, varying within a group).
+            L = p_len + old_logps_list[i].numel()
             if L <= p_len:
                 continue
             target_ids = batch_ids[row, p_len:L]
