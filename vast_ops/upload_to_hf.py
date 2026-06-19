@@ -24,7 +24,7 @@ def main():
     p.add_argument("--rl-base", required=True)
     p.add_argument("--results", required=True)
     p.add_argument("--penalties", required=True, help="space-separated")
-    p.add_argument("--private", action="store_true", default=True)
+    p.add_argument("--private", action="store_true", default=False)  # public by default
     args = p.parse_args()
     api = HfApi(token=os.environ.get("HF_TOKEN"))
 

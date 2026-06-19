@@ -14,7 +14,7 @@ import os, sys
 from huggingface_hub import HfApi
 repo, data, src = sys.argv[1], sys.argv[2], sys.argv[3]
 api = HfApi(token=os.environ["HF_TOKEN"])
-api.create_repo(repo, repo_type="dataset", private=True, exist_ok=True)
+api.create_repo(repo, repo_type="dataset", private=False, exist_ok=True)
 card = f"""---
 license: apache-2.0
 tags: [nla, activations, qwen3]
