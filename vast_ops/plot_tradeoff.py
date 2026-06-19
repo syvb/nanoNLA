@@ -51,20 +51,24 @@ def main():
                     ecolor="#3060c0", elinewidth=1, capsize=3, label="RL (length penalty)", zorder=3)
     else:
         ax.plot(rt, rf, "o-", color="#3060c0", label="RL (length penalty)", zorder=3)
+    # per-point label offsets (dx, dy, ha) chosen to sit clear of the line
+    OFF = {"p0.03": (12, -4, "left"), "p0.015": (12, -13, "left"), "p0.006": (12, -16, "left"),
+           "p0.002": (-2, 11, "right"), "p0.001": (4, 12, "left"), "p0.0": (-12, 11, "right")}
     for x in rl:
-        ax.annotate(lbl(x), (x["mean_tokens"], x["fve"]),
-                    textcoords="offset points", xytext=(6, 5), fontsize=8)
+        dx, dy, ha = OFF.get(x["tag"], (8, 8, "left"))
+        ax.annotate(lbl(x), (x["mean_tokens"], x["fve"]), textcoords="offset points",
+                    xytext=(dx, dy), ha=ha, fontsize=11)
     if base is not None:
         bx, by = base["mean_tokens"], base["fve"]
         if have_err:
             ax.errorbar([bx], [by], xerr=[ci(base, "mean_tokens_sem")], yerr=[ci(base, "fve_sem")],
-                        fmt="*", markersize=16, color="#d04020", ecolor="#d04020",
+                        fmt="*", markersize=10, color="#d04020", ecolor="#d04020",
                         elinewidth=1, capsize=3, linestyle="none", label="base (no RL)", zorder=4)
         else:
-            ax.plot([bx], [by], marker="*", markersize=16, color="#d04020",
+            ax.plot([bx], [by], marker="*", markersize=10, color="#d04020",
                     linestyle="none", label="base (no RL)", zorder=4)
-        ax.annotate("base", (bx, by), textcoords="offset points", xytext=(8, -12),
-                    fontsize=8, color="#d04020")
+        ax.annotate("base", (bx, by), textcoords="offset points", xytext=(-12, -6),
+                    ha="right", fontsize=11, color="#d04020")
     ax.set_xlabel("mean explanation length (generated tokens)")
     ax.set_ylabel("FVE (fraction of variance explained)")
     ttl = "Length penalty: explanation length vs reconstruction FVE"
