@@ -33,10 +33,13 @@ def main():
         api.upload_folder(folder_path=src, repo_id=repo, repo_type=repo_type, **kw)
         print(f"uploaded {repo_type}: {repo}  <- {src}", flush=True)
 
-    # AV / AR merged checkpoints
+    # AV / AR merged checkpoints. Ignore any auto-generated README.md — peft/HF
+    # write a card with base_model set to the LOCAL path, which HF's YAML
+    # validator rejects ("not a valid model id"). The weights/config are what matter.
     for role, src in [("av", args.av), ("ar", args.ar)]:
         if Path(src).is_dir():
-            push_folder(f"{args.owner}/{args.prefix}-{role}", src, "model")
+            push_folder(f"{args.owner}/{args.prefix}-{role}", src, "model",
+                        ignore_patterns=["README.md"])
         else:
             print(f"skip {role}: {src} missing", flush=True)
 
@@ -47,7 +50,9 @@ def main():
         slug = f"p{pen}"
         it = latest_iter(os.path.join(args.rl_base, slug))
         if it:
-            api.upload_folder(folder_path=it, repo_id=rl_repo, repo_type="model", path_in_repo=slug)
+            # ignore peft's auto README (base_model = local path -> HF rejects it)
+            api.upload_folder(folder_path=it, repo_id=rl_repo, repo_type="model",
+                              path_in_repo=slug, ignore_patterns=["README.md"])
             print(f"uploaded LoRA {slug} <- {it}", flush=True)
         else:
             print(f"skip LoRA {slug}: no iter dir", flush=True)
