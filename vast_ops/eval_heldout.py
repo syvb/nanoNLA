@@ -106,11 +106,16 @@ def fve_baseline(parquet, mse_scale_f, n=2000):
 
 def load_rows(parquet, skip_rows, n_rows):
     pf = pq.ParquetFile(parquet)
+    # detokenized_text_truncated = the ACTUAL source document (prefix ending at
+    # the extraction token) — the real "source_text". NOT the chat prompt, whose
+    # user turn is the fixed verbalizer instruction template.
+    has_doc = "detokenized_text_truncated" in pf.schema_arrow.names
+    cols = ["prompt", "activation_vector"] + (["detokenized_text_truncated"] if has_doc else [])
     rows, skipped = [], 0
     for rg_idx in range(pf.num_row_groups):
         if len(rows) >= n_rows:
             break
-        rg = pf.read_row_group(rg_idx, columns=["prompt", "activation_vector"])
+        rg = pf.read_row_group(rg_idx, columns=cols)
         n = rg.num_rows
         if skipped + n <= skip_rows:
             skipped += n
@@ -119,9 +124,11 @@ def load_rows(parquet, skip_rows, n_rows):
         skipped += start
         take = min(n_rows - len(rows), n - start)
         rg = rg.slice(start, take)
-        rows.extend({"prompt": p_, "activation": a}
-                    for p_, a in zip(rg.column("prompt").to_pylist(),
-                                     rg.column("activation_vector").to_pylist()))
+        docs = (rg.column("detokenized_text_truncated").to_pylist()
+                if has_doc else [None] * rg.num_rows)
+        rows.extend({"prompt": p_, "activation": a, "source_doc": d}
+                    for p_, a, d in zip(rg.column("prompt").to_pylist(),
+                                        rg.column("activation_vector").to_pylist(), docs))
     return rows
 
 
@@ -228,7 +235,9 @@ def main():
                 "extracted": expl is not None,
                 "cjk": cjk_frac(response),
                 "explanation": expl,
-                "source_text": user_text(row["prompt"], inject_char)[:400],
+                # the actual source document (full); fall back to the prompt's
+                # user text only if the parquet lacks detokenized_text_truncated.
+                "source_text": row.get("source_doc") or user_text(row["prompt"], inject_char),
             }
             fout.write(json.dumps(rec) + "\n")
             if mse is not None:
