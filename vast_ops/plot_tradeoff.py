@@ -41,13 +41,14 @@ def main():
     def ci(x, key):
         v = x.get(key)
         return 1.96 * v if isinstance(v, (int, float)) else None
-    have_err = all(ci(x, "mean_tokens_sem") is not None and ci(x, "fve_sem") is not None for x in s)
+    # Only FVE (y) error bars — the length (x) SEM is sub-token, so x bars would be
+    # invisible and only clutter the legend with a horizontal stub.
+    have_err = all(ci(x, "fve_sem") is not None for x in s)
 
     fig, ax = plt.subplots(figsize=(7, 5))
     rt, rf = [x["mean_tokens"] for x in rl], [x["fve"] for x in rl]
     if have_err:
-        ax.errorbar(rt, rf, xerr=[ci(x, "mean_tokens_sem") for x in rl],
-                    yerr=[ci(x, "fve_sem") for x in rl], fmt="o-", color="#3060c0",
+        ax.errorbar(rt, rf, yerr=[ci(x, "fve_sem") for x in rl], fmt="o-", color="#3060c0",
                     ecolor="#3060c0", elinewidth=1, capsize=3, label="RL (length penalty)", zorder=3)
     else:
         ax.plot(rt, rf, "o-", color="#3060c0", label="RL (length penalty)", zorder=3)
@@ -61,7 +62,7 @@ def main():
     if base is not None:
         bx, by = base["mean_tokens"], base["fve"]
         if have_err:
-            ax.errorbar([bx], [by], xerr=[ci(base, "mean_tokens_sem")], yerr=[ci(base, "fve_sem")],
+            ax.errorbar([bx], [by], yerr=[ci(base, "fve_sem")],
                         fmt="*", markersize=10, color="#d04020", ecolor="#d04020",
                         elinewidth=1, capsize=3, linestyle="none", label="base (no RL)", zorder=4)
         else:
@@ -73,7 +74,7 @@ def main():
     ax.set_ylabel("FVE (fraction of variance explained)")
     ttl = "Length penalty: explanation length vs reconstruction FVE"
     if have_err:
-        ttl += "\n(error bars = 95% CI on the means, n≈1000)"
+        ttl += "\n(error bars = 95% CI on FVE, n=1000)"
     ax.set_title(ttl)
     ax.grid(True, alpha=0.3)
     ax.legend(loc="lower right")
