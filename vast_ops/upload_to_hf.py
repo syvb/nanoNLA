@@ -61,6 +61,14 @@ def main():
     res_repo = f"{args.owner}/{args.prefix}-results"
     push_folder(res_repo, args.results, "dataset",
                 allow_patterns=["heldout/*.jsonl", "heldout/*.summary.json", "*.md", "*.png"])
+    # Scope the dataset-viewer to the per-sample jsonls only — otherwise HF tries
+    # to merge them with the differently-shaped summary.json files and CastErrors.
+    res_card = ("---\nlicense: apache-2.0\ntags: [nla, qwen3, length-penalty]\n"
+                "configs:\n  - config_name: completions\n    data_files: heldout/*.samples.jsonl\n---\n\n"
+                "# NLA length-penalty results\n\nHeld-out completions (matched by `idx` across models) + "
+                "per-model `*.summary.json` aggregates + RESULTS.md / comparison / tradeoff.png.\n")
+    api.upload_file(path_or_fileobj=res_card.encode(), path_in_repo="README.md",
+                    repo_id=res_repo, repo_type="dataset")
     print("ALL_UPLOADS_DONE", flush=True)
 
 

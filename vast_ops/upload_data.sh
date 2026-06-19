@@ -18,6 +18,13 @@ api.create_repo(repo, repo_type="dataset", private=False, exist_ok=True)
 card = f"""---
 license: apache-2.0
 tags: [nla, activations, qwen3]
+configs:
+  - config_name: av_sft
+    data_files: av_sft_full.parquet
+  - config_name: ar_sft
+    data_files: ar_sft_full.parquet
+  - config_name: rl
+    data_files: rl_full.parquet
 ---
 # Qwen3-8B NLA — FULL parquets (activation_vector regenerated)
 
