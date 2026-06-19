@@ -62,7 +62,8 @@ run_penalty() {  # pen  gpu
       --group-size "$RL_GROUP_SIZE" --max-new-tokens "$RL_MAX_NEW" \
       --lr "$RL_LR" --kl-beta "$RL_KL_BETA" --clip-eps 0.2 \
       --lora-r "$RL_LORA_R" --lora-alpha "$RL_LORA_ALPHA" \
-      --length-penalty "$pen" --max-rows "$RL_MAX_ROWS" --save-every 50 --seed 0 "${wb[@]}"
+      --length-penalty "$pen" --max-rows "$RL_MAX_ROWS" --save-every 50 --seed 0 \
+      --eval-every 20 --eval-n-prompts 16 --eval-skip-rows 20000 "${wb[@]}"
     last_iter="$(ls -1d "$save_dir"/iter_* 2>/dev/null | sort | tail -1 || true)"
   else
     echo "[$slug] RL already done ($last_iter)"

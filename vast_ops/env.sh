@@ -59,7 +59,7 @@ export RL_NUM_STEPS="${RL_NUM_STEPS:-250}"
 export RL_BATCH_PROMPTS="${RL_BATCH_PROMPTS:-8}"
 export RL_GROUP_SIZE="${RL_GROUP_SIZE:-4}"
 export RL_MAX_NEW="${RL_MAX_NEW:-160}"
-export RL_LR="${RL_LR:-1e-6}"
+export RL_LR="${RL_LR:-1e-5}"   # 1e-6 was too gentle to move the policy; 1e-5 is stable + effective
 export RL_KL_BETA="${RL_KL_BETA:-0.01}"         # KL vs frozen base (LoRA off) = anti-hack anchor
 export RL_LORA_R="${RL_LORA_R:-16}"
 export RL_LORA_ALPHA="${RL_LORA_ALPHA:-32}"
