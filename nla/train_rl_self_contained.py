@@ -46,7 +46,13 @@ import torch
 import torch.nn.functional as F
 from peft import (LoraConfig, PeftModel, get_peft_model,
                   inject_adapter_in_model, prepare_model_for_kbit_training)
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    StoppingCriteria,
+    StoppingCriteriaList,
+)
 
 import wandb
 
@@ -55,9 +61,11 @@ from nla.injection import karvonen_inject_in_residual
 from nla.models import NLACriticModel
 from nla.schema import (
     compute_predict_mean_baselines,
+    count_complete_features,
     extract_explanation,
     normalize_activation,
     resolve_target_scale,
+    truncate_explanation,
     truncate_explanations_for_reward,
 )
 from nla.train_sft import _resolve_device_map, init_critic_from_base
@@ -162,22 +170,75 @@ def build_prompt_text(prompt_msgs, inject_char, tokenizer):
     return tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
 
 
+class FeatureCountStop(StoppingCriteria):
+    """Stop each sequence once it has emitted ``k`` complete features.
+
+    For generate-K ordered-features RL: rather than generate all features and
+    truncate the critic's view afterwards, we halt generation after the K-th
+    feature so the rollout is cheaper and the GRPO loss lands only on the
+    features that are actually scored.
+
+    Per-sequence stop (transformers >=4.x consumes the returned BoolTensor as
+    ``unfinished_sequences & ~crit(...)``). We record each sequence's response
+    length at the stopping step in ``stop_len`` so the caller can trim to the
+    real sampled tokens and NOT keep the pad/eos that batched ``generate()``
+    appends after a sequence finishes — keeping that forced eos in the loss
+    would train the policy to emit EOS right after feature K and collapse its
+    output length. ``stop_len[g] is None`` => that sequence was never feature-
+    stopped (it ended naturally via EOS, or never reached K), so the caller
+    falls back to the normal eos-based trim.
+    """
+
+    def __init__(self, tokenizer, prompt_len, k, group_size):
+        self.tokenizer = tokenizer
+        self.prompt_len = prompt_len
+        self.k = k
+        self.stop_len = [None] * group_size
+
+    def __call__(self, input_ids, scores, **kwargs):
+        done = []
+        for g in range(input_ids.shape[0]):
+            if self.stop_len[g] is not None:
+                done.append(True)
+                continue
+            resp = input_ids[g, self.prompt_len:]
+            text = self.tokenizer.decode(resp, skip_special_tokens=True)
+            if count_complete_features(text) >= self.k:
+                self.stop_len[g] = int(resp.shape[0])
+                done.append(True)
+            else:
+                done.append(False)
+        return torch.tensor(done, dtype=torch.bool, device=input_ids.device)
+
+
 @torch.no_grad()
 def rollout_one_prompt(
     actor, tokenizer, prompt_text, activation, vectors_ref,
     inj_id, group_size, max_new_tokens, temperature, device,
-    eos_ids=None,
+    eos_ids=None, stop_k=None,
 ):
-    """Generate `group_size` samples for one prompt; capture old log-probs per response token."""
+    """Generate `group_size` samples for one prompt; capture old log-probs per response token.
+
+    If ``stop_k`` is set, generation halts after each sample emits ``stop_k``
+    complete features (generate-K mode); those samples are trimmed to exactly
+    the tokens the policy actually sampled (no forced trailing eos).
+    """
     prompt_ids = tokenizer.encode(prompt_text, add_special_tokens=False)
     prompt_t = torch.tensor([prompt_ids], dtype=torch.long, device=device)
     batched = prompt_t.expand(group_size, -1).contiguous()
     v_batch = activation.unsqueeze(0).expand(group_size, -1).contiguous().to(device).float()
     vectors_ref[0] = v_batch
+    stop_crit = (
+        FeatureCountStop(tokenizer, prompt_t.shape[1], stop_k, group_size)
+        if stop_k is not None else None
+    )
     try:
         gen_out = actor.generate(
             input_ids=batched,
             attention_mask=torch.ones_like(batched),
+            stopping_criteria=(
+                StoppingCriteriaList([stop_crit]) if stop_crit is not None else None
+            ),
             max_new_tokens=max_new_tokens,
             do_sample=True,
             temperature=temperature,
@@ -211,17 +272,27 @@ def rollout_one_prompt(
         eos_ids = {tokenizer.eos_token_id}
     responses = []
     for g in range(group_size):
-        resp_ids = full_ids[g, prompt_len:].tolist()
-        # Trim at the first stop token (inclusive). Batched generate() pads
-        # samples that finish early to the group max with pad(=eos) tokens;
-        # those positions were never sampled from the policy. Without
-        # trimming, old_logp/new_logp cover the pads too and the GRPO
-        # surrogate + KL get gradient on garbage positions.
-        n_real = next(
-            (i + 1 for i, t in enumerate(resp_ids) if t in eos_ids),
-            len(resp_ids),
-        )
-        resp_ids = resp_ids[:n_real]
+        resp_ids_full = full_ids[g, prompt_len:].tolist()
+        sl = stop_crit.stop_len[g] if stop_crit is not None else None
+        if sl is not None:
+            # generate-K: this sample was force-stopped after stop_k features.
+            # Keep EXACTLY the policy-sampled tokens (resp_ids_full[:sl]); the
+            # positions after sl are pad(=eos) that the policy never chose.
+            # Crucially we do NOT keep a trailing eos here — training one would
+            # teach the AV to stop after K features and collapse its length.
+            n_real = sl
+            resp_ids = resp_ids_full[:n_real]
+        else:
+            # Trim at the first stop token (inclusive). Batched generate() pads
+            # samples that finish early to the group max with pad(=eos) tokens;
+            # those positions were never sampled from the policy. Without
+            # trimming, old_logp/new_logp cover the pads too and the GRPO
+            # surrogate + KL get gradient on garbage positions.
+            n_real = next(
+                (i + 1 for i, t in enumerate(resp_ids_full) if t in eos_ids),
+                len(resp_ids_full),
+            )
+            resp_ids = resp_ids_full[:n_real]
         text = tokenizer.decode(resp_ids, skip_special_tokens=True)
         # Collect old log_p for each REAL generated token.
         old_logp = []
@@ -605,7 +676,18 @@ def main():
                    help="per-group: one K per prompt-group, so every sample in a "
                         "GRPO group is scored at the same prefix length and the "
                         "within-group advantage baseline stays valid "
-                        "(recommended). per-sample: independent K per rollout.")
+                        "(recommended). per-sample: independent K per rollout. "
+                        "(Ignored when --rl-trunc-generate is set: generate-K is "
+                        "always per-group.)")
+    p.add_argument("--rl-trunc-generate", action=argparse.BooleanOptionalAction,
+                   default=False,
+                   help="Ordered-features RL: instead of generating all features "
+                        "then truncating the critic's view, STOP generation after K "
+                        "features (K ~ Uniform[1,--rl-trunc-max-lines], one K per "
+                        "prompt-group). Cheaper rollouts + cleaner credit assignment "
+                        "(GRPO trains only on the scored features). The stop is "
+                        "external (no EOS trained), so the AV still emits all "
+                        "features at inference. Requires --rl-trunc-max-lines>0.")
     p.add_argument(
         "--external-evals", default="",
         help="Comma-sep list of evals/ IDs to run every --eval-every step "
@@ -620,6 +702,9 @@ def main():
     p.add_argument("--judge-concurrency", type=int, default=32,
                    help="Parallel judge calls (Anthropic sync, NOT batch API).")
     args = p.parse_args()
+
+    if args.rl_trunc_generate and args.rl_trunc_max_lines <= 0:
+        p.error("--rl-trunc-generate requires --rl-trunc-max-lines > 0")
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -996,6 +1081,15 @@ def main():
         all_response_text = []
         all_prompt_group = []
         all_old_logps = []  # 1-D tensor per sample
+        # Ordered-features: sample one truncation length K per prompt-group for
+        # this step. generate-K uses it both to stop generation and to truncate
+        # the critic input to exactly K; post-hoc mode samples its own K at
+        # scoring time, so group_ks stays empty here.
+        group_ks = {}
+        if args.rl_trunc_max_lines > 0 and args.rl_trunc_generate:
+            krng = random.Random(args.seed * 1_000_003 + step)
+            for gi in range(len(batch_idxs)):
+                group_ks[gi] = krng.randint(1, args.rl_trunc_max_lines)
         for gi, row_idx in enumerate(batch_idxs):
             row = rows[row_idx]
             prompt_text = build_prompt_text(row["prompt"], inject_char, tokenizer)
@@ -1004,6 +1098,7 @@ def main():
                 actor, tokenizer, prompt_text, activation, vectors_ref,
                 inj_id, args.group_size, args.max_new_tokens, args.temperature, device,
                 eos_ids=eos_ids,
+                stop_k=(group_ks[gi] if group_ks else None),
             )
             for r in responses:
                 expl = extract_explanation(r["text"])
@@ -1015,22 +1110,33 @@ def main():
                 all_prompt_group.append(gi)
                 all_old_logps.append(r["old_logp"].to(device))
 
-        # ---- (ordered-features) truncate explanations to a random feature prefix ----
-        # The AV still generated all its features — all_full_ids / all_response_text
-        # are untouched, so the GRPO policy loss runs on the full generation. We only
-        # shorten what the critic consumes (reward scoring AND co-training below), so
-        # the AV is pressured to front-load the most reconstruction-relevant feature.
+        # ---- (ordered-features) truncate the critic's view to K features ----
+        # The critic (reward scoring AND co-training below) only ever sees the
+        # first K features, so the AV is pressured to front-load the most
+        # reconstruction-relevant feature. all_full_ids / all_response_text are
+        # untouched: in post-hoc mode the AV generated all features and the GRPO
+        # loss runs on the full generation; in generate-K mode the rollout was
+        # already stopped at K, so GRPO trains only on those K features' tokens.
         if args.rl_trunc_max_lines > 0:
             if step == args.start_step:
-                print(f"[ordered-features] truncating critic inputs to "
-                      f"Uniform[1,{args.rl_trunc_max_lines}] features "
-                      f"(mode={args.rl_trunc_mode})", flush=True)
-            trunc_rng = random.Random(args.seed * 1_000_003 + step)
-            all_explanations = truncate_explanations_for_reward(
-                all_explanations, all_prompt_group,
-                max_lines=args.rl_trunc_max_lines, mode=args.rl_trunc_mode,
-                rng=trunc_rng,
-            )
+                mode = ("generate-K" if args.rl_trunc_generate
+                        else f"post-hoc/{args.rl_trunc_mode}")
+                print(f"[ordered-features] {mode}: critic sees "
+                      f"Uniform[1,{args.rl_trunc_max_lines}] features", flush=True)
+            if args.rl_trunc_generate:
+                # Generation already stopped at ~K; truncate to EXACTLY the same
+                # per-group K (and normalize) for the critic input.
+                all_explanations = [
+                    None if e is None else truncate_explanation(e, group_ks[g])
+                    for e, g in zip(all_explanations, all_prompt_group)
+                ]
+            else:
+                trunc_rng = random.Random(args.seed * 1_000_003 + step)
+                all_explanations = truncate_explanations_for_reward(
+                    all_explanations, all_prompt_group,
+                    max_lines=args.rl_trunc_max_lines, mode=args.rl_trunc_mode,
+                    rng=trunc_rng,
+                )
 
         # ---- scoring ----
         rewards = score_with_critic(

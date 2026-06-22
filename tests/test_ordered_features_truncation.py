@@ -8,6 +8,9 @@ scores / co-trains on it. Pure-Python, no GPU — runs anywhere nla.schema impor
 import random
 
 from nla.schema import (
+    EXPLANATION_CLOSE,
+    EXPLANATION_OPEN,
+    count_complete_features,
     normalize_explanation,
     split_features,
     truncate_explanation,
@@ -96,6 +99,49 @@ def test_deterministic_given_seed():
         expls, groups, max_lines=4, mode="per-group", rng=random.Random(42)
     )
     assert a == b
+
+
+def _gen(body: str) -> str:
+    """A partial AV generation: opener + body (as the model would stream it)."""
+    return f"{EXPLANATION_OPEN}\n{body}"
+
+
+def test_count_features_zero_until_first_newline():
+    # Opener not yet emitted.
+    assert count_complete_features("<expl") == 0
+    # Opener + newline, no feature yet (empty in-progress line).
+    assert count_complete_features(EXPLANATION_OPEN + "\n") == 0
+    # feat1 still being generated (it's the in-progress last line).
+    assert count_complete_features(_gen("feat one")) == 0
+
+
+def test_count_features_increments_after_each_completing_newline():
+    # The newline AFTER feat1 completes it.
+    assert count_complete_features(_gen("feat one\n")) == 1
+    # feat2 in-progress -> still 1.
+    assert count_complete_features(_gen("feat one\nfeat two")) == 1
+    assert count_complete_features(_gen("feat one\nfeat two\n")) == 2
+    assert count_complete_features(_gen("feat one\nfeat two\nfeat three\n")) == 3
+
+
+def test_count_features_ignores_blank_lines_from_drift():
+    # Double newline (drift) must not inflate the count.
+    assert count_complete_features(_gen("feat one\n\nfeat two\n")) == 2
+
+
+def test_count_features_with_close_tag_counts_last_feature():
+    text = _gen("feat one\nfeat two\n") + EXPLANATION_CLOSE
+    # Closing tag means feat two is complete even without a trailing newline.
+    assert count_complete_features(text) == 2
+
+
+def test_count_features_stop_threshold_semantics():
+    # Simulate a stop at k=2: count reaches >=2 exactly when the newline after
+    # feat2 is emitted, NOT while feat2 is still streaming.
+    streaming = _gen("feat one\nfeat two")     # feat2 mid-stream
+    completed = _gen("feat one\nfeat two\n")   # newline after feat2
+    assert count_complete_features(streaming) < 2
+    assert count_complete_features(completed) >= 2
 
 
 def test_unknown_mode_raises():

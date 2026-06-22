@@ -710,7 +710,19 @@ def main():
                    help="per-group: one K per prompt-group (keeps GRPO's "
                         "within-group baseline valid; recommended). per-sample: "
                         "independent K per rollout.")
+    p.add_argument("--rl-trunc-generate", action=argparse.BooleanOptionalAction,
+                   default=False,
+                   help="generate-K mode (stop generation after K features). Only "
+                        "implemented in train_rl_self_contained; not supported on "
+                        "the vLLM path — use the HF trainer for generate-K.")
     args = p.parse_args()
+
+    if args.rl_trunc_generate:
+        raise NotImplementedError(
+            "--rl-trunc-generate (generate-K) is only implemented in "
+            "nla.train_rl_self_contained; the vLLM path supports post-hoc "
+            "truncation only (--rl-trunc-max-lines / --rl-trunc-mode)."
+        )
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)

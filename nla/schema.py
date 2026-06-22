@@ -64,6 +64,27 @@ def split_features(explanation: str) -> list[str]:
     return [ln for ln in explanation.split("\n") if ln.strip()]
 
 
+def count_complete_features(generated_text: str) -> int:
+    """Number of COMPLETE features in a partial AV generation.
+
+    Used by the generate-K stopping criterion. ``generated_text`` is the decoded
+    response so far (it may include the ``<explanation>`` opener and a partial,
+    still-being-generated final line). A feature is only "complete" once a
+    newline follows it, so the last line is treated as in-progress and not
+    counted. Text before the opener and after a ``</explanation>`` close tag is
+    ignored; blank lines never count. If the opener has not appeared yet the
+    whole string is scanned (so a malformed/openerless generation still counts).
+    """
+    idx = generated_text.find(EXPLANATION_OPEN)
+    body = generated_text[idx + len(EXPLANATION_OPEN):] if idx >= 0 else generated_text
+    cidx = body.find(EXPLANATION_CLOSE)
+    if cidx >= 0:
+        body = body[:cidx]
+    lines = body.split("\n")
+    # Exclude the last line: it is still being generated (in-progress).
+    return sum(1 for ln in lines[:-1] if ln.strip())
+
+
 def normalize_explanation(explanation: str) -> str:
     """Join an explanation's features with exactly one newline.
 
