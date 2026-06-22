@@ -60,6 +60,7 @@ from nla.config import load_nla_config
 from nla.injection import karvonen_inject_in_residual
 from nla.models import NLACriticModel
 from nla.schema import (
+    EXPLANATION_CLOSE,
     compute_predict_mean_baselines,
     count_complete_features,
     extract_explanation,
@@ -294,6 +295,12 @@ def rollout_one_prompt(
             )
             resp_ids = resp_ids_full[:n_real]
         text = tokenizer.decode(resp_ids, skip_special_tokens=True)
+        if sl is not None and EXPLANATION_CLOSE not in text:
+            # generate-K force-stopped right after feature K's newline, before
+            # the model emitted </explanation>. extract_explanation needs the
+            # close tag, so add it to the DECODED TEXT only — resp_ids/full_ids/
+            # old_logp are untouched, so GRPO never trains the un-sampled tag.
+            text = text + EXPLANATION_CLOSE
         # Collect old log_p for each REAL generated token.
         old_logp = []
         for t, step_logits in enumerate(scores):
@@ -1015,6 +1022,11 @@ def main():
         print(f"[eval] {len(eval_rows)} doc-disjoint prompts loaded "
               f"(rows past {args.eval_skip_rows}, excluding "
               f"{len(_train_doc_ids)} training doc_ids)", flush=True)
+        if len(eval_rows) == 0:
+            print(f"[eval] WARNING: 0 held-out eval prompts — no rows exist past "
+                  f"--eval-skip-rows ({args.eval_skip_rows}). The held-out eval "
+                  f"will be empty/NaN. Lower --eval-skip-rows below the rl_shuf "
+                  f"row count (esp. on the slim PoC dataset).", flush=True)
     eval_table_data = []  # accumulates [step, idx, reward, fve, extracted, explanation]
 
     # ---- External evals (evals/ pluggable, run every --eval-every step) ----

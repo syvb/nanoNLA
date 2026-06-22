@@ -19,6 +19,15 @@
 #
 # PoC note: --num-steps 250 is past the fve saturation knee (~step 150) and
 # enough to see the ordering emerge; bump to 500 to match the verified run.
+#
+# SLIM-DATASET CAVEAT: this PoC trains on the regenerated slim dataset
+# (syvb/nla-warmstart-explanations-finefineweb-sonnet46, ~8.4k rows). After the
+# document-level 25/25/50 split the rl partition is only ~4k rows, so the
+# 30000/35000 row caps from sbatch_rl_fixed.sh would leave the held-out eval
+# EMPTY. --max-rows / --eval-skip-rows below are set for the slim data — ADJUST
+# them to the actual rl_shuf.parquet row count after stage3 build (the trainer
+# prints a loud WARNING if the eval set ends up empty). Paths assume the cluster
+# layout; on Vast point them at wherever the regen/build wrote the parquets.
 set -euo pipefail
 source /workspace-vast/celeste/.env
 source /workspace-vast/celeste/envs/nla/bin/activate
@@ -26,7 +35,7 @@ export HF_HOME=/workspace-vast/pretrained_ckpts
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTHONUNBUFFERED=1
 export PYTHONPATH=/workspace-vast/celeste/nla-experiments
-DATA=/workspace-vast/celeste/nla-data/qwen3_8b_finefineweb_100k
+DATA=/workspace-vast/celeste/nla-data/qwen3_8b_finefineweb_sonnet46_slim
 cd /workspace-vast/celeste/nla-experiments
 python -m nla.train_rl_self_contained \
   --av-ckpt /workspace-vast/celeste/nla-ckpts/qwen3_8b_L24_av_sft_lora_fixed/iter_0001000 \
@@ -38,8 +47,8 @@ python -m nla.train_rl_self_contained \
   --max-new-tokens 150 --temperature 1.0 \
   --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
   --train-critic --critic-lr 5e-5 \
-  --logp-micro-batch 2 --max-rows 30000 \
+  --logp-micro-batch 2 --max-rows 3000 \
   --rl-trunc-max-lines 10 --rl-trunc-generate \
-  --save-every 50 --eval-every 10 --eval-n-prompts 20 --eval-skip-rows 35000 \
+  --save-every 50 --eval-every 10 --eval-n-prompts 20 --eval-skip-rows 3000 \
   --max-grad-norm 1.0 \
   --wandb-project nla-qwen3-8b --wandb-name rl_grpo_ordered --seed 0

@@ -11,6 +11,7 @@ from nla.schema import (
     EXPLANATION_CLOSE,
     EXPLANATION_OPEN,
     count_complete_features,
+    extract_explanation,
     normalize_explanation,
     split_features,
     truncate_explanation,
@@ -142,6 +143,16 @@ def test_count_features_stop_threshold_semantics():
     completed = _gen("feat one\nfeat two\n")   # newline after feat2
     assert count_complete_features(streaming) < 2
     assert count_complete_features(completed) >= 2
+
+
+def test_force_stopped_generation_needs_close_tag_to_extract():
+    # generate-K stops at the newline completing feature K, BEFORE the model
+    # emits </explanation>. extract_explanation requires the close tag, so the
+    # trainer appends it to the decoded text; without that, every force-stopped
+    # rollout parses to None and the reward collapses to the failure sentinel.
+    forced = _gen("feat one\nfeat two\n")  # no </explanation>
+    assert extract_explanation(forced) is None
+    assert extract_explanation(forced + EXPLANATION_CLOSE) == "feat one\nfeat two"
 
 
 def test_unknown_mode_raises():
