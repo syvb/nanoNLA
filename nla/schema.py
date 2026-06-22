@@ -85,6 +85,31 @@ def count_complete_features(generated_text: str) -> int:
     return sum(1 for ln in lines[:-1] if ln.strip())
 
 
+def firstk_token_len(resp_ids: list, k: int, decode) -> int:
+    """Number of leading response tokens covering the first ``k`` complete features.
+
+    Used by RL first-K loss-masking: the AV generates all its features, but the
+    GRPO policy-gradient loss is restricted to the tokens of the first ``k``
+    features (the ones the critic actually scored), giving clean credit
+    assignment without the per-token stopping criterion that makes generate-K
+    GPU-starved.
+
+    ``decode`` maps a list of token ids to a string (e.g. ``tokenizer.decode``).
+    Incremental — decodes one token at a time and rescans — so O(L) decode calls,
+    run once per rollout (NOT per generation step). Returns ``len(resp_ids)`` if
+    fewer than ``k`` features are present (i.e. train the whole response).
+    ``k`` is clamped to >= 1; empty ``resp_ids`` returns 0.
+    """
+    if k < 1:
+        k = 1
+    buf = ""
+    for m in range(1, len(resp_ids) + 1):
+        buf += decode(resp_ids[m - 1:m])
+        if count_complete_features(buf) >= k:
+            return m
+    return len(resp_ids)
+
+
 def normalize_explanation(explanation: str) -> str:
     """Join an explanation's features with exactly one newline.
 

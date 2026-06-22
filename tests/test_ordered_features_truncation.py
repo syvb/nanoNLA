@@ -12,6 +12,7 @@ from nla.schema import (
     EXPLANATION_OPEN,
     count_complete_features,
     extract_explanation,
+    firstk_token_len,
     normalize_explanation,
     split_features,
     truncate_explanation,
@@ -153,6 +154,32 @@ def test_force_stopped_generation_needs_close_tag_to_extract():
     forced = _gen("feat one\nfeat two\n")  # no </explanation>
     assert extract_explanation(forced) is None
     assert extract_explanation(forced + EXPLANATION_CLOSE) == "feat one\nfeat two"
+
+
+def test_firstk_token_len_single_char_tokens():
+    # "token ids" are char indices; decode maps them back to chars.
+    text = "<explanation>\nA\nB\nC\n"
+    ids = list(range(len(text)))
+    dec = lambda chunk: "".join(text[i] for i in chunk)
+    m1 = firstk_token_len(ids, 1, dec)
+    assert count_complete_features(dec(ids[:m1])) == 1
+    assert count_complete_features(dec(ids[:m1 - 1])) == 0  # not a token earlier
+    m2 = firstk_token_len(ids, 2, dec)
+    assert count_complete_features(dec(ids[:m2])) == 2
+    assert m2 > m1
+    # k beyond the feature count -> keep all tokens (mask nothing)
+    assert firstk_token_len(ids, 9, dec) == len(ids)
+    # empty response
+    assert firstk_token_len([], 3, dec) == 0
+
+
+def test_firstk_token_len_multichar_tokens():
+    # A single token can decode to several chars including a newline.
+    toks = ["<explanation>\n", "A\n", "B", "\n", "C\n"]
+    ids = list(range(len(toks)))
+    dec = lambda chunk: "".join(toks[i] for i in chunk)
+    assert firstk_token_len(ids, 1, dec) == 2   # "A\n" token completes feature 1
+    assert firstk_token_len(ids, 2, dec) == 4   # newline token completes feature 2
 
 
 def test_unknown_mode_raises():

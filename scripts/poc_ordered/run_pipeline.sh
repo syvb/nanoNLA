@@ -18,7 +18,7 @@ HF_FILE=${HF_FILE:-data/train-00000-of-00001.parquet}
 BASE_MODEL=${BASE_MODEL:-Qwen/Qwen3-8B}
 AV_STEPS=${AV_STEPS:-300}
 AR_STEPS=${AR_STEPS:-300}
-RL_STEPS=${RL_STEPS:-250}
+RL_STEPS=${RL_STEPS:-120}
 export HF_HOME=${HF_HOME:-/workspace/hf_home}
 export PYTORCH_CUDA_ALLOC_CONF=${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}
 export PYTHONUNBUFFERED=1
@@ -143,7 +143,7 @@ push_artifact "$AR_CKPT" nla-ordered-features-ar-sft model
 if [ "${RL_GENERATE_K:-0}" = "1" ]; then
   RL_TRUNC="--rl-trunc-max-lines 10 --rl-trunc-generate"; RL_MODE="generate-K"
 else
-  RL_TRUNC="--rl-trunc-max-lines 10 --rl-trunc-mode per-group"; RL_MODE="post-hoc/per-group"
+  RL_TRUNC="--rl-trunc-max-lines 10 --rl-trunc-mode per-group --rl-mask-loss-to-k"; RL_MODE="post-hoc/per-group+maskK"
 fi
 banner "STAGE 8/8: RL ordered-features ($RL_MODE, $RL_STEPS steps)"
 RL_DIR=$CKPT/rl_ordered
@@ -152,9 +152,9 @@ python -m nla.train_rl_self_contained \
   --quant 4bit --device-map single \
   --rl-parquet "$BUILD/rl_shuf.parquet" --sidecar "$BUILD/rl_shuf.parquet" \
   --save-dir "$RL_DIR" \
-  --num-steps "$RL_STEPS" --batch-prompts 8 --group-size 16 \
+  --num-steps "$RL_STEPS" --batch-prompts 8 --group-size 8 \
   --max-new-tokens 150 --temperature 1.0 --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
-  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 --gradient-checkpointing \
+  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
   --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
   $RL_TRUNC \
   --save-every 50 --seed 0 $(wb rl_ordered_poc)

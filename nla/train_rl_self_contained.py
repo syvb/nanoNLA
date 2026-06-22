@@ -64,6 +64,7 @@ from nla.schema import (
     compute_predict_mean_baselines,
     count_complete_features,
     extract_explanation,
+    firstk_token_len,
     normalize_activation,
     resolve_target_scale,
     truncate_explanation,
@@ -397,6 +398,7 @@ def grpo_update_microbatched(
     actor, optim, tokenizer, full_ids_list, prompt_lens, activations,
     old_logps_list, advantages, vectors_ref, device,
     micro_batch=2, clip_eps=0.2, kl_beta=0.04, max_grad_norm=1.0,
+    keep_lens=None,
 ):
     """Fused micro-batched forward+loss+backward for GRPO.
 
@@ -475,6 +477,14 @@ def grpo_update_microbatched(
             delta = ref_lp - new_lp
             kl = torch.exp(delta) - delta - 1.0
             per_tok = -(surrogate - kl_beta * kl)
+            if keep_lens is not None and keep_lens[i] is not None:
+                # first-K loss-masking: restrict the policy-gradient loss to the
+                # tokens of the first K features (the prefix the critic scored),
+                # so unscored tail tokens get no gradient -> clean credit.
+                m = max(1, keep_lens[i])
+                per_tok = per_tok[:m]
+                kl = kl[:m]        # logging only (KL already folded into per_tok)
+                ratio = ratio[:m]  # logging only (clip-frac metric)
             sample_loss = per_tok.mean()
             chunk_losses.append(sample_loss)
             sample_kls_log.append(kl.detach().mean().item())
@@ -705,6 +715,15 @@ def main():
                         "(GRPO trains only on the scored features). The stop is "
                         "external (no EOS trained), so the AV still emits all "
                         "features at inference. Requires --rl-trunc-max-lines>0.")
+    p.add_argument("--rl-mask-loss-to-k", action=argparse.BooleanOptionalAction,
+                   default=False,
+                   help="Ordered-features RL (post-hoc): generate all features "
+                        "(full speed), but restrict the GRPO policy-gradient loss "
+                        "to the tokens of the first K features (the prefix the "
+                        "critic scored) — clean credit assignment without the "
+                        "generate-K per-token stopping criterion. Forces per-group "
+                        "K. Requires --rl-trunc-max-lines>0 and is incompatible "
+                        "with --rl-trunc-generate (which already trains only K).")
     p.add_argument(
         "--external-evals", default="",
         help="Comma-sep list of evals/ IDs to run every --eval-every step "
@@ -722,6 +741,14 @@ def main():
 
     if args.rl_trunc_generate and args.rl_trunc_max_lines <= 0:
         p.error("--rl-trunc-generate requires --rl-trunc-max-lines > 0")
+    if args.rl_mask_loss_to_k and args.rl_trunc_max_lines <= 0:
+        p.error("--rl-mask-loss-to-k requires --rl-trunc-max-lines > 0")
+    if args.rl_mask_loss_to_k and args.rl_trunc_generate:
+        p.error("--rl-mask-loss-to-k is incompatible with --rl-trunc-generate "
+                "(generate-K already trains only the K scored features)")
+    if args.rl_mask_loss_to_k and args.rl_trunc_mode != "per-group":
+        p.error("--rl-mask-loss-to-k requires --rl-trunc-mode per-group "
+                "(loss-K and reward-K must share one per-group K)")
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -1139,10 +1166,15 @@ def main():
         # untouched: in post-hoc mode the AV generated all features and the GRPO
         # loss runs on the full generation; in generate-K mode the rollout was
         # already stopped at K, so GRPO trains only on those K features' tokens.
+        keep_lens = None  # first-K loss mask (post-hoc + --rl-mask-loss-to-k)
         if args.rl_trunc_max_lines > 0:
             if step == args.start_step:
-                mode = ("generate-K" if args.rl_trunc_generate
-                        else f"post-hoc/{args.rl_trunc_mode}")
+                if args.rl_trunc_generate:
+                    mode = "generate-K"
+                elif args.rl_mask_loss_to_k:
+                    mode = "post-hoc/per-group + loss-mask-to-K"
+                else:
+                    mode = f"post-hoc/{args.rl_trunc_mode}"
                 print(f"[ordered-features] {mode}: critic sees "
                       f"Uniform[1,{args.rl_trunc_max_lines}] features", flush=True)
             if args.rl_trunc_generate:
@@ -1152,6 +1184,23 @@ def main():
                     None if e is None else truncate_explanation(e, group_ks[g])
                     for e, g in zip(all_explanations, all_prompt_group)
                 ]
+            elif args.rl_trunc_mode == "per-group" or args.rl_mask_loss_to_k:
+                # Explicit per-group K, SHARED between the critic-input truncation
+                # and the first-K loss mask, so both use the same K per sample.
+                krng = random.Random(args.seed * 1_000_003 + step)
+                gks = {gi: krng.randint(1, args.rl_trunc_max_lines)
+                       for gi in range(len(batch_idxs))}
+                all_explanations = [
+                    None if e is None else truncate_explanation(e, gks[g])
+                    for e, g in zip(all_explanations, all_prompt_group)
+                ]
+                if args.rl_mask_loss_to_k:
+                    _dec = lambda ids: tokenizer.decode(ids, skip_special_tokens=True)
+                    keep_lens = [
+                        firstk_token_len(fi[pl:].tolist(), gks[g], _dec)
+                        for fi, pl, g in zip(
+                            all_full_ids, all_prompt_lens, all_prompt_group)
+                    ]
             else:
                 trunc_rng = random.Random(args.seed * 1_000_003 + step)
                 all_explanations = truncate_explanations_for_reward(
@@ -1195,6 +1244,7 @@ def main():
             micro_batch=args.logp_micro_batch,
             clip_eps=args.clip_eps, kl_beta=args.kl_beta,
             max_grad_norm=args.max_grad_norm,
+            keep_lens=keep_lens,
         )
         # Build a scalar-tensor stand-in for the existing logging path that
         # expects a `loss` tensor with .item().
