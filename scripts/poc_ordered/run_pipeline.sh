@@ -24,6 +24,14 @@ export PYTORCH_CUDA_ALLOC_CONF=${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:Tr
 export PYTHONUNBUFFERED=1
 export TOKENIZERS_PARALLELISM=false
 
+# wandb: auto-enable when a key is available (env or /root/.wandb_key), else off.
+[ -z "${WANDB_API_KEY:-}" ] && [ -f /root/.wandb_key ] && export WANDB_API_KEY="$(cat /root/.wandb_key)"
+WB_PROJECT=${WB_PROJECT:-nla-qwen3-8b}
+wb() {  # $1 = run name -> emits wandb flags (or --no-wandb if no key)
+  if [ -n "${WANDB_API_KEY:-}" ]; then echo "--wandb-project $WB_PROJECT --wandb-name $1"
+  else echo "--no-wandb"; fi
+}
+
 DATA=$WORK/data
 CKPT=$WORK/ckpts
 BUILD=$DATA/build
@@ -93,7 +101,7 @@ if ! ls -d "$AV_DIR"/iter_* >/dev/null 2>&1; then
     --parquet "$BUILD/av_sft_shuf.parquet" --sidecar "$BUILD/av_sft_shuf.parquet" \
     --save-dir "$AV_DIR" --num-steps "$AV_STEPS" --batch-size 64 \
     --use-lora --lora-r 128 --lora-alpha 16 --quant 4bit \
-    --lr 3e-5 --gradient-checkpointing --save-every "$AV_STEPS" --seed 0 --no-wandb
+    --lr 3e-5 --gradient-checkpointing --save-every "$AV_STEPS" --seed 0 $(wb av_sft_slim)
 else echo "  (skip) AV checkpoint exists"; fi
 AV_CKPT=$(ls -d "$AV_DIR"/iter_* | sort | tail -1)
 echo "AV_CKPT=$AV_CKPT"
@@ -106,7 +114,7 @@ if ! ls -d "$AR_DIR"/iter_* >/dev/null 2>&1; then
     --parquet "$BUILD/ar_sft_shuf.parquet" --sidecar "$BUILD/ar_sft_shuf.parquet" \
     --save-dir "$AR_DIR" --num-steps "$AR_STEPS" --batch-size 64 --ar-num-layers 25 \
     --use-lora --lora-r 128 --lora-alpha 16 --quant 4bit \
-    --lr 3e-5 --save-every "$AR_STEPS" --seed 0 --no-wandb
+    --lr 3e-5 --save-every "$AR_STEPS" --seed 0 $(wb ar_sft_slim)
 else echo "  (skip) AR checkpoint exists"; fi
 AR_CKPT=$(ls -d "$AR_DIR"/iter_* | sort | tail -1)
 echo "AR_CKPT=$AR_CKPT"
@@ -124,7 +132,7 @@ python -m nla.train_rl_self_contained \
   --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
   --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
   --rl-trunc-max-lines 10 --rl-trunc-generate \
-  --save-every 50 --seed 0 --no-wandb
+  --save-every 50 --seed 0 $(wb rl_ordered_poc)
 
 banner "PIPELINE COMPLETE"
 echo "AV : $AV_CKPT"
