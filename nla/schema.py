@@ -54,6 +54,79 @@ def extract_explanation(response: str) -> str | None:
     return m.group(1).strip() if m else None
 
 
+def split_features(explanation: str) -> list[str]:
+    """Split an explanation into its individual feature lines.
+
+    NLA explanations are newline-separated feature descriptions ordered most- to
+    least-important. The generator sometimes emits a blank line between features,
+    so only non-empty lines count as features.
+    """
+    return [ln for ln in explanation.split("\n") if ln.strip()]
+
+
+def truncate_explanation(explanation: str, k: int) -> str:
+    """Keep only the first ``k`` features (non-empty lines) of an explanation.
+
+    Preserves the original inter-feature separators (including blank lines)
+    between the kept features and trims trailing whitespace. If ``k`` >= the
+    feature count the explanation is returned unchanged (sans trailing
+    whitespace); ``k`` is clamped to at least 1.
+    """
+    if k < 1:
+        k = 1
+    kept: list[str] = []
+    seen = 0
+    for ln in explanation.split("\n"):
+        kept.append(ln)
+        if ln.strip():
+            seen += 1
+            if seen >= k:
+                break
+    return "\n".join(kept).rstrip()
+
+
+def truncate_explanations_for_reward(
+    explanations: list,
+    group_ids: list,
+    max_lines: int,
+    mode: str,
+    rng,
+) -> list:
+    """Truncate each explanation to a random prefix of its features.
+
+    This is the nested-dropout / ordered-representation signal for RL: the AV
+    still generates all of its features (its policy-gradient tokens are
+    untouched), but the critic only ever sees the first ``K`` of them — both
+    when scoring the reward and when co-training — so the AV is pressured to
+    front-load the most reconstruction-relevant feature.
+
+    ``mode``:
+      - ``"per-group"`` (recommended): one ``K`` per prompt-group, so every
+        sample in a GRPO group is scored at the same prefix length and the
+        within-group advantage baseline stays valid.
+      - ``"per-sample"``: an independent ``K`` per rollout (higher reward
+        variance — ``K`` leaks into the within-group advantage).
+
+    ``K`` is drawn uniformly from ``[1, max_lines]`` and clamped per explanation
+    to its feature count. ``rng`` is a ``random.Random`` the caller seeds
+    deterministically per step. Returns a new list; ``None`` entries (failed
+    extractions) pass through untouched.
+    """
+    if mode not in ("per-group", "per-sample"):
+        raise ValueError(f"unknown truncation mode: {mode!r}")
+    group_k: dict = {}
+    out = []
+    for expl, gid in zip(explanations, group_ids):
+        if mode == "per-group":
+            if gid not in group_k:
+                group_k[gid] = rng.randint(1, max_lines)
+            k = group_k[gid]
+        else:
+            k = rng.randint(1, max_lines)
+        out.append(None if expl is None else truncate_explanation(expl, k))
+    return out
+
+
 # Parquet column name — datagen writes it, NLADataSource + rollouts read it.
 ACTIVATION_COLUMN = "activation_vector"
 

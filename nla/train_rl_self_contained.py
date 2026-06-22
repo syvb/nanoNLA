@@ -33,6 +33,7 @@ Per step:
 
 import argparse
 import math
+import random
 import os
 import re
 import time
@@ -57,6 +58,7 @@ from nla.schema import (
     extract_explanation,
     normalize_activation,
     resolve_target_scale,
+    truncate_explanations_for_reward,
 )
 from nla.train_sft import _resolve_device_map, init_critic_from_base
 
@@ -590,6 +592,20 @@ def main():
     p.add_argument("--wandb-name", default=None)
     p.add_argument("--no-wandb", action="store_true")
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--rl-trunc-max-lines", type=int, default=0,
+                   help="Ordered-features RL: before the critic scores/co-trains "
+                        "on a rollout, truncate its explanation to a random prefix "
+                        "of K features (K ~ Uniform[1, this]). 0 disables "
+                        "(identical to standard RL). Set to ~10 to train an "
+                        "importance-ordered AV (nested-dropout signal): the AV "
+                        "still emits all features, but is rewarded only on the "
+                        "prefix, so it must front-load the most useful one.")
+    p.add_argument("--rl-trunc-mode", choices=["per-group", "per-sample"],
+                   default="per-group",
+                   help="per-group: one K per prompt-group, so every sample in a "
+                        "GRPO group is scored at the same prefix length and the "
+                        "within-group advantage baseline stays valid "
+                        "(recommended). per-sample: independent K per rollout.")
     p.add_argument(
         "--external-evals", default="",
         help="Comma-sep list of evals/ IDs to run every --eval-every step "
@@ -998,6 +1014,23 @@ def main():
                 all_response_text.append(r["text"])
                 all_prompt_group.append(gi)
                 all_old_logps.append(r["old_logp"].to(device))
+
+        # ---- (ordered-features) truncate explanations to a random feature prefix ----
+        # The AV still generated all its features — all_full_ids / all_response_text
+        # are untouched, so the GRPO policy loss runs on the full generation. We only
+        # shorten what the critic consumes (reward scoring AND co-training below), so
+        # the AV is pressured to front-load the most reconstruction-relevant feature.
+        if args.rl_trunc_max_lines > 0:
+            if step == args.start_step:
+                print(f"[ordered-features] truncating critic inputs to "
+                      f"Uniform[1,{args.rl_trunc_max_lines}] features "
+                      f"(mode={args.rl_trunc_mode})", flush=True)
+            trunc_rng = random.Random(args.seed * 1_000_003 + step)
+            all_explanations = truncate_explanations_for_reward(
+                all_explanations, all_prompt_group,
+                max_lines=args.rl_trunc_max_lines, mode=args.rl_trunc_mode,
+                rng=trunc_rng,
+            )
 
         # ---- scoring ----
         rewards = score_with_critic(
