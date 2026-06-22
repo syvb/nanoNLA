@@ -32,6 +32,18 @@ wb() {  # $1 = run name -> emits wandb flags (or --no-wandb if no key)
   else echo "--no-wandb"; fi
 }
 
+# Push an artifact to HF immediately (best-effort) so a host failure mid-run
+# doesn't lose completed work. Needs HF_TOKEN + COLLECTION_SLUG in the env.
+HF_NS=${HF_NS:-syvb}
+push_artifact() {  # $1=path  $2=repo-suffix  $3=type(model|dataset)
+  if [ -n "${HF_TOKEN:-}" ] && [ -n "${COLLECTION_SLUG:-}" ]; then
+    echo "[push] $1 -> $HF_NS/$2 (${3:-model})"
+    python scripts/poc_ordered/push_ckpt.py --path "$1" --repo "$HF_NS/$2" --type "${3:-model}" || echo "[push] failed (continuing)"
+  else
+    echo "[push] skip $2 (set HF_TOKEN + COLLECTION_SLUG to enable)"
+  fi
+}
+
 DATA=$WORK/data
 CKPT=$WORK/ckpts
 BUILD=$DATA/build
@@ -92,6 +104,7 @@ b = sys.argv[1]
 for s in ("av_sft_shuf","ar_sft_shuf","rl_shuf"):
     print(f"  {s}: {pq.ParquetFile(b+'/'+s+'.parquet').metadata.num_rows} rows")
 PY
+push_artifact "$BUILD" nla-ordered-features-poc-data dataset
 
 # ----------------------------------------------------------------------------
 banner "STAGE 6/8: AV warm-start SFT ($AV_STEPS steps)"
@@ -105,6 +118,7 @@ if ! ls -d "$AV_DIR"/iter_* >/dev/null 2>&1; then
 else echo "  (skip) AV checkpoint exists"; fi
 AV_CKPT=$(ls -d "$AV_DIR"/iter_* | sort | tail -1)
 echo "AV_CKPT=$AV_CKPT"
+push_artifact "$AV_CKPT" nla-ordered-features-av-sft model
 
 # ----------------------------------------------------------------------------
 banner "STAGE 7/8: AR warm-start SFT ($AR_STEPS steps)"
@@ -118,6 +132,7 @@ if ! ls -d "$AR_DIR"/iter_* >/dev/null 2>&1; then
 else echo "  (skip) AR checkpoint exists"; fi
 AR_CKPT=$(ls -d "$AR_DIR"/iter_* | sort | tail -1)
 echo "AR_CKPT=$AR_CKPT"
+push_artifact "$AR_CKPT" nla-ordered-features-ar-sft model
 
 # ----------------------------------------------------------------------------
 # RL truncation mode. generate-K (RL_GENERATE_K=1) stops generation at K
@@ -144,8 +159,11 @@ python -m nla.train_rl_self_contained \
   $RL_TRUNC \
   --save-every 50 --seed 0 $(wb rl_ordered_poc)
 
+RL_CKPT=$(ls -d "$RL_DIR"/iter_* 2>/dev/null | sort | tail -1)
+[ -n "$RL_CKPT" ] && push_artifact "$RL_CKPT" nla-ordered-features-rl model
+
 banner "PIPELINE COMPLETE"
 echo "AV : $AV_CKPT"
 echo "AR : $AR_CKPT"
-echo "RL : $(ls -d "$RL_DIR"/iter_* 2>/dev/null | sort | tail -1)"
+echo "RL : $RL_CKPT"
 echo "build dir: $BUILD"
