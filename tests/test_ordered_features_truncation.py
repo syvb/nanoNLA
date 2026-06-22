@@ -8,6 +8,7 @@ scores / co-trains on it. Pure-Python, no GPU — runs anywhere nla.schema impor
 import random
 
 from nla.schema import (
+    normalize_explanation,
     split_features,
     truncate_explanation,
     truncate_explanations_for_reward,
@@ -26,15 +27,25 @@ def test_split_features_ignores_blank_lines():
     assert split_features(EXPL_TIGHT) == ["a", "b", "c", "d"]
 
 
-def test_truncate_keeps_first_k_and_preserves_separators():
+def test_normalize_collapses_blank_lines_to_single_newline():
+    assert normalize_explanation(EXPL_BLANK) == (
+        "feat one\nfeat two\nfeat three\nfeat four"
+    )
+    # Already-tight text is unchanged.
+    assert normalize_explanation(EXPL_TIGHT) == EXPL_TIGHT
+
+
+def test_truncate_keeps_first_k_and_normalizes_to_single_newline():
     assert truncate_explanation(EXPL_BLANK, 1) == "feat one"
-    assert truncate_explanation(EXPL_BLANK, 2) == "feat one\n\nfeat two"
-    # Tight (single-newline) format preserved too.
+    # Blank-line separators collapse to a single newline.
+    assert truncate_explanation(EXPL_BLANK, 2) == "feat one\nfeat two"
     assert truncate_explanation(EXPL_TIGHT, 2) == "a\nb"
 
 
-def test_truncate_k_beyond_count_returns_all():
-    assert truncate_explanation(EXPL_BLANK, 99) == EXPL_BLANK
+def test_truncate_k_beyond_count_returns_all_normalized():
+    assert truncate_explanation(EXPL_BLANK, 99) == (
+        "feat one\nfeat two\nfeat three\nfeat four"
+    )
     assert truncate_explanation(EXPL_TIGHT, 4) == EXPL_TIGHT
 
 

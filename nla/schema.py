@@ -64,25 +64,28 @@ def split_features(explanation: str) -> list[str]:
     return [ln for ln in explanation.split("\n") if ln.strip()]
 
 
-def truncate_explanation(explanation: str, k: int) -> str:
-    """Keep only the first ``k`` features (non-empty lines) of an explanation.
+def normalize_explanation(explanation: str) -> str:
+    """Join an explanation's features with exactly one newline.
 
-    Preserves the original inter-feature separators (including blank lines)
-    between the kept features and trims trailing whitespace. If ``k`` >= the
-    feature count the explanation is returned unchanged (sans trailing
-    whitespace); ``k`` is clamped to at least 1.
+    The generator (and the warm-start data) sometimes put blank lines between
+    features; the NLA should always emit single-newline-separated features. We
+    normalize at both ends — the SFT targets/critic inputs (stage3_build) and
+    the RL critic inputs — so the format the model is trained on and rewarded on
+    is consistent regardless of stray blank lines in the source data.
+    """
+    return "\n".join(split_features(explanation))
+
+
+def truncate_explanation(explanation: str, k: int) -> str:
+    """Keep only the first ``k`` features (non-empty lines), joined by single
+    newlines (i.e. also normalized — see :func:`normalize_explanation`).
+
+    ``k`` is clamped to at least 1; if ``k`` >= the feature count all features
+    are returned (still single-newline-normalized).
     """
     if k < 1:
         k = 1
-    kept: list[str] = []
-    seen = 0
-    for ln in explanation.split("\n"):
-        kept.append(ln)
-        if ln.strip():
-            seen += 1
-            if seen >= k:
-                break
-    return "\n".join(kept).rstrip()
+    return "\n".join(split_features(explanation)[:k])
 
 
 def truncate_explanations_for_reward(

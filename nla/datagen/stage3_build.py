@@ -41,7 +41,7 @@ from tqdm import tqdm
 from nla.datagen._common import add_storage_args, load_tokenizer, make_storage
 from nla.datagen.injection_tokens import build_token_meta
 from nla.datagen.sidecar import read_sidecar, write_sidecar
-from nla.schema import wrap_explanation
+from nla.schema import normalize_explanation, wrap_explanation
 
 _INJECT_PLACEHOLDER = "<INJECT>"
 
@@ -122,7 +122,13 @@ def _build_av_sft_cols(
     prompt_msg = [{"role": "user", "content": actor_prompt_content}]
     return {
         "prompt": pa.array([prompt_msg] * n, type=_PROMPT_STRUCT),
-        "response": pa.array([wrap_explanation(e) for e in api_expl], type=pa.string()),
+        # normalize_explanation -> exactly one newline between features, so the
+        # AV is trained to emit single-newline-separated output even when the
+        # source api_explanation has stray blank lines.
+        "response": pa.array(
+            [wrap_explanation(normalize_explanation(e)) for e in api_expl],
+            type=pa.string(),
+        ),
     }
 
 
@@ -141,6 +147,9 @@ def _build_ar_sft_cols(
     prompts: list[str] = []
     n_suf = len(suffix_ids)
     for expl in api_expl:
+        # Match the AV's single-newline output format (see _build_av_sft_cols):
+        # the AR critic is trained on the same normalized explanation text.
+        expl = normalize_explanation(expl)
         prompt = critic_template.format(explanation=expl)
         # Verify the tokenized prompt ENDS with the expected suffix IDs.
         # Training extracts at tokens[-1], so this check guarantees that's the
