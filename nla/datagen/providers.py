@@ -12,10 +12,14 @@ Swap via `--provider-cls my.module.MyProvider` at stage2 invocation.
 
 import asyncio
 import os
+import random
 import time
 from abc import ABC, abstractmethod
 
-import anthropic
+import httpx
+
+# `anthropic` is imported lazily inside the Anthropic providers so that
+# OpenRouter-only (or any non-Anthropic) deployments don't need the SDK installed.
 
 
 class CompletionProvider(ABC):
@@ -56,14 +60,6 @@ class AnthropicProvider(CompletionProvider):
     Stage 2 is a standalone CLI, so this is fine in practice.
     """
 
-    # Exceptions from which we degrade to None instead of killing the batch.
-    # Anything NOT in this tuple is a code bug and should still blow up loud.
-    _TOLERATED = (
-        anthropic.RateLimitError,
-        anthropic.InternalServerError,
-        anthropic.APIConnectionError,
-    )
-
     def __init__(
         self,
         model: str = "claude-sonnet-4-6",
@@ -72,6 +68,15 @@ class AnthropicProvider(CompletionProvider):
         concurrency: int = 32,
         max_retries: int = 10,
     ):
+        import anthropic
+
+        # Exceptions from which we degrade to None instead of killing the batch.
+        # Anything NOT in this tuple is a code bug and should still blow up loud.
+        self._TOLERATED = (
+            anthropic.RateLimitError,
+            anthropic.InternalServerError,
+            anthropic.APIConnectionError,
+        )
         self.client = anthropic.AsyncAnthropic(max_retries=max_retries)
         self.model = model
         self.max_tokens = max_tokens
@@ -131,6 +136,149 @@ class AnthropicProvider(CompletionProvider):
         return out
 
 
+class OpenRouterProvider(CompletionProvider):
+    """OpenAI-compatible provider via OpenRouter (https://openrouter.ai).
+
+    Lets stage 2 use any OpenRouter-hosted model — e.g. `deepseek/deepseek-v4-flash`
+    ($0.09/$0.18 per 1M, ~15x cheaper than Sonnet for warm-start datagen). Pure
+    `httpx` (no vendor SDK), bounded async concurrency, manual exponential-backoff
+    retry (OpenRouter's HTTP layer doesn't retry for us the way the Anthropic SDK
+    does).
+
+    Auth: reads `OPENROUTER_API_KEY` from the environment. Per-prompt failures
+    after exhausting retries return None (caller drops the row) — same contract
+    as AnthropicProvider. Only transient faults (429, 5xx, timeouts, connection
+    resets) degrade to None / retry; auth (401/403) and bad-request (400) raise
+    loud because those are config/code bugs, not weather.
+
+    Calls `asyncio.run()` — do not invoke from inside a running event loop.
+    Stage 2 is a standalone CLI, so this is fine in practice.
+    """
+
+    _BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
+    # HTTP statuses we treat as transient (retry, then degrade to None).
+    _TRANSIENT_STATUS = {408, 409, 429, 500, 502, 503, 504, 520, 522, 524}
+    _TRANSIENT_EXC = (
+        httpx.ConnectError,
+        httpx.ConnectTimeout,
+        httpx.ReadTimeout,
+        httpx.WriteTimeout,
+        httpx.PoolTimeout,
+        httpx.RemoteProtocolError,
+    )
+
+    def __init__(
+        self,
+        model: str = "deepseek/deepseek-v4-flash",
+        max_tokens: int = 400,
+        temperature: float = 1.0,
+        concurrency: int = 16,
+        max_retries: int = 8,
+        timeout: float = 120.0,
+    ):
+        api_key = os.environ.get("OPENROUTER_API_KEY")
+        assert api_key, "set OPENROUTER_API_KEY (read from ~/.openrouter_key)"
+        self._api_key = api_key
+        self.model = model
+        self.max_tokens = max_tokens
+        self.temperature = temperature
+        self.concurrency = concurrency
+        self.max_retries = max_retries
+        self.timeout = timeout
+
+    async def _one(self, client: httpx.AsyncClient, sem: asyncio.Semaphore, prompt: str) -> str | None:
+        body = {
+            "model": self.model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": self.max_tokens,
+            "temperature": self.temperature,
+        }
+        async with sem:
+            for attempt in range(self.max_retries + 1):
+                try:
+                    resp = await client.post(self._BASE_URL, json=body)
+                except self._TRANSIENT_EXC:
+                    if attempt == self.max_retries:
+                        return None
+                    await self._backoff(attempt)
+                    continue
+
+                if resp.status_code in self._TRANSIENT_STATUS:
+                    if attempt == self.max_retries:
+                        return None
+                    await self._backoff(attempt, resp.headers.get("retry-after"))
+                    continue
+                # Non-transient HTTP error (401/403/400/...) — a config/code bug.
+                resp.raise_for_status()
+
+                data = resp.json()
+                # OpenRouter can return a 200 whose body carries an error object
+                # (upstream provider hiccup). Treat as transient.
+                if isinstance(data, dict) and data.get("error"):
+                    if attempt == self.max_retries:
+                        return None
+                    await self._backoff(attempt)
+                    continue
+
+                return self._extract_text(data)
+        return None
+
+    async def _backoff(self, attempt: int, retry_after: str | None = None) -> None:
+        if retry_after:
+            try:
+                await asyncio.sleep(min(float(retry_after), 60.0))
+                return
+            except (TypeError, ValueError):
+                pass
+        # Exponential backoff with jitter, capped.
+        await asyncio.sleep(min(2.0 ** attempt, 30.0) + random.uniform(0, 1.0))
+
+    @staticmethod
+    def _extract_text(data: dict) -> str | None:
+        choices = data.get("choices") or []
+        if not choices:
+            return None
+        msg = choices[0].get("message") or {}
+        # finish_reason "length" (truncated) still returns partial text — the
+        # stage-2 extract pattern drops it if the closing tag is missing.
+        content = (msg.get("content") or "").strip()
+        return content or None
+
+    def complete(self, prompts: list[str]) -> list[str | None]:
+        async def _run() -> list[str | None | BaseException]:
+            sem = asyncio.Semaphore(self.concurrency)
+            headers = {
+                "Authorization": f"Bearer {self._api_key}",
+                "Content-Type": "application/json",
+                # Optional OpenRouter attribution headers.
+                "HTTP-Referer": "https://github.com/nanoNLA",
+                "X-Title": "nanoNLA datagen",
+            }
+            async with httpx.AsyncClient(timeout=self.timeout, headers=headers) as client:
+                return await asyncio.gather(
+                    *(self._one(client, sem, p) for p in prompts),
+                    return_exceptions=True,
+                )
+
+        raw = asyncio.run(_run())
+        out: list[str | None] = []
+        n_failed = 0
+        for i, r in enumerate(raw):
+            if isinstance(r, str):
+                out.append(r)
+            elif r is None:
+                n_failed += 1
+                out.append(None)
+            elif isinstance(r, BaseException):
+                # Not a transient — auth/schema/code bug. Blow up loud.
+                raise r
+            else:
+                raise AssertionError(f"gather returned unexpected type at [{i}]: {type(r).__name__}")
+        if n_failed:
+            print(f"  [OpenRouterProvider] dropped {n_failed} retry-exhausted of {len(prompts)}")
+        return out
+
+
 class BatchAnthropicProvider(CompletionProvider):
     """Anthropic Message Batches API — 50% cheaper than sync, async, async-style turnaround.
 
@@ -153,6 +301,8 @@ class BatchAnthropicProvider(CompletionProvider):
         max_batch_size: int = 50_000,
         poll_interval_s: float = 30.0,
     ):
+        import anthropic
+
         api_key = os.environ.get("ANTHROPIC_API_KEY_BATCH") or os.environ.get("ANTHROPIC_API_KEY")
         assert api_key, "set ANTHROPIC_API_KEY_BATCH (preferred) or ANTHROPIC_API_KEY"
         self.client = anthropic.AsyncAnthropic(api_key=api_key, max_retries=10)
