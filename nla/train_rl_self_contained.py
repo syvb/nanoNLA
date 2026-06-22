@@ -195,17 +195,27 @@ class FeatureCountStop(StoppingCriteria):
         self.prompt_len = prompt_len
         self.k = k
         self.stop_len = [None] * group_size
+        self._buf = [""] * group_size   # running decoded response per sequence
+        self._seen = [0] * group_size   # response tokens already folded into _buf
 
     def __call__(self, input_ids, scores, **kwargs):
+        cur = input_ids.shape[1] - self.prompt_len  # response length so far
         done = []
         for g in range(input_ids.shape[0]):
             if self.stop_len[g] is not None:
                 done.append(True)
                 continue
-            resp = input_ids[g, self.prompt_len:]
-            text = self.tokenizer.decode(resp, skip_special_tokens=True)
-            if count_complete_features(text) >= self.k:
-                self.stop_len[g] = int(resp.shape[0])
+            # Decode ONLY the new tokens since the last call and append to a
+            # buffer — re-decoding the whole growing response every token is
+            # O(L^2) tokenizer work plus a GPU->CPU sync per token, which
+            # starves the GPU and makes rollouts ~10x+ slower. Newlines are
+            # single ASCII tokens, so incremental decode counts features fine.
+            if cur > self._seen[g]:
+                new = input_ids[g, self.prompt_len + self._seen[g]: self.prompt_len + cur]
+                self._buf[g] += self.tokenizer.decode(new, skip_special_tokens=True)
+                self._seen[g] = cur
+            if count_complete_features(self._buf[g]) >= self.k:
+                self.stop_len[g] = cur
                 done.append(True)
             else:
                 done.append(False)
