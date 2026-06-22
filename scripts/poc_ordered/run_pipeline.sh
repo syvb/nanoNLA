@@ -120,7 +120,17 @@ AR_CKPT=$(ls -d "$AR_DIR"/iter_* | sort | tail -1)
 echo "AR_CKPT=$AR_CKPT"
 
 # ----------------------------------------------------------------------------
-banner "STAGE 8/8: RL ordered-features (generate-K, $RL_STEPS steps)"
+# RL truncation mode. generate-K (RL_GENERATE_K=1) stops generation at K
+# features — cheaper IN PRINCIPLE, but the per-token Python stopping criterion
+# serializes generation (GPU-starved) and is currently SLOWER; until it has a
+# GPU-native (token-id, no-decode) criterion, default to post-hoc per-group,
+# which produces the same nested-dropout signal at normal generation speed.
+if [ "${RL_GENERATE_K:-0}" = "1" ]; then
+  RL_TRUNC="--rl-trunc-max-lines 10 --rl-trunc-generate"; RL_MODE="generate-K"
+else
+  RL_TRUNC="--rl-trunc-max-lines 10 --rl-trunc-mode per-group"; RL_MODE="post-hoc/per-group"
+fi
+banner "STAGE 8/8: RL ordered-features ($RL_MODE, $RL_STEPS steps)"
 RL_DIR=$CKPT/rl_ordered
 python -m nla.train_rl_self_contained \
   --av-ckpt "$AV_CKPT" --ar-ckpt "$AR_CKPT" --base-ckpt "$BASE_MODEL" \
@@ -131,7 +141,7 @@ python -m nla.train_rl_self_contained \
   --max-new-tokens 150 --temperature 1.0 --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
   --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
   --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
-  --rl-trunc-max-lines 10 --rl-trunc-generate \
+  $RL_TRUNC \
   --save-every 50 --seed 0 $(wb rl_ordered_poc)
 
 banner "PIPELINE COMPLETE"
