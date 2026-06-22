@@ -1,0 +1,133 @@
+#!/bin/bash
+# Ordered-features NLA PoC — end-to-end on a single GPU box (Vast).
+#
+# slim HF dataset -> regen activations -> doc-level 25/25/50 split -> build
+# av_sft/ar_sft/rl parquets -> warm-start SFT (AV, AR) -> generate-K ordered RL.
+#
+# Idempotent per stage (skips a stage whose output already exists), so a re-run
+# resumes. Heavy logging with banners. Env overrides (defaults shown):
+#   WORK=/workspace/nla_poc  REPO=$PWD  BASE_MODEL=Qwen/Qwen3-8B
+#   AV_STEPS=300  AR_STEPS=300  RL_STEPS=250
+#   HF_DATASET=syvb/nla-warmstart-explanations-finefineweb-sonnet46
+set -euo pipefail
+
+WORK=${WORK:-/workspace/nla_poc}
+REPO=${REPO:-$PWD}
+HF_DATASET=${HF_DATASET:-syvb/nla-warmstart-explanations-finefineweb-sonnet46}
+HF_FILE=${HF_FILE:-data/train-00000-of-00001.parquet}
+BASE_MODEL=${BASE_MODEL:-Qwen/Qwen3-8B}
+AV_STEPS=${AV_STEPS:-300}
+AR_STEPS=${AR_STEPS:-300}
+RL_STEPS=${RL_STEPS:-250}
+export HF_HOME=${HF_HOME:-/workspace/hf_home}
+export PYTORCH_CUDA_ALLOC_CONF=${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}
+export PYTHONUNBUFFERED=1
+export TOKENIZERS_PARALLELISM=false
+
+DATA=$WORK/data
+CKPT=$WORK/ckpts
+BUILD=$DATA/build
+SPLIT=$DATA/split
+mkdir -p "$DATA" "$CKPT" "$BUILD"
+cd "$REPO"
+
+banner() { echo; echo "=================== $* ==================="; date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+# ----------------------------------------------------------------------------
+banner "STAGE 1/8: download slim dataset ($HF_DATASET)"
+SLIM=$DATA/slim.parquet
+if [ ! -f "$SLIM" ]; then
+  python - "$HF_DATASET" "$HF_FILE" "$SLIM" <<'PY'
+import shutil, sys
+from huggingface_hub import hf_hub_download
+ds, f, out = sys.argv[1], sys.argv[2], sys.argv[3]
+p = hf_hub_download(ds, f, repo_type="dataset")
+shutil.copy(p, out)
+print("downloaded ->", out)
+PY
+else echo "  (skip) $SLIM exists"; fi
+
+# ----------------------------------------------------------------------------
+banner "STAGE 2/8: regenerate activations"
+FULL=$DATA/base_with_activations.parquet
+if [ ! -f "$FULL" ]; then
+  python tools/regenerate_activations.py --in "$SLIM" --out "$FULL" \
+    --base-model "$BASE_MODEL" --max-length 4096 --batch-size 16 \
+    --chunk-size 512 --drop-mismatch
+else echo "  (skip) $FULL exists"; fi
+
+# ----------------------------------------------------------------------------
+banner "STAGE 3/8: synthesize base sidecar"
+if [ ! -f "$FULL.nla_meta.yaml" ]; then
+  python scripts/poc_ordered/synth_base_sidecar.py --parquet "$FULL" --base-model "$BASE_MODEL"
+else echo "  (skip) sidecar exists"; fi
+
+# ----------------------------------------------------------------------------
+banner "STAGE 4/8: document-level split 25/25/50"
+if [ ! -f "$SPLIT/rl_raw.parquet" ]; then
+  python -m nla.datagen.stage1_split --base "$FULL" \
+    --av-sft-frac 0.25 --ar-sft-frac 0.25 --rl-frac 0.50 --seed 42 \
+    --output-dir "$SPLIT"
+else echo "  (skip) split exists"; fi
+
+# ----------------------------------------------------------------------------
+banner "STAGE 5/8: build training parquets (av_sft, ar_sft, rl)"
+[ -f "$BUILD/av_sft_shuf.parquet" ] || python -m nla.datagen.stage3_build \
+  --stage av_sft --input "$SPLIT/av_sft_raw.parquet" --output "$BUILD/av_sft_shuf.parquet"
+[ -f "$BUILD/ar_sft_shuf.parquet" ] || python -m nla.datagen.stage3_build \
+  --stage ar_sft --input "$SPLIT/ar_sft_raw.parquet" --output "$BUILD/ar_sft_shuf.parquet"
+[ -f "$BUILD/rl_shuf.parquet" ]     || python -m nla.datagen.stage3_build \
+  --stage rl     --input "$SPLIT/rl_raw.parquet"     --output "$BUILD/rl_shuf.parquet"
+echo "row counts:"; python - "$BUILD" <<'PY'
+import sys, pyarrow.parquet as pq
+b = sys.argv[1]
+for s in ("av_sft_shuf","ar_sft_shuf","rl_shuf"):
+    print(f"  {s}: {pq.ParquetFile(b+'/'+s+'.parquet').metadata.num_rows} rows")
+PY
+
+# ----------------------------------------------------------------------------
+banner "STAGE 6/8: AV warm-start SFT ($AV_STEPS steps)"
+AV_DIR=$CKPT/av_sft
+if ! ls -d "$AV_DIR"/iter_* >/dev/null 2>&1; then
+  python -m nla.train_sft --mode av --base-ckpt "$BASE_MODEL" \
+    --parquet "$BUILD/av_sft_shuf.parquet" --sidecar "$BUILD/av_sft_shuf.parquet" \
+    --save-dir "$AV_DIR" --num-steps "$AV_STEPS" --batch-size 64 \
+    --use-lora --lora-r 128 --lora-alpha 16 --quant 4bit \
+    --lr 3e-5 --gradient-checkpointing --save-every "$AV_STEPS" --seed 0 --no-wandb
+else echo "  (skip) AV checkpoint exists"; fi
+AV_CKPT=$(ls -d "$AV_DIR"/iter_* | sort | tail -1)
+echo "AV_CKPT=$AV_CKPT"
+
+# ----------------------------------------------------------------------------
+banner "STAGE 7/8: AR warm-start SFT ($AR_STEPS steps)"
+AR_DIR=$CKPT/ar_sft
+if ! ls -d "$AR_DIR"/iter_* >/dev/null 2>&1; then
+  python -m nla.train_sft --mode ar --base-ckpt "$BASE_MODEL" \
+    --parquet "$BUILD/ar_sft_shuf.parquet" --sidecar "$BUILD/ar_sft_shuf.parquet" \
+    --save-dir "$AR_DIR" --num-steps "$AR_STEPS" --batch-size 64 --ar-num-layers 25 \
+    --use-lora --lora-r 128 --lora-alpha 16 --quant 4bit \
+    --lr 3e-5 --save-every "$AR_STEPS" --seed 0 --no-wandb
+else echo "  (skip) AR checkpoint exists"; fi
+AR_CKPT=$(ls -d "$AR_DIR"/iter_* | sort | tail -1)
+echo "AR_CKPT=$AR_CKPT"
+
+# ----------------------------------------------------------------------------
+banner "STAGE 8/8: RL ordered-features (generate-K, $RL_STEPS steps)"
+RL_DIR=$CKPT/rl_ordered
+python -m nla.train_rl_self_contained \
+  --av-ckpt "$AV_CKPT" --ar-ckpt "$AR_CKPT" --base-ckpt "$BASE_MODEL" \
+  --quant 4bit --device-map single \
+  --rl-parquet "$BUILD/rl_shuf.parquet" --sidecar "$BUILD/rl_shuf.parquet" \
+  --save-dir "$RL_DIR" \
+  --num-steps "$RL_STEPS" --batch-prompts 16 --group-size 16 \
+  --max-new-tokens 150 --temperature 1.0 --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
+  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
+  --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
+  --rl-trunc-max-lines 10 --rl-trunc-generate \
+  --save-every 50 --seed 0 --no-wandb
+
+banner "PIPELINE COMPLETE"
+echo "AV : $AV_CKPT"
+echo "AR : $AR_CKPT"
+echo "RL : $(ls -d "$RL_DIR"/iter_* 2>/dev/null | sort | tail -1)"
+echo "build dir: $BUILD"
