@@ -128,7 +128,7 @@ if ! ls -d "$AR_DIR"/iter_* >/dev/null 2>&1; then
     --parquet "$BUILD/ar_sft_shuf.parquet" --sidecar "$BUILD/ar_sft_shuf.parquet" \
     --save-dir "$AR_DIR" --num-steps "$AR_STEPS" --batch-size 64 --ar-num-layers 25 \
     --use-lora --lora-r 128 --lora-alpha 16 --quant 4bit \
-    --lr 3e-5 --save-every "$AR_STEPS" --seed 0 $(wb ar_sft_slim)
+    --lr 3e-5 --gradient-checkpointing --save-every "$AR_STEPS" --seed 0 $(wb ar_sft_slim)
 else echo "  (skip) AR checkpoint exists"; fi
 AR_CKPT=$(ls -d "$AR_DIR"/iter_* | sort | tail -1)
 echo "AR_CKPT=$AR_CKPT"
@@ -152,9 +152,9 @@ python -m nla.train_rl_self_contained \
   --quant 4bit --device-map single \
   --rl-parquet "$BUILD/rl_shuf.parquet" --sidecar "$BUILD/rl_shuf.parquet" \
   --save-dir "$RL_DIR" \
-  --num-steps "$RL_STEPS" --batch-prompts 16 --group-size 16 \
+  --num-steps "$RL_STEPS" --batch-prompts 8 --group-size 16 \
   --max-new-tokens 150 --temperature 1.0 --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
-  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
+  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 --gradient-checkpointing \
   --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
   $RL_TRUNC \
   --save-every 50 --seed 0 $(wb rl_ordered_poc)
