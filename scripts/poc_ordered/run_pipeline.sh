@@ -154,7 +154,7 @@ python -m nla.train_rl_self_contained \
   --save-dir "$RL_DIR" \
   --num-steps "$RL_STEPS" --batch-prompts 8 --group-size 8 \
   --max-new-tokens 150 --temperature 1.0 --lr 1e-5 --kl-beta 0.01 --clip-eps 0.2 \
-  --train-critic --critic-lr 5e-5 --logp-micro-batch 2 \
+  --train-critic --critic-lr 5e-5 --logp-micro-batch 8 --critic-micro-batch 8 \
   --max-rows 3000 --eval-skip-rows 3000 --eval-every 10 --eval-n-prompts 20 \
   $RL_TRUNC \
   --save-every 50 --seed 0 $(wb rl_ordered_poc)
