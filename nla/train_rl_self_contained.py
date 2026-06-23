@@ -1092,6 +1092,14 @@ def main():
             out_dir.mkdir(parents=True, exist_ok=True)
             actor.save_pretrained(str(out_dir))
             print(f"[save] LoRA → {out_dir}")
+            # When co-training, persist the updated critic too — otherwise the
+            # co-trained AR is discarded and the system can only be evaluated with
+            # the stale base AR. Single dir, overwritten each save → latest wins.
+            if args.train_critic and critic_optim is not None:
+                critic_out = save_dir / "critic"
+                critic_out.mkdir(parents=True, exist_ok=True)
+                critic.save_pretrained(str(critic_out))
+                print(f"[save] co-trained critic → {critic_out}")
 
     print("done.")
     if not args.no_wandb:

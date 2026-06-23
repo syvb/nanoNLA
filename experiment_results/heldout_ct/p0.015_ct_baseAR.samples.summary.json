@@ -1,0 +1,15 @@
+{
+  "tag": "p0.015_ct_baseAR",
+  "n": 1000,
+  "extraction_rate": 0.999,
+  "mean_tokens": 22.515,
+  "mean_tokens_std": 4.982747735938478,
+  "mean_tokens_sem": 0.1575683185161282,
+  "mean_mse": 0.41868807235219935,
+  "nmse": 0.6245686209921704,
+  "fve": 0.37543137900782964,
+  "fve_std": 0.2982613398906873,
+  "fve_sem": 0.009436571186036656,
+  "fve_baseline": 0.6703636050224304,
+  "rl_lora": "/workspace/nla/ckpts/rl_ct/p0.015/iter_000250"
+}
