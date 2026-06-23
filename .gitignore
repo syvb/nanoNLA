@@ -12,3 +12,6 @@ wandb/
 .env.*
 .claude/
 scripts/datagen_deepseek/out/
+scripts/datagen_batch/out/
+scripts/datagen_batch/cache/
+scripts/datagen_batch/cache_ce/
