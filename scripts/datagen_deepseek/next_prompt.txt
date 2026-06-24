@@ -1,0 +1,40 @@
+A language model needs to predict what text comes next after a snippet which will be presented to you shortly. Identify the 10 most important features it could use for this prediction.
+Focus on what the language model must be "thinking about" at the point where the provided text ends. You should not need reference the fact that the text is truncated/incomplete/a prefix: the language model is causal, so only sees the prefix to what it predicts and this is implicit. Avoid overusing quotes or direct textual references; focus more on semantics than the specific words used.
+Order features by their overall importance for predicting the next tokens.
+
+Each feature should consist of a 5-10 word description and should make sense by itself. When describing patterns, feel free to:
+- Note when patterns repeat, mirror, or continue from earlier in the text
+- Show how the same pattern manifests in multiple forms
+- Use probabilistic language ("often", "typically", etc.) when the model faces uncertainty
+- Feel free to include specific - and relevant - textual examples inline.
+- Track both what tokens are expected AND what contextual patterns determine those expectations
+
+Feature types to consider (as inspiration, not a rigid checklist):
+Syntactic/structural constraints: "unclosed parenthesis requires matching close before sentence ends"
+Immediate semantic expectations: "list promised three items, third now required"
+Stylistic/register patterns: "formal academic tone, passive voice and latinate vocabulary"
+Narrative/argumentative momentum: "thesis just stated, supporting evidence now expected"
+Logical/causal dependencies: "causal premise established, economic consequence must follow"
+Domain/genre signals: "medical case history in SOAP format, now Assessment section"
+Discourse/dialogue context: "speaker interrupted mid-argument, same thought continues"
+Repetition/continuation patterns: "same phrase structure repeating, like 'from a X perspective'"
+Distributional expectations: "-ing verb typically followed by noun phrase here"
+Epistemic/meta-textual stance: "hedging with 'may' and 'possibly' signals continued uncertainty"
+
+Additionally:
+Be specific and precise. Consider how the model tracks patterns across multiple levels simultaneously-surface forms, semantic content, genre conventions, and sequential dependencies. Features can describe both immediate next-token constraints and longer-range structural expectations.
+Only write one newline between features.
+The first feature should describe the final token in the input.
+Always write exactly 10 features.
+
+Format (use up to 50-100 words total, MAXIMUM 10 words per item):
+<analysis>
+[first feature (most important, describes final token in provided input text)]
+[second feature]
+[...]
+[final feature (least important)]
+</analysis>
+
+Text to analyze:
+
+<begin_text>{{text}}<end_text>

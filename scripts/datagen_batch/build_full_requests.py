@@ -33,7 +33,7 @@ def _docidx(doc_id: str) -> str:
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--prompt-file", default="scripts/datagen_deepseek/new_prompt.txt")
+    p.add_argument("--prompt-file", default="scripts/datagen_deepseek/next_prompt.txt")
     p.add_argument("--model", default="claude-sonnet-4-6")
     p.add_argument("--max-tokens", type=int, default=400)
     p.add_argument("--temperature", type=float, default=1.0)
@@ -43,7 +43,15 @@ def main() -> None:
     args = p.parse_args()
 
     template = Path(args.prompt_file).read_text()
-    assert "{text}" in template, "prompt template must contain a single {text} placeholder"
+    # Robust placeholder substitution: next_prompt.txt writes {{text}}, older
+    # prompts write {text}. Use str.replace (NOT .format) so the literal double
+    # braces aren't collapsed to a no-op and any other braces can't break it.
+    if "{{text}}" in template:
+        placeholder = "{{text}}"
+    elif "{text}" in template:
+        placeholder = "{text}"
+    else:
+        raise SystemExit("prompt template must contain a {text} or {{text}} placeholder")
 
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -71,7 +79,7 @@ def main() -> None:
                     cid = f"{subset}-{_docidx(doc)}-{ntok}"
                     assert cid not in seen, f"duplicate custom_id {cid}"
                     seen.add(cid)
-                    content = template.format(text=text)
+                    content = template.replace(placeholder, text)
                     approx_prompt_tokens += len(content) // 4
                     req = {
                         "custom_id": cid,
