@@ -1,0 +1,1402 @@
+[
+ {
+  "i": 0,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCorporate/community hero quote pattern establishes a formal award announcement tone, expecting continued descriptive credentials of background and experience leading to an accomplishment.\n\nThe text is building toward describing what services or advocacy Jamie provided (e.g., education, outreach, guidance) for patients navigating mental health services, consistent with \"broad understanding\" and \"personifying the fears members have.\"\n\nFinal token \"services\" closes a prepositional phrase describing the scope Jamie works with; the next tokens will likely continue Jamie's professional description, e.g., \"for members\" or \"across the community,\" or pivot to detailing specific compassionate actions Jamie took.\n</explanation>",
+  "resp_len": 136,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 1,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic/institutional report registering on a participatory research project, establishing formal scholarly register throughout.\n\nThe sentence structure \"explores the possibilities and the conditions that determine the [noun phrase],\" demands a completion naming what the project explores \u2014 likely \"urban region\" or \"city\" or \"region\" (introduced earlier as \"Co\u00f6peratieve Rotterdam\").\n\nFinal token \"the\" is a definite article opening a noun phrase mid-sentence, requiring an immediate noun or adjective+noun; given the context of urban/regional research and the project's subject in the opening sentence, \"urban region\" or \"city\" are the most constrained candidates.\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 2,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInvestment announcement/core deal narrative structure \u2014 after describing the acquisition's motivation, next details fund/investors' background and value proposition.\n\nThe sentence ending with \"Momentum Partners\" is incomplete, implying continuation with role, funding, or partnership details (e.g., \"and Momentum Partners brings...\" or \"as lead investor\").\n\nFinal token \"Partners\" is mid-sentence, part of \"Momentum Partners,\" requiring immediate continuation \u2014 likely a verb phrase describing their involvement, such as \"as lead investor,\" \"following a due diligence,\" or similar attribution clause.\n</explanation>",
+  "resp_len": 126,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 3,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFinancial news reporting pattern expects specific quantitative guidance details (revenue, earnings numbers, beat/miss status) to follow.\n\nThe sentence structure \"that\" clause requires completion with a verb describing guidance outcome \u2014 likely \"in-line with\" or \"beat expectations\" \u2014 common phrasing in financial journalism.\n\nThe final token \"that\" opens a subordinate clause modifying Veru's earnings guidance, demanding an immediate verb phrase (e.g., \"were in line with,\" \"exceeded,\" \"fell short\") describing the guidance result.\n</explanation>",
+  "resp_len": 117,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 4,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct label format: structured nutritional supplement information following standard supplement label conventions (ingredients, directions, warnings).\n\nSentence completion momentum: \"Stir in a\" is mid-sentence, requiring a container/liquid noun phrase, almost certainly \"shaker bottle\" or similar product-specific mixing container \u2014 consistent with the shaker bottle/whole food plant-based creation context.\n\nFinal token \"a\" is an indefinite article beginning a noun phrase describing a mixing vessel; it must be immediately followed by a noun (e.g., \"shaker bottle,\" \"blender bottle\") completing the product usage instruction.\n</explanation>",
+  "resp_len": 130,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 5,
+  "text": "<think>\n\n</think>\n\n<explanation>\nList/enumeration pattern: \"just a few\" signals an incoming list of SCC/DSM companies or examples, requiring named companies after \"a few.\"\n\nContinuation of benefits/overview paragraph: the passage systematically covers companies, example use cases, and the switch from centralized to decentralized models \u2014 a concrete list is the natural next element.\n\nFinal token: \"few\" is part of the phrase \"just a few,\" functioning as a quantifier needing immediate completion \u2014 the next token must be a noun (e.g., \"of the leading,\" \"who have,\" \"major companies like...\") to complete the idiomatic expression.\n</explanation>",
+  "resp_len": 139,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 6,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSports column/mailing list format establishes analytical, informal journalistic voice with name dropping (\"Mr. Jim Jansen,\" \"Viggo\").\n\nNarrative momentum builds toward contrasting Bengals' weaknesses (RB uncertainty, return, LB depth) against previously discussed strengths \u2014 tension between concerns and optimism drives continuation.\n\n\"I doubt it matters of course\" closes a concessive clause acknowledging uncertainty, creating momentum toward admitting Nix's likely success or pivoting to a new unquestionable Bold Prediction about another Bengals game or player.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 7,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical/environmental report detailing MS4 (Municipal Separate Storm Sewer System) infrastructure improvements with specific infrastructure items being listed.\n\nThe text follows a pattern of introducing a set of improvements, then elaborating with specific examples; \"including\" signals a list of concrete examples of BMPs (Best Management Practices) is coming, likely comma-separated items like detention basins, infiltration practices, or filtration systems.\n\nFinal token: \"including\" opens a list enumeration, requiring immediate specific noun phrases naming the best management practices (BMPs) implemented as part of the watershed plan.\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 8,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing list of film credits and production details, establishing a pattern of introducing industry personnel, their roles, and responsibilities.\n\nThe sentence \"Joss Whedon is\" promises a predicate completing his role \u2014 autonomous or production responsibilities in the film, consistent with how production credits are structured throughout.\n\nFinal token \"is\" opens a linking/copula construction, immediately requiring a noun phrase or adjective describing Joss Whedon's status or role, e.g., \"directing\" or \"the director of.\"\n</explanation>",
+  "resp_len": 114,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 9,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct launch announcement format: formal press release structure signals patent/technical detail to follow.\n\nThe text has introduced the Mokole\u9879\u76ee and its features (patented speed, acceleration capability), now building toward a brand name association or product name to continue the promotional pitch.\n\n\"Mokole C\" is the truncated start of a product name or variation tag \u2014 almost certainly \"Mokole City\" or similar branded term, requiring lowercase continuation completing that specific noun or descriptor.\n</explanation>",
+  "resp_len": 107,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 10,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing quote from Jerry Bruckheimer requiring completion \u2014 the sentence structure demands a noun phrase or clause describing what the Walt Disney Company \"that\" (led/produced) represents.\n\nBusiness/media press release genre with promotional, celebratory tone; formal yet descriptive language about collaboration and legacy.\n\nFinal token \"that\" is a relative pronoun opening a subordinate clause, directly modifying an upcoming noun (likely \"produces,\" \"supports,\" or \"has created\"), requiring a verb phrase describing Disney's role or contributions.\n</explanation>",
+  "resp_len": 116,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 11,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum: a specific story about a woman discovering menstrual incontinence is being summarized and its consequences explained step-by-step.\n\nStructural completion expected: the phrase \"but were capable\" sets up an immediate contrast revealing what they were actually able to do with STIs, likely \"of protecting themselves\" or \"of avoiding pregnancy.\"\n\nFinal token \"capable\" is part of \"were capable of [verb phrase],\" requiring an infinitive completing the scope of what the family could protect against, continuing the medical/real-life consequence reporting.\n</explanation>",
+  "resp_len": 121,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 12,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBiblical/KJV quote structure: a direct scripture verse is paired with its reference (Psalm 130:1, KJV), signaling what follows will be the full verse text.\n\nLiturgical hymn book context: \"Psalm Hymnals \u0441\u043a\u0430\u0447\u0430\u0442\u044c\u0641\u0649\" (\"Download in English\") is a downloadable hymn/book URL, so this section presents a hymn-verse pairing in a devotional or devotional hymnbook context.\n\nFinal token \"doubt?\" ends an incomplete poetic question mid-verse, immediately requiring the rest of the translated Psalm 130:1 KJV text or continuation of that verse's poetic structure.\n</explanation>",
+  "resp_len": 147,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 13,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBureaucratic/academic policy journalism register, systematically cataloguing racialized segregation statistics for Toronto neighborhoods with supporting evidence and sources.\n\nPattern of presenting statistics with qualifiers and contextual caveats \u2014 each finding is paired with limitations (\"cannot be determined\"), differing data locations, or policy implications, suggesting continuation of this cautionary framing.\n\nFinal token \"First Generation\" begins a parenthetical clarification of reporter Kathy Stoffell's label, mid-sentence within a descriptive quote/column, immediately requiring completion \u2014 likely \"immigrants\" or \"Canadian immigrants\" to finish the definitional phrase.\n</explanation>",
+  "resp_len": 129,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 14,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInstructional/step-by-step service guide tone, guiding users through a library account enrollment process with tokens, email verification, and library card explanation.\n\nConversational support-portal register: phrases like \"May I help you\" signal customer service communication, prompting friendly direct assistance.\n\nFinal phrase \"Helping you\" is mid-sentence, part of a customer service response reassuring the user about account information \u2014 next tokens must complete this verb phrase, likely continuing with a verb like \"set up,\" \"get your account,\" or \"enroll.\"\n</explanation>",
+  "resp_len": 121,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 15,
+  "text": "<think>\n\n</think>\n\n<explanation>\nE-commerce product listing format with detailed seasonal/blanket description establishing context for artisanal collection branding.\n\nBrand signature element: \"Lilly Leanne\" introduces the bespoke leather scarf as part of a named artisan collection, signaling promotional branding language ahead.\n\n\"Gretel Hand\" is the beginning of a brand name/line of leather product series \u2014 specifically \"Gretel Handcrafted\" \u2014 a proper noun mid-word requiring immediate completion, likely \"crafted\" followed by descriptors of luxury materials or care details.\n</explanation>",
+  "resp_len": 113,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 16,
+  "text": "<think>\n\n</think>\n\n<explanation>\nApp store promotional/marketing copy pattern, describing a brain-teaser game with enthusiastic feature listing tone.\n\nThe sentence \"Offers hours of fun and\" promises a continuation listing benefits, likely completing a pair like \"challenge\" or \"entertainment,\" common in marketing copy.\n\nFinal word \"and\" is a coordinating conjunction mid-phrase, requiring an immediate noun or adjective complement to complete \"hours of fun and [challenge/diversity/variety]\"\n</explanation>",
+  "resp_len": 102,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 17,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPolitical op-ed format: argument building momentum toward bipartisan compassion call, balancing agricultural and environmental concerns.\n\nNarrative arc of \"working toward a shared vision\" sets up a culminating appeal for unity and collective responsibility across stakeholders.\n\nThe word \"all\" ends a elliptical clause (\"we all\") requiring completion \u2014 likely an emphatic shared noun phrase such as \"we all deserve,\" \"we all rely on,\" or \"we all need\" to reinforce community and stakeholder unity as the text concludes.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 18,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBlog/archival resource page structure: metadata header followed by diverse content blocks, guiding the next entry's format.\n\nThe \"Quote Friday\" section introduces a curated speech/images weekly feature, establishing an editorial framing around notable speakers/illustrators.\n\nFinal token \"Edmund\" is the start of a name within a quotation attribution (\"speak on Edmund...\"), immediately requiring the surname \"Dekker's\" (matching the earlier described author) and likely a verb phrase referencing his work or themes.\n</explanation>",
+  "resp_len": 111,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 19,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBlog post maintaining an informal personal testimony style, sharing RRSP/retirement investment experiences with a conversational, first-person tone.\n\nThe phrase \"Lom\" is clearly the beginning of \"Lomond\" (the channel mentioned earlier), pointing directly toward describing what Lomond was learning or discovering about RRSP/Roth contributions/how-to guidance.\n\nFinal token \"Lom\" is a truncated proper noun mid-sentence, strongly constraining the next tokens to complete \"ond\" plus a verb/predicate describing what he was learning throughout the article/blog.\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 20,
+  "text": "<think>\n\n</think>\n\n<explanation>\nIncoherent, garbled text spam with no coherent meaning or genre pattern establishes a low-quality filler/SEO content context, shaping simplistic syntactic output.\n\nNarrative momentum: the text has been descending into nonsensical jargon and fragmented sentences, suggesting continuation of similarly disorganized filler text.\n\nFinal token \"2009\" is part of a truncation mid-date (\"February 200\"), immediately constraining the next token to complete the year digit \"9\" (making \"February 2009\") or a closing punctuation mark.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 21,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEvent/promotional description establishing a concert or show lineup, requiring completion of what the event entails.\n\nThe phrase \"they will play their most known hits\" establishes a strong pattern of listing musical content, suggesting additional notable items will follow, likely \"biggest\u2026\"\n\nFinal token \"biggest\" is mid-noun-phrase, almost certainly beginning \"biggest hits\" or \"biggest songs,\" completing the parallel structure with \"most known hits.\"\n</explanation>",
+  "resp_len": 101,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 22,
+  "text": "<think>\n\n</think>\n\n<explanation>\nMarketing case study tone with benefits-first approach: the text has been cataloguing product features and customer pain points, leading to solution payoffs.\n\nThe phrase \"Product features are\" sets up a description of how the booth's design tactics translated into customer benefits \u2014 immediately expecting imaginative, engaging wording like \"effortlessly communicated\" or \"caught the attention.\"\n\n\"are\" is a linking verb mid-predicate, requiring a predicate complement immediately after \u2014 likely an adjective or past participle phrase completing the transformation of abstract design features into customer engagement outcomes.\n</explanation>",
+  "resp_len": 121,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 23,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical data model documentation explaining database relationships and table structures for ITSM tickets/triggers.\n\nThe sentence describes a join clause pattern repeating (`FROM ITSM_trigger_dup T1 JOIN ITSM_<tableType> T2 ON <equals>`), where `T1` is always triggered by `T2`.\n\nThe final token `ITSM_issuemood` is a table alias naming in progress \u2014 completing the table name, which must be followed by a specific field/column reference (`<field of T2>`) after `ON`, then a condition defining which trigger fields reference which issue/changelog fields.\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 24,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews report narrative momentum: after introducing the stakeholder meeting and DPA concern, specific evidence or context explaining the importance of teeth/oral health is expected.\n\nDirect speech/dialogue continuation: the sentence ends with \"considering,\" an adverb introducing a subordinate clause that will elaborate on the current dire circumstances \u2014 likely referencing the coronavirus pandemic, food shortages, or poverty's impact on dental health.\n\nFinal token \"considering\" is a subordinating conjunction opening a dependent clause, requiring a noun phrase or clause detailing the specific urgent reason elaborated earlier (\"based on available evidence from contested sources\").\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 25,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic paper metadata format \u2014 structured fields like \"Authors,\" \"Affiliation,\" \"Issue No,\" \"Seminar/Conference Title\" suggest a reference or database record listing paper information systematically.\n\nSequential metadata entries pattern \u2014 each line adds a new bibliographic field (Authors \u2192 Affiliation \u2192 Issue \u2192 Title), implying a publishing/abstract repository format continuing through standard metadata elements.\n\n\"Publishing Date\" is the final field label, acting as a section header in metadata; it immediately requires a date value (e.g., \"2019-05-16\") or descriptor like a timestamp to follow.\n</explanation>",
+  "resp_len": 136,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 26,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific explanation pattern: the passage explains mRNA/vaccine technology mechanisms with precise, technical language expected (\"ability to...\").\n\nCausal chain continuation: \"lose their ability\" signals an incomplete infinitive clause requiring a specific function or capability that mRNA/RNA loses once introduced to living cells, likely protein-expression capacity or partner-attachment function.\n\nFinal token \"ability\" opens an infinitive phrase (\"to [do something]\"), requiring a verb that describes a key biological function mRNA or RNA species must retain \u2014 likely \"to bind,\" \"to be translated,\" or \"to fold properly.\"\n</explanation>",
+  "resp_len": 129,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 27,
+  "text": "<think>\n\n</think>\n\n<explanation>\nListing/continuation pattern: \"Alibaba,,\" signals a comma-separated list of Chinese tech giants or similar companies still being enumerated after Alibaba.\n\nDomain context: finance/equity sector, discussing Chinese internet companies with global stock listing implications, so subsequent names are expected to be tech firms with stock market presence.\n\nFinal token is the comma after \"Alibaba,\" \u2014 this is a list continuation marker mid-enumeration, requiring at least one more company name (e.g., \"Tencent,\" \"JD.com\") to complete the joined list.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 28,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical documentation explaining coal power plant pollution control, maintaining informative/educational tone throughout.\n\nThe sentence structure promises completion: \"is removed by equipment\" sets up a noun phrase specifying *whose* or *what type* of equipment (e.g., \"on site\" or \"before reaching the atmosphere\").\n\nFinal token \"equipment\" is mid-phrase, acting as the object of \"by\" \u2014 the immediate next token must complete this noun phrase, likely with a prepositional phrase such as \"on site\" or \"located at the plant.\"\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 29,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSequential gardening guide structure: each heading (\"Planting time,\" \"Scoring prep,\" \"Planting up\") signals numbered/titled steps following a strict step-by-step instructional format.\n\nThe guide tracks tomato growing from propagation through planting, so next steps logically cover transplanting sprouted tomato cuttings into prepared soil beds.\n\n\"A few days later\" is a time marker introducing the next procedural step, strongly constraining what follows to describe transplanting sprouted cuttings (e.g., \"Once your cuttings have sprouted\u2026\").\n</explanation>",
+  "resp_len": 118,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 30,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPublication credit/attribution register: \"Won Tech Transfer Spotlight\" begins a named source citation requiring the journal's name to follow.\n\nScientific discovery announcement structure: the passage chronicles a breakthrough, then pivots to acknowledging the source/editor, signaling a closing citation block.\n\nThe final token \"201\" is the beginning of a year in \"DOE Contractor Highlights-201X,\" requiring 2-3 digits to complete the year (e.g., \"2019\" or \"2018\"), followed by journal name and publication details.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 31,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInstitutional/informational register about a music performance season, listing venues, education programs, and tour plans in formal bullet-style format.\n\nGeographic expansion narrative momentum: \"now also playing in Germany\" suggests completion of a series of international venue mentions, with specific cities or dates likely following.\n\nThe final token \"Germany\" ends a geographic phrase mid-list, strongly constraining the next token to be a comma followed by cities, a prepositional phrase like \"this year,\" or a period/closing punctuation completing the travel scope.\n</explanation>",
+  "resp_len": 120,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 32,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical forum/instruction post about CPU frequency adjustment on Debian Lenny with AMD64, expecting a software tool name or package recommendation to follow.\n\nThe phrase \"the package\" is a generic noun requiring a specific package name or application to complete the thought, strongly constraining next tokens to be a named software package.\n\nFinal token \"package\" ends an incomplete noun phrase \"the package,\" directly requiring a name, version, or descriptor like \"adjustclockd,\" \"cpufreq,\" or \"lm-sensors,\" as a Debian/AMD64 tuning tool.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 33,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific/encyclopedic tone describing dogwood ecosystem importance, requiring factual, measured continuation.\n\nArgumentative momentum: paragraph building a case for dogwoods as urban/street trees, listing benefits systematically; \"also can cut\" signals a second list of benefits (after \"cool buildings\" and \"reduce costs\").\n\nFinal token \"cut\" is a verb beginning a new clause, likely completing a phrase like \"reduce energy costs\" or \"cut down on air pollution/pollen,\" continuing the cost-benefit enumeration pattern.\n</explanation>",
+  "resp_len": 117,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 34,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific abstract genre: formal biomedical/biophysics register with IMRaD structure (objective, method, mechanism).\n\nNarrative/argumentative momentum: the study's stated aim (preclinical SPECT tracing) has been framed, and \"explored\" signals the next content describes experimental results, methodology, or contributions/outcomes.\n\nFinal token \"imaging\" closes a noun phrase \"radiolabeled pancreatic cancer targeting for radiotracer specificity-based SPECT imaging,\" functioning as the object of \"explored\"; the next text likely continues with results, findings, or further elaboration on methodology.\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 35,
+  "text": "<think>\n\n</think>\n\n<explanation>\nList continuation pattern: a series of chemical compound names separated by commas, following \"aluminum hydroxide, aluminum oxide...\" suggesting more compounds remain.\n\nDomain/genre signals: chemical database or industry catalog context, with technical product names and regional competitive market analysis preceding the list.\n\nFinal token is a comma after \"aluminum hydroxide,\" acting as a list continuation marker, strongly constraining the next token to be another chemical compound name or synonym related to aluminum/aluminum hydroxide.\n</explanation>",
+  "resp_len": 111,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 36,
+  "text": "<think>\n\n</think>\n\n<explanation>\nStructured project specification format: numbered sections (1.1, 1.2, 1.3) follow a consistent pattern of labeled headings with brief explanations.\n\nPattern of project management details expected: \"Project duration\" is a conventional field in project documentation, typically followed by estimated timeline or timeframe details.\n\nFinal token \"duration\" ends an incomplete labeled section heading \"Project duration\" \u2014 the next token(s) must provide a colon, period, or value (e.g., \":\", \" ~X months,\" or \"12 months\") specifying the project's expected timeline.\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 37,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical automotive forum content following a \"PBP\" racing event recap, mixing Mazda 3 information with Super GT references \u2014 next content continues this topic.\n\nThe sentence structure \"These are the last two GT vehicles from the 2017 Super GT season \u2014 the.\" promises a numbered list of specific car entries; \"the\" introduces a specific vehicle name/model.\n\nThe final token \"the\" is a definite article beginning a noun phrase, requiring an immediate specific vehicle name, e.g. \"the Scion tC GT\" or \"the Mazda...\" referencing the 2017 Super GT season cars just mentioned.\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 38,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing feature article about \"Dosai Kavi\" film's release, establishing background context with biographical details of director Thiru Vignesh and actors.\n\nThe sentence pattern introduces each cast member with their famous past role: Bala as \"\u0925\u094d\u092b\u094d\u0930\" (Thiruvalluvar, a noted Tamil writer/philosopher), next expected is the final cast member's real name and their prior famous film role.\n\nFinal token \"Ram\" is mid-surname for an actor, part of a list introducing cast members with their real names credited alongside their memorable film roles; the next tokens must complete this surname (likely \"Ramamoorthy\" or similar) and then specify that actor's prior famous role.\n</explanation>",
+  "resp_len": 159,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 39,
+  "text": "<think>\n\n</think>\n\n<explanation>\nJob posting structure: after listing qualifications, the \"In addition\" signals an imminent continuation of further requirements or expectations, likely professional attributes, certifications, or personal qualities.\n\nFormal recruitment register: formal, professional tone with enumerated job postings (\"Head of Internal Audit,\" \"Head of Non-examining Faculty\") guides continued bureaucratic/HR language.\n\n\"In addition\" is a transitional discourse marker at the end, explicitly setting up a new parallel clause with another requirement or candidate attribute, constraining the next tokens to describe another criterion (e.g., \"candidates should have...\" or \"s/he must also possess...\").\n</explanation>",
+  "resp_len": 134,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 40,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic repository metadata record with keyword tags section near completion; typical repository fields include date restrictions, access terms, or distribution rules.\n\nLibrary/archival rights statement pattern: \"distribution in\" strongly anticipates a legal or repository-standard phrase like \"any form,\" \"full form,\" or \"any medium.\"\n\nThe final token \"in\" is a preposition opening a noun phrase, almost certainly completing a prohibition statement such as \"distribution in any form without permission\" \u2014 standard academic repository language requiring a specific medium, form, or condition noun clause.\n</explanation>",
+  "resp_len": 121,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 41,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical product specification listing bullet-point features of a PTZ camera, following a structured spec sheet format with consistent parallel phrasing (\"Up to,\" \"With,\" \"Integrated,\" \"Supports\").\n\nThe text is mid-specification, systematically enumerating key features; \"Up to\" strongly signals an incomplete numerical specification follows (e.g., \"360\u00b0 rotation,\" \"100dB,\" \"50 ft\").\n\n\"Up to\" is an incomplete measurement/quantifier phrase requiring an immediate numeric value or descriptive limit \u2014 likely a distance, resolution figure, or angular measurement completing the specification.\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 42,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic contact list pattern: after describing research summary and lab setup, names are listed with job titles, following \"Role: ... / Organisation: ...\" structure.\n\nThe list structure implies continuation: each name entry follows a title line then organisation field, so the final incomplete \"Role: Professor of Biological Control... / Organisation: Plant and\" suggests the next token completes the organisational name, likely \"Plant and Microbial Pathology\" or similar.\n\nFinal token \"Path\" is a partial word, mid-compound (\"Plant and Microbial Path...\"), strongly constraining next tokens to complete \"Pathology\" or similar academic department nomenclature.\n</explanation>",
+  "resp_len": 142,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 43,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic paper introduction establishing problem context and research gap, requiring formal technical elaboration.\n\nThe sentence structure \"represent\" strongly signals use of the verb \"represent\" in formal academic writing, e.g., \"represent a significant challenge\" or \"represent a promising approach/task.\"\n\nFinal token \"represent\" is a transitive verb mid-sentence requiring a direct object or complement phrase describing the nature or challenge of temperature measurement in UAV internal combustion engines (gas temperature determination).\n</explanation>",
+  "resp_len": 105,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 44,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic journal article structure: a \"How to Cite\" section is concluding, typical of STM publications with standard format throughout.\n\nThe sentence ends mid-instruction about commenting, implying a call-to-action inviting reader engagement after the article, common in journal newsletters or journal posts.\n\nFinal token \"article\" completes a directive phrase \"to comment on this article,\" strongly constraining next tokens to be a closing tag, punctuation, or continuation like \"below\" or a period ending this sentence.\n</explanation>",
+  "resp_len": 110,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 45,
+  "text": "<think>\n\n</think>\n\n<explanation>\nUser is describing a phone shortcut gesture (slide to unlock), mid-sentence explaining a change they've made. Forum reply style with casual, informal register throughout.\n\nThe phrase \"went from the [previous method] to the [current one]\" sets up a before/after contrast requiring both elements to be completed \u2014 HTTP suggested sound, now switching to a new method.\n\nFinal token \"the\" is a determiner beginning the description of the new/alternative gesture; it directly requires a noun phrase (e.g., \"the standard/slide-to-unlock/handle\" gesture).\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 46,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTravel itinerary format establishing named locations with consistent pattern: place name + activities + experience, moving westward through California/Arizona.\n\nGeographical/etymological list momentum: each destination includes name origin and notable features \u2014 \"P\" likely starts a place name like \"Parker,\" \"Pahrump,\" \"Parker Dam,\" or \"Palmdale,\" consistent with southwest/Uwharrie symbolism referenced earlier.\n\nFinal token \"P\" is the start of a proper noun mid-sentence, functioning as the beginning of a place name (city, park, river) that completes the \"seeing the southwest and P\" phrase, with highly constrained likely completion options.\n</explanation>",
+  "resp_len": 146,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 47,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDomain/genre signals: Faculty profile bio in academic/engineering journalism tone, detailing Dr. Natsuhiko Kondo's expertise and professional achievements.\n\nNarrative momentum: The text builds toward Kondo's vision/leadership claim \u2014 after listing accomplishments (Chair of CMC, industry panel roles), a forward-looking declarative statement about future industry impact is expected.\n\nFinal token: \"in\" opens a prepositional phrase completing \"leading pioneers in,\" requiring a noun phrase \u2014 likely an industry domain such as \"space,\" \"regulatory development,\" or \"commercial space exploration.\"\n</explanation>",
+  "resp_len": 129,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 48,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCatalog/product listing format with consistent e-commerce structure \u2014 navigation links, product descriptions, and standard boilerplate text.\n\nConditional conditional clause \"If you have any additional questions regarding a specific product,\" signals a standard e-commerce call-to-action formula, requiring a follow-up verb phrase like \"please feel free to contact us\" or \"email our sales team.\"\n\nThe final token is a comma after \"product,\" closing the relative clause of a main conditional clause, immediately constraining the next token to be a verb or adverbial phrase completing the invitation, e.g., \"please contact us\" or \"please do not hesitate to reach out.\"\n</explanation>",
+  "resp_len": 139,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 49,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEducational/informational article pattern: structured health topic about oral health and HIV/AIDS, with clear section transitions (\"What Are Risk Factors?\").\n\nRisk factors section just introduced, requiring specific risk factors for HIV-positive people with poor oral health to be listed, following established pattern of explanatory detail.\n\nFinal sentence begins a new clause starting with \"HIV-positive people are at higher risk for certain oral complications.\" \u2014 this subject-clause setup demands a predicate completing the risk statement, likely specifying specific oral conditions or complications.\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 50,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article structure: incident reporting, moving from past details toward identifying team/organization Dreisbach joined.\n\nNarrative momentum: \"This marks Dreisbach's first move of free agency to the\" strongly implies the Bears are introducing a new team/organization he joined.\n\nFinal token \"the\" is a definite article requiring a noun phrase immediately following \u2014 specifically the name of the NFL team (Bears) or the Bears organization, completing \"the Bears\" as the expected collocation and the logical team based on the article's subject.\n</explanation>",
+  "resp_len": 120,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 51,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFinancial report structure: earnings data presented sequentially (profit, revenue, operating losses, net losses), now reaching a closing metric.\n\nParallel data pattern: \"Business software revenue were...\" mirrors earlier reporting of exact figures in USD for each metric \u2014 the reader expects a specific amount with currency (e.g., \"$X million\").\n\nFinal token \"were\" is an incomplete passive predicate opening a financial figure statement; next tokens must be a specific dollar value followed by \"million\" or similar unit, continuing the precise revenue reporting pattern established throughout.\n</explanation>",
+  "resp_len": 118,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 52,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article reporting style with formal journalistic register throughout \u2014 expect continuation of factual, neutral tone.\n\nNarrative momentum: the sentence is mid-clause explaining reasons for project abandonment, likely pivoting to consequences or further breakdown of halted progress.\n\nFinal token \"works\" ends an incomplete reported clause (\"did not exceed the design works\"), immediately requiring a period or continuation \u2014 likely a period closing the sentence, followed by additional details about halted outcomes, funds, or political implications.\n</explanation>",
+  "resp_len": 105,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 53,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article structure: formal energy journalism covering nuclear plant commissioning, establishing factual, journalistic tone throughout.\n\nNarrative momentum: introduction of the two reactors being constructed, requiring specific details about their technological design, location (unit 1 II-VI water-pressurized reactor, unit 2 delayed), and likely Russian nuclear origins.\n\nFinal token \"both\" opens a parallel construction requiring enumeration of reactor attributes \u2014 next tokens will describe shared characteristics, likely \"are nuclear reactors\" or \"will be...,\" completing the grammatical phrase started by \"both.\"\n</explanation>",
+  "resp_len": 123,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 54,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDescriptive museum catalog/academic tone establishing an exotic, culturally rich exhibition subject \u2014 expects continuation explaining the novel's thematic content.\n\nNarrative momentum: the text is building toward describing the social/cultural theme of the novel, having introduced the characters (French farm wife, Indian teahouse landlord, Indian wife) and set up the mysterious declining manner of the French couple.\n\nFinal token \"going\" is mid-phrase, almost certainly completing \"is going on\" \u2014 a common fixed phrase in narrative/genre descriptions, requiring the word \"on\" as the immediate next token, followed by elaboration of the social/cultural mystery.\n</explanation>",
+  "resp_len": 139,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 55,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPhotographic caption series pattern: each entry describes a railway/tunnel photo with location, landmarks, and context details.\n\nRegional observation theme: entries consistently feature US rail infrastructure (Midwest, Ohio Valley, Pennsylvania Turnpike), suggesting the next caption continues this regional snapshot style.\n\nFinal token \"prop\" introduces an element gone missing, almost framing the photo's railroad scene; next tokens likely complete this description with further photo-specific detail, location, or context sentence.\n</explanation>",
+  "resp_len": 104,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 56,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPsychological self-help listicle genre with enthusiastic, motivational tone (\"Pour out your heart and soul, keep it fresh\"), suggesting continued advice about social reintegration and avoiding isolation.\n\nNarrative momentum: the text has built a case explaining why high school students isolate themselves from friends, logically requiring a solution or countermeasure (e.g., \"instead focus on...\").\n\nFinal token \"doing\" ends an incomplete clause (\"what you're doing\"), part of a rhetorical setup contrasting what students focus on versus something more constructive; next tokens will likely complete the contrast with a phrase like \"and who you're with\" or \"instead of letting isolation consuming you.\"\n</explanation>",
+  "resp_len": 142,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 57,
+  "text": "<think>\n\n</think>\n\n<explanation>\nReligious pastoral document addressing an acute crisis situation, maintaining structured advisory tone throughout with specific liturgical instructions.\n\nSequential list of Friday/Saturday Holy Hour sacramental guidelines is being presented, with prior entries covering Scripture, Eucharist, bishops, reparation, and prayer \u2014 establishing a multi-item instruction list expecting continued entries.\n\n\"Oral muc\" is the beginning of the word \"mucosal\" (as in \"oral mucositis\" or \"oral mucous membrane\"), likely referencing a medical symptom Manifesting During treatment, likely describing a clinical response (worsening condition) or a liturgical guidance about SPICES prayers being offered in patients during oral mucositis.\n</explanation>",
+  "resp_len": 149,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 58,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScriptural/logical argument defending the Samaritan territory dispute, citing biblical texts (Deuteronomy, Ezekiel) to justify Jesus' claim.\n\nThe creation of a new definition of \"the Kingdom of God\" is being developed, building toward explaining how the physical Israel/Palestine territory is uniquely connected to God's eternal kingdom.\n\nFinal token: \"out,\" is the last part of a quoted biblical verse (\"and enter in,\" completes KJV's \"neither enter in, nor go out\") \u2014 the quotation is syntactically incomplete and likely continues with additional scripture or commentary explaining the entrance/leave connection to Jesus' argument.\n</explanation>",
+  "resp_len": 141,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 59,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDirect speech continuation: a quoted project leader speaking, mid-sentence, requiring completion of his projected timeline statement.\n\nConstruction/building industry domain signals: technical terminology like \"no grade work involved,\" \"tunnel excavation,\" and milestone references (\"last destination between 225th and 260th\") establish infrastructure progress narrative.\n\nFinal token \"we\" opens a first-person plural verb phrase mid-sentence, immediately requiring a verb such as \"can,\" \"will,\" or \"are\" \u2014 likely completing the timeline statement about the project's remaining conditions.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 60,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct description format for a home goods/bedding item \u2014 qualities like material, construction, and care are expected to follow.\n\nThe phrase \"100%\" is a standard fabric/material specification prefix, nearly always completing to \"100% organic\u68c9 (cotton)\" or \"100% organic linen/linen blend\" \u2014 specifically referencing cotton since the fabric is listed as cotton t-shirt cuffed fabric.\n\n\"100%\" is the final token, mid-specification, requiring an immediate percentage fabric label such as \"% Organic Cotton\" or \"% Organic Cotton T-shirt Fabric\" \u2014 no other word structure fits this exact semantic context.\n</explanation>",
+  "resp_len": 143,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 61,
+  "text": "<think>\n\n</think>\n\n<explanation>\nContinuation of an explanation of 3D rotational coordinate systems (ACTS/RK) for flight dynamics, building toward illustrating how vectors like BR and RLS position are found.\n\nThe text has previously explained that a unit vector perpendicular to two reference planes determines a third rotational axis \u2014 this example is completing that proof.\n\n\"This is\" is an incomplete sentence mid-explanation, requiring immediate continuation describing what the dyadic diagram or coordinate system depicts or proves, likely with a demonstrative phrase like \"a visual representation\" or \"how azimuth and elevation combine.\"\n</explanation>",
+  "resp_len": 123,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 62,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum building a setup/riddle: the \"You may\" phrase opens a dramatic, suspenseful continuation about an unexpected experience while watching \"The I-Land\" or similar shows.\n\nSemantic expectation of a surprising, consequences-oriented clause: \"You may\" sets up personal/generic advice about cognitive dissonance or altered perception during watching, likely involving belief displacement or suspension of disbelief.\n\nFinal token \"may\" is a modal auxiliary verb opening a modal clause, requiring a verb phrase completion \u2014 likely \"find yourself,\" \"believe,\" or \"think\" followed by something surprising or unsettling.\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 63,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBiographical/listing pattern: the text is documenting a photographer's credentials and collaborations, establishing institutional affiliations and awards.\n\n\"Ramon Buelrt\" was mangled (likely \"Ramon Buelpt\" autocorrected) as the name of a prominent photographer, establishing a named collaboration or predecessor in the establishment process.\n\n\"Ram\u00f3n Boy\" is a truncated surname mid-word, part of naming agency/organization \"Ram\u00f3n Boy[ce]\" or similar (e.g., \"Ram\u00f3n Boyce\" or a studio name), requiring completion of the proper noun before the sentence continues.\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 64,
+  "text": "<think>\n\n</think>\n\n<explanation>\nLegal/journalistic narrative momentum: TABASCO case details unfolding chronologically, building toward Fullbright's reporting role and the F\u00fchrungskraft timing.\n\nNarrative gap requiring completion: the sentence structure \"as he was on a US-sponsored tour\" demands a destination or event name (e.g., \"of China\" or visiting US Gunpowder Partners).\n\nFinal token \"tour\" is a noun mid-phrase without a prepositional complement; the immediate next tokens must specify what the tour was visiting or where it took place, e.g., \"tour of China.\"\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 65,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInformal web/guide content style \u2014 casual personal tone (\"Ya! An famous photo effect\"), lists, comparisons typical of tech/freeware articles.\n\nThe text covers free photo editing tools and is building toward a structured comparison or list of recommended apps/services, suggesting continuation with more product recommendations or a call-to-action.\n\nThe final sentence mentions \"free account services\" with online calendar links, implying subscription or paid alternatives are now being introduced, so next tokens likely transition to free vs. paid platforms or name another similar service.\n</explanation>",
+  "resp_len": 117,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 66,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing obituary format listing family members with their ages in parenthesis, following person's name and relationship.\n\nThe pattern \"Name: (age) Relationship\" repeats throughout, consistently providing full names and role descriptions, strongly constraining the next tokens.\n\nThe truncated surname \"M\" is the start of a middle initial abbreviation, likely \"Mae\" or \"Mary\" equivalent (e.g., \"Mae M.\" or \"Mary Ann\"), fitting the established family name \"McNamara.\"\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 67,
+  "text": "<think>\n\n</think>\n\n<explanation>\nElection context: voters are choosing between candidates, establishing that a decision between Schatz and Wyden must be made.\n\nRepetitive advertising pattern: each candidate gets their full biography followed by the promise phrase \"candidates you feel will,\" creating strong structural expectation for completion.\n\nFinal token \"will\" is part of an incomplete conditional clause (\"candidates you feel will\"), requiring a verb phrase immediately following, almost certainly \"best represent you\" or \"represent your interests,\" completing the promise-motivation argument for voting.\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 68,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBibliographic citation format: structured URL, image credit, and website URL following standard web reference patterns.\n\nAstronomy photography credit convention: \"Imaging: [names/members], [institution]\" typically precedes a website name, technical details, or further attribution.\n\nThe final token \"cele\" is a truncated word, almost certainly \"celestron\" (the telescope brand commonly used by amateurs) or \"celestial,\" starting a compound proper noun or organization name following the URL citation structure.\n</explanation>",
+  "resp_len": 113,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 69,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct page e-commerce format signals standard \"Notes/FAQs\" section with shipping/modification policy language following.\n\nThe phrase \"To request modifications concerning\" is mid-sentence, promising a list of acceptable modification types or limitations (e.g., color, size, materials), typical in clearance/product special-order contexts.\n\nFinal token \"concerning\" is a preposition beginning a noun phrase, requiring immediate completion such as \"color,\" \"size,\" or \"materials\" \u2014 specific item attributes customers can request changes for.\n</explanation>",
+  "resp_len": 116,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 70,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAdult incontinence product description following a promotional/marketing register, listing product benefits and problem scenarios in sequence.\n\nThe text systematically addresses common anxiety-inducing situations (pregnancy, moving home, septum piercing), establishing a pattern of problem \u2192 product solution, requiring continuation of this list or elaboration.\n\n\"Big changes\" is the end of an ongoing list of stress/anxiety triggers, suggesting a parallel sentence or continuation follows, likely with \"in lifestyle\" or a clause explaining why big changes cause anxiety.\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 71,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDomain/genre signals: SEO/aggregated mining equipment content mixing product specs, company names, and equipment descriptions, suggesting fragmented web-scraped text continuing in the same style.\n\nRepetition/continuation pattern: The text consistently cycles through mining equipment descriptions, company names, and technical specifications \u2014 next content likely continues this pattern.\n\nFinal token \"is\" opens an incomplete predicate clause (\"stone crushing plant is\"), expecting immediate continuation with an adjective or noun phrase describing the plant's nature, such as \"a crucial part\" or \"an essential component\" of the mining process.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 72,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNumerical continuation pattern: \"over 3\" strongly expects a specific number like \"35 years of experience,\" \"3 above average performances,\" or similar completion of a statistic phrase.\n\nMarketing/promotional register: formal business service page tone emphasizes credibility and expertise, guiding choice of high-quality, reassuring language.\n\nFinal token \"3\" is the start of a number within a superlative claim (\"over 3\"), immediately constraining next tokens to digits or a unit/ordinal, most likely completing \"35 years of experience\" or \"3 decades.\"\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 73,
+  "text": "<think>\n\n</think>\n\n<explanation>\nParallel list structure: the text enumerates relaxation techniques (\"acupuncture,\" \"massage,\" \"stress management,\" \"thermal heat therapy\") with \"and\" as the final connector, requiring at least one more technique to complete the series.\n\nHealth/alternative medicine promotional register: informal yet informative tone describing holistic wellness options targets a wellness-oriented audience seeking natural therapies.\n\nFinal token \"and\" is a coordinating conjunction mid-list, directly demanding an additional relaxation technique noun phrase to complete the enumeration of practices offered at the wellness studio.\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 74,
+  "text": "<think>\n\n</think>\n\n<explanation>\nRanking list pattern: numbered/state-wise rankings of hurricane-prone areas shown (2nd, 106th, 125th, 107th), predicting next state rank \"147\" continues the sequence.\n\nSisyphean structure repetition: each entry follows \"[rank]/[state]: Muni on [hurricane attribute,\" establishing near-identical template expected for the next.\n\nFinal token \"147\" is a truncated rank number mid-entry, immediately requiring the next tokens to complete the rank-entry format: \"/[state]: [Municipal]\" mirroring the established pattern above.\n</explanation>",
+  "resp_len": 143,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 75,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSequential release announcement pattern: each sentence introduces a new Ghostbusters-related movie release, building a list of upcoming titles.\n\nThe text promises specific movie titles and project details (name, director, movie official name, studio), establishing a template for each entry.\n\n\"set for his next part in\" is an incomplete prepositional phrase requiring a specific movie title as its object \u2014 the next tokens must yield a proper noun title, almost certainly \"Ghostbusters: Afterlife,\" the conversation/discussion topic established throughout.\n</explanation>",
+  "resp_len": 114,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 76,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific descriptive biology text documenting bilateral anatomical terminology and histological detail throughout.\n\nThe phrase \"pairs of rhomb shaped ridges on\" sets up a prepositional construction describing where the ridges occur, strongly expecting a specific anatomical location such as \"the third tooth\" or \"the mandibular tooth.\"\n\nFinal token \"on\" is a preposition mid-sentence, requiring an immediate noun phrase specifying the anatomical structure covered by the upper mandible's rhomboidal ridges, likely a specific tooth or bone name consistent with cephalopod morphology.\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 77,
+  "text": "<think>\n\n</think>\n\n<explanation>\nExperiential catalog/rant structure: author cataloguing personal travel experiences, building toward philosophical contemplation of planet earth's beauty.\n\nRhythmic poetic momentum: the sentence follows a contemplative, lyrical pattern (\"feel the planet... Heartblooming through your being... and breathe the artistry\"), demanding a poetic completion.\n\nFinal token \"artistry\" ends a verb clause \"breathe the artistry,\" requiring a prepositional or noun-object continuation \u2014 likely something like \"in every breath\" or \"of this living world.\"\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 78,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum concluding a book review/listicle post, building toward enthusiastic anticipation language (\"eagerly\").\n\nThe emotional/contraction rhythm of \"eagerly\" signals a positive, anticipatory conclusion, likely expressing eagerness to read or wait for these books.\n\n\"eagerly\" is an adverb ending mid-sentence, requiring a verb phrase next \u2014 most likely \"await,\" \"look forward,\" or \"wait,\" completing the reader's enthusiastic forward-looking sentiment.\n</explanation>",
+  "resp_len": 108,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 79,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFAQ format continuation: Structured Q&A pattern with bolded questions followed by answers, establishing consistent format throughout.\n\nSemantic expectation: The question about customization naturally demands elaboration on color range, availability, and visual variety of options available for stamped concrete.\n\nFinal token \"concrete\" closes a partial question phrase \"how many colors of stained concrete\" \u2014 the immediate next token is almost certainly a closing punctuation mark like \"?\" to complete the\u95ee\u53e5, followed by an explanatory answer.\n</explanation>",
+  "resp_len": 107,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 80,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSports game recap narrative structure: each player getting summarized with score/strikeout count following their description.\n\nThe text follows a pattern of introducing a player, their action, and a score/strikeout result (e.g., \"after working through a side, Wilhelm recorded two strikeouts and third [out]\"), so a score result likely follows.\n\nThe final token \"third\" is an incomplete ordinal adjectival phrase (\"third strike\" or \"third out\"), requiring immediate continuation with a noun like \"strike\" or \"out\" completing the baseball action/referenced situation.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 81,
+  "text": "<think>\n\n</think>\n\n<explanation>\nLegal news report following formal inverted-pyramid structure; factual enumeration of lawsuit details (names, organizations, amounts) establishes pattern of specific detail expansion.\n\nThe sentence structure \"charged Mark Gatzke and his company, Commercial Advantage GF LLP\" is mid-completion, requiring continuation describing the legal claim, victim, or context of the breach/charge.\n\nFinal token \"LLP\" is part of a company name mid-clause; the sentence must complete the legal subject description, most likely by naming specific complainants (employees harmed) or specifying the nature of the allegations charged against them.\n</explanation>",
+  "resp_len": 130,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 82,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCode-sharing forum context: user is posting Java code with comments, requesting help with an import/export utility.\n\nNarrative momentum: user has explained context, described code, and is systematically asking for assistance; the next token continues the self-description aiding the assistant.\n\nFinal phrase \"my original\" is part of a self-introduction toward the end of the thought, immediately requiring a noun completing the phrase \u2014 likely \"code,\" \"file,\" or \"Java source\" to contrast or accompany the shared code snippet.\n</explanation>",
+  "resp_len": 113,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 83,
+  "text": "<think>\n\n</think>\n\n<explanation>\nGeographic boundary listing in formal official document \u2014 establishing precise road/intersection markers to delimit the mapping area.\n\nPattern of enumerated coordinate points: each boundary is defined by two intersecting roads/roads and street names, mirroring \"Snyder Rd. and Sunset Blvd.\"\n\nFinal token \"I-5\" is the partial name of a road in the ongoingStreet Address list \u2014 immediately requires \"and\" followed by a second intersecting road or street name completing the \"and... and [Road Name] Street\" boundary marker pattern.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 84,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPersonal testimonial blog format establishes narrative momentum toward positive practitioner endorsement after describing anxiety/experience.\n\nThe phrase \"Dr. Braccia is and one\" begins a compound noun or intensified descriptor, requiring a completing adjective or title (\"one of the best\"/\"one that made me feel...\").\n\nFinal token \"one\" is mid-phrase in a comparative/praising construction \u2014 almost certainly part of \"one of the...\" or \"one that...\" structure, demanding immediate continuation with a pivotal quality or superlative adjective about the doctor.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 85,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article reporting on a Ministerial inquiry, following journalistic inverted-pyramid structure; policy/legal content expected throughout.\n\nThe accelerating list-style formulation \"fuller knowledge and of the incident's conduct, and reviewing the Hamas administrations\" strongly implies continuation of the investigative/parliamentary activity details \u2014 what these reviews entail or what findings emerged.\n\nFinal token \"apparatus\" ends a dangling phrase requiring grammatical closure \u2014 likely a prepositional phrase (e.g., \"apparatus and its operations/security\") completing the description of the inquiry's scope, followed by reporting what was learned.\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 86,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFormal press release/news style throughout, with official Irish Department language, maintaining serious bureaucratic tone.\n\nThe quoted statement from the Department continues mid-sentence, requiring immediate completion of the department's official response to the hearing outcome.\n\nFinal token \"The Department\" opens a new subordinate clause or continuation within the direct quotation, immediately constraining the next tokens to be a verb phrase describing the Department's position or action on the storm damage matter.\n</explanation>",
+  "resp_len": 99,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 87,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFood-review genre with consistent descriptive, critical tone; each dish gets a paragraph detailing quality, presentation, and the writer's personal reaction.\n\nSentence structure \"than the flattened b\u00fan m\u00ec\" implies a comparative clause completing a contrast with a specific dish (b\u00fan m\u00ec), requiring a complement specifying *which* b\u00fan m\u00ec dish and its insufficient merits.\n\nFinal token \"b\u00fan m\u00ec\" is a specific Vietnamese dish mid-comparative phrase, immediately requiring a noun modifier (\"rice noodles\" or similar descriptor) plus a critical follow-up clause about what was lacking or inferior.\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 88,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic/researcher-oriented writing establishing the significance of Clarke's 1867 work, building toward scholarly argument.\n\nThe sentence structure \"the completeness of the text...is\" promises a descriptive predicate phrase \u2014 a key scholarly qualification or predicate adjective, likely emphasizing its value, rarity, or importance.\n\nFinal token \"is\" is a linking verb beginning a predicate, requiring an immediately following adjective, noun phrase, or title-based descriptor (e.g., \"a important source\" or \"surprisingly comprehensive\").\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 89,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNumbered list pattern: \"This article gives you five tips for an energy\" establishes a listicle format with structured tips requiring completion.\n\nTechnical domain signals: energy efficiency in \u03c7\u03bb\u03af notion buildings context, expecting domain-specific vocabulary like \"efficient design,\" \"sensitive building,\" or \"smart village.\"\n\nFinal token \"energy\" is the start of a compound noun/adjective, strongly constrained to complete as \"-efficient\" or \"-sensitive\" in the context of building/urban planning reference.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 90,
+  "text": "<think>\n\n</think>\n\n<explanation>\nForm/contact information section following a standardized \"follow us\" boilerplate pattern, common in academic course descriptions. The pattern \"for questions, please call us at +91 9...\" indicates a phone number being provided.\n\nContact information conventions: Indian phone numbers typically follow +91 after the country code, then 10-digit local numbers (e.g., 9-digit mobilizer number + 1 more digit).\n\nThe final token \"9\" is the start of a 10-digit Indian mobile number following the international dialing prefix \"+91 9\", requiring exactly 9 more digits to complete the number.\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 91,
+  "text": "<think>\n\n</think>\n\n<explanation>\nRhetorical argument building to a conclusion about memorabilia's value vs. athletic achievement \u2014 a counterargument or qualification is expected.\n\nThe sentence beginning \"But no achievement is any\" sets up a superlative or comparative phrase like \"But no achievement is any more important/valuable than learning to play the game.\"\n\nFinal token \"any\" is part of the idiom \"any more/valuable/important than,\" requiring an adjective or comparative followed by \"than,\" completing the contrast between athletic achievement and the life lessons of playing baseball.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 92,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBulleted list structure with consistent format: item number, hyphen, then description \u2014 pattern established and still continuing.\n\nThe collection system announcement follows a formal event logistics/newsletter style, with specific procedural details about drop-offs and pickup arrangements.\n\nFinal token \"by\" ends a passive-voice construction (\"retrieved by [who/what]\"), requiring a noun phrase identifying the person or method responsible for retrieval \u2014 likely a specific group, time, or location (e.g., \"the artist,\" \"their author,\" \"Saturday [date]\").\n</explanation>",
+  "resp_len": 123,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 93,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative outcome structure: the goal/result sequence is established \u2014 her selfless acts change her fate \u2014 now the redemption/justification mechanism must be explained.\n\nQuotation continuation: the reader is still inside Newman's direct speech mid-sentence, requiring grammatical completion of \"become a ___\" \u2014 likely \"better person/human/real person.\"\n\nFinal token \"a\" is an indefinite article beginning a noun phrase; grammatically precludes a adjective alone, requiring a specific noun like \"better person,\" \"real human,\" or \"true moral person.\"\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 94,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSetting up a metaphor/analogy: \"Just like the nearest bright light\" begins a simile comparing something to a light source, likely describing a product feature or appeal contrast.\n\nHistorical/homonym content pattern: The article pairs \"light\" with \"life,\" referencing \"universal light\" and \"light life\" \u2014 the next tokens will almost certainly complete the famous phrase \"universal light\" (i.e., \"as bright as the universal light\").\n\nFinal token \"light\" is the last word of an incomplete analogy (\"Just like the nearest bright light\"), strongly constraining the next word to \"as\" or \"is\" continuing the simile.\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 95,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProgramming question with syntax error alert \u2014 \"ax..x\" mid-line suggests incomplete or malformed input code being analyzed for why the system won't compile/run.\n\nSpeaker established their own role as author/creator (\"We wrote this program by ourselves\"), implying self-diagnosis is underway, so the next content will likely explain a suspected misunderstanding or mistake (e.g., wrong library usage, syntax errors, misinterpretation of input data format).\n\n\"Why\" is the final word, a incomplete question demanding a direct explanation \u2014 grammatically and semantically, an answer or reasoning clause (e.g., \"we think this line is wrong/because...\") must immediately follow.\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 96,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCorporate/press release format signals continued product/technology description about Quala's capabilities and markets.\n\nThe phrase \"in-depth knowledge of printing, d\u00e9cor, stickers, in-surface\" establishes a list pattern of industry-printing-related expertise areas, strongly implying additional related domains follow (e.g., engraving, labeling).\n\n\"in-surface\" is the final token, part of a compound noun phrase \"in-surface [technology/specification/decals/solutions]\" \u2014 the model must immediately complete this compound term, likely with \"technology\" or a similar domain-specific noun.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 97,
+  "text": "<think>\n\n</think>\n\n<explanation>\nWeather forecast format establishes a pattern of temperature ranges with high/low structure, requiring completion of the temperature interval.\n\nThe incomplete temperature range \"75 degrees\" is clearly a mid-range midpoint for suburban hilly areas, strongly predicting a higher civil defense temperature value like \"75 to 80s\" or \"75 to 85 degrees.\"\n\nThe truncated word \"70\" is mid-number, part of the lower suburban hilly temperature range, immediately constraining the next tokens to complete that temperature (e.g., \"s\" or a two-digit number like \"77\").\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 98,
+  "text": "<think>\n\n</think>\n\n<explanation>\nListicle/guide structure with numbered and sub-pointed recommendations \u2014 \"Also, you should\" signals another specific tip advising players to research a site.\n\nIdiomatic advice pattern established throughout (\"know what you're getting yourself into,\" \"consider bonuses\") \u2014 informal, promotional tone continues into the next recommendation.\n\n\"You should\" opens a prescriptive clause requiring an infinitive verb phrase, likely something like \"determine,\" \"check reviews,\" or \"make sure it's legal\" \u2014 a direct advice tip continuing the site-review guide.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 99,
+  "text": "<think>\n\n</think>\n\n<explanation>\nIndustry report structure: technical commodity analysis with market data, price figures, and supply-demand forecasts leads to a concluding assessment summary.\n\nSupply-demand narrative momentum: arguments about surpluses, conversions, and expected OPEC actions have been building toward a synthesis \u2014 \"otherwise oversupplied\" reinforces an impending qualification or counterpoint about long-term outlook.\n\nFinal token \"oversupplied\" ends an incomplete concluding clause (\"otherwise oversupplied\") likely followed by a contrasting adverb or phrase such as \"with\" or \"but is expected to tighten/improve in X months,\" balancing near-term supply concerns against long-term demand drivers.\n</explanation>",
+  "resp_len": 137,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 100,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical/educational report style establishing consequences of specific experimental conditions, maintaining formal informational tone throughout.\n\nNarrative momentum: the sentence is mid-explanation of particle types introduced, having identified \"gray/block soot particles\" and their over-ashing property; the next tokens must complete this thought about what these particles do.\n\nFinal token \"into\" is a preposition requiring a noun phrase object \u2014 specifically describing the atmospheric/air quality destination particles enter, likely \"the atmosphere,\" \"air,\" or a specific airborne medium.\n</explanation>",
+  "resp_len": 116,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 101,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific explanation of aurora borealis display mechanics, establishing cause-effect relationship between satellite movement and visual phenomenon.\n\nThe text follows a pattern of building toward a vivid, evocative description of what the auroras visually appear \"as\" \u2014 a common phrase in astronomy/photography writing prompting a metaphorical or descriptive noun phrase like \"rivers,\" \"swirls,\" or \"streamers of light.\"\n\nFinal token \"as\" opens a comparative metaphor or descriptive noun phrase; immediately requires a visual/figurative noun (e.g., \"swirls of light\" or \"a dance of streams\") describing the auroral display pattern.\n</explanation>",
+  "resp_len": 143,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 102,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInvestigative news narrative profile of Rep. Yvette D'Arcy, establishing her legislative record and recent allegations, building toward her confronting questions about her actions.\n\nThe article follows a journalistic template: backstory \u2192 detailed testimony/record \u2192 unresolved allegations, now reaching a climax with consequences for D'Arcy.\n\n\"Miss D'Arcy faced\" is an incomplete clause mid-sentence, requiring a direct object or infinitive phrase describing what she encountered or was questioned about \u2014 likely a specific specific accusation or difficult question regarding her vote on the directed-borrowing legislation.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 103,
+  "text": "<think>\n\n</think>\n\n<explanation>\nIndirect speech/quotation continuation: Verily's mission summary in progress after being introduced by \"We offer free...\"\n\nAudience/mission framing establishes the next tokens will describe the core activity \u2014 literacy, arts, or personal growth programs for underserved youth.\n\n\"free\" is the final word, mid-noun-phrase, requiring a noun or noun phrase immediately after \u2014 almost certainly \"literacy/writing\" programs, \"arts,\" or similar service-oriented offering consistent with graduate degree mentioned.\n</explanation>",
+  "resp_len": 111,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 104,
+  "text": "<think>\n\n</think>\n\n<explanation>\nMovie review register maintained throughout \u2014 appreciative/ironic tone, balancing praise with critiques of clich\u00e9s.\n\nNarrative momentum: the clause \"doesn't go the obvious route\" sets up an contrast with the typical romantic-comedy formula, implying the film avoids predictable tropes \u2014 next tokens will complete this setup and explain *how* the film delivers the twist or alternative approach.\n\nFinal token \"route\" ends an incomplete subordinate clause (\"doesn't go the obvious route\"), requiring a complement or subordinate clause explaining what the film *does* instead, e.g., \"they take a unique/clever approach...\"\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 105,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPersonal review/podcast format following a consistent structure of describing TV episodes, then connecting them to real-life significance (\"real life looking just like the story\"). The conversational, analogy-driven tone maintains throughout.\n\nThe narrative trajectory builds toward high expectations about Lewis's performance on the show, given his status as \"one of the best actors\" \u2014 establishing a setup that demands fulfillment/fulfillment details next.\n\nFinal token \"I\" opens a first-person contrast clause (\"Since Lewis is...one of the best actors, I...\"), requiring a verb phrase expressing anticipation, faith, or a predication about his performance on the show.\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 106,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFashion/lifestyle blog tone with numbered list of street style outfits establishing a \"if you want to\" practical recommendation pattern. Readers expect actionable advice on how to incorporate the look(s) into their own wardrobes.\n\nThe list transitions from explaining the mechanics of the celebrity pant news into concrete styling tips, implying a direct reader-addressed suggestion follows.\n\n\"If you\" ends a conditional clause opening, strongly constraining what follows to a verb phrase like \"want to emulate,\" \"are looking for,\" or \"are heading to a,\" completing a reader-focused practical recommendation.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 107,
+  "text": "<think>\n\n</think>\n\n<explanation>\nParallel structure between two oil fields (Shymkent/Jambyl and Atyrau Karachaganak) \u2014 the second clause must complete the Atyrau field's production figure conversationally introduced by \"compared.\"\n\nThe comparative construction \"compared\" directly signals an upcoming contrasting figure, e.g., \"compared to X barrels in 2020\" or \"compared to an average of X barrels per day.\"\n\nFinal token \"compared\" is a comparative adverb beginning a paired or contrasting clause, requiring a prepositional phrase specifying the reference point (time period or benchmark).\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 108,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBureaucratic/institutional document style signals formal descriptive prose about library archives management.\n\nThe text is enumerating the archive's purposes and benefits, following a pattern of listing resource uses (\"FOSSILS enriches research and teaching, provides scans/images for staff...\").\n\nFinal token \"staff\" ends mid-phrase after \"for,\" strongly expecting a continuation identifying whose work/staff \u2014 likely \"staff and students,\" \"staff members,\" or \"staff researchers/archivists\" \u2014 completing the object complement.\n</explanation>",
+  "resp_len": 116,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 109,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBulleted list structure with parallel format established throughout: each point follows \"- [Action] [outcome description]\" pattern.\n\nThe text promises AWS can help with specific BIM challenges opencadors, so the next tokens must continue listing software-enabled BIM tasks (e.g., \"to BIM model creation\").\n\nFinal token \"models\" ends a partial bullet point beginning \"Configure software to importing models,\" directly requiring continuation of that clause \u2014 likely \"to BIM model creation\" or similar BIM-related software task phrase.\n</explanation>",
+  "resp_len": 118,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 110,
+  "text": "<think>\n\n</think>\n\n<explanation>\nE-commerce product listing format with precise component enumeration established earlier (\"Four Rear Shocks, One Connector Cable\"), creating strong continuation pattern of numbered/breakdown item list.\n\nThe list appears incomplete \u2014 the original breakdown count (\"Four Rear Shocks, One Connector Cable\") suggests additional items (four shocks, one cable) already listed, but \"One\" at the end signals another component is still missing or being introduced, likely a bracket/cable bracket or fastener.\n\n\"One\" is the final token \u2014 the start of a new list item, requiring a noun phrase identifying the fourth component, likely a bracket, clamp, or similar accessory, e.g., \"One Connector Bracket\" or \"One Strap/Knob.\"\n</explanation>",
+  "resp_len": 154,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 111,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEnumerated list structure: \"two ocean regions\" mentioned, so a second region's name and initiative (as seen with Southeast Asia) must follow next.\n\nPattern of describing each regional Seafood Working Group \u2014 Southeast Asia's entry included name, initiative, purpose, and outcome \u2014 the other region (Italy/Adriatic) follows the same template.\n\nThe final token is the comma after \"Southeast Asia,\" mid-list, indicating a paired item structure requires the second regional Seafood Working Group's name, location, and corresponding initiative description immediately next.\n</explanation>",
+  "resp_len": 123,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 112,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct description format with technical-spec continuation, establishing USP structure (\"perfect for X,\" \"network your content\").\n\nThe narrative momentum promises completion of the \"F2.8\" specification claim \u2014 a benefit or use-case follows, explaining what F2.8 enables (e.g., low-light performance, sharpness, or background blur).\n\nFinal token \"F2.8\" is mid-phrase within a superlative claim about aperture advantages; immediate expectation is a noun or verb phrase completing the sentence, likely naming a benefit like \"low light\" or \"every shot.\"\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 113,
+  "text": "<think>\n\n</think>\n\n<explanation>\nLegal', emotional, and narrative momentum building toward Nashell's response \u2014 her statement about baggage, healing, and future plans is expected next.\n\nThe sentence structure \"prepared to move on from Matthew and their 3-year marriage before\" strongly implies an autobiographical continuation listing facts about the couple's history or her personal journey toward independence.\n\nFinal token \"before\" is a temporal/temporal conjunction mid-sentence, functioning as a time marker requiring a past-time clause \u2014 almost certainly describing what happened around the time of leaving Matthew, likely separation, filing divorce papers, or the split itself.\n</explanation>",
+  "resp_len": 129,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 114,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPsychological therapy/trauma narrative explaining dissociation and re-experiencing mechanisms, requiring continuation with therapeutic insight or clinical terminology.\n\nThe text is mid-sentence explaining what happens when unprocessed trauma resurfaces \u2014 completing the thought about re-experiencing the abuser (or painful event) through specific modalities or states, likely \"re-experience, re-live, or re-act out\" during therapy sessions.\n\nFinal token \"in\" begins a noun phrase or prepositional complement, requiring immediate continuation with a context/location \u2014 likely \"re-experience\" or \"physical/psychological re-experiencing\" \u2014 constrained by the preceding clinical explanation.\n</explanation>",
+  "resp_len": 146,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 115,
+  "text": "<think>\n\n</think>\n\n<explanation>\nMedical/informational health content about painkillers and addiction, maintaining clinical yet accessible register throughout.\n\nThe sentence structure \"rebound effects are likely to\" sets up a completion describing consequences or risk factors related to rebound effects after discontinuation or overuse.\n\n\"are likely to\" is an incomplete modal verb phrase requiring a noun or verb complement (e.g., \"occur,\" \"happen,\" \"harm the patient\") describing rebound effects' clinical likelihood or mechanisms.\n</explanation>",
+  "resp_len": 108,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 116,
+  "text": "<think>\n\n</think>\n\n<explanation>\nQuotation pattern: Marc Ellis's quote is mid-sentence, requiring completion of his description of CarGurus' role in car trading.\n\nBusiness/marketing context: explaining CarGurus as a marketplace, inventory solution, or transaction facilitator in the used-car industry.\n\nFinal token \"ificantly,\" ends a comparative structure mid-quote; the comma signals a continuation of the list/elaboration, expecting additional adjectives or a noun phrase describing CarGurus' scalability or market impact.\n</explanation>",
+  "resp_len": 109,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 117,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative/construction report about a high-rise residential tower, establishing factual contrast between rental and sale units with specific numeric counts (\"440 rental units\" vs \"66 condominiums\").\n\nStatistical enumeration pattern: the ratio of rentals to condos is being emphasized (e.g., \"73% of the units are rentals\"), suggesting supporting comparison figures or percentage will follow.\n\nFinal token \"condominiums\" ends a clause contrasting rental units with sale units; the next tokens will likely complete a larger context\u2014residential mix percentage, project overview, or transition to another development detail.\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 118,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum building on a list of CAMP Center activities, following a pattern of describing specific projects/programs the center maintains/hosts.\n\nThe phrase \"3D\" strongly signals \"3D printing\" or \"3D printing labs/printers/makerspaces\" \u2014 a common campus technology term appearing elsewhere in the text.\n\nThe final token \"3D\" is the start of an incomplete compound noun, immediately requiring \"printing\" to complete \"3D printing,\" followed by continuation describing what students or the center do with this technology.\n</explanation>",
+  "resp_len": 120,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 119,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInformational/announcement format explaining project details, establishing community engagement and rewards structure with Bulletins platform integration.\n\nThe promise of BSC Liberum contributor-exclusive rewards sets up expectations for further explanation of eligibility criteria, how to access the Bulletins board, or community roadmap details.\n\nThe final sentence explains privacy/Bulletins mechanics \u2014 a concluding explanatory clause \u2014 immediately followed by likely another detail sentence, bullet point, or continuation expanding on contributor benefits or platform features.\n</explanation>",
+  "resp_len": 103,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 120,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAncient Ayurvedic/Vedic cosmology context establishes that natural phenomena (Sunrise, Moonrise, specific times) are being elaborated through metaphors about consciousness or illumination.\n\nThe passage uses metaphors: \"Stay in the dark\" figuratively means ignorance; \"do yoga\" means clarity or awakening \u2014 the next words will continue this metaphorical structure linking natural cycles to spiritual states.\n\nFinal phrase \"During\" is a temporal preposition requiring a time period or condition to complete the clause, most likely referencing a specific Moon/Sun-related timing conducive to enlightenment, e.g., \"During the full moon\" or \"During the new moon\" phases described earlier.\n</explanation>",
+  "resp_len": 146,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 121,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic journal metadata/content listing pattern: each entry follows \"Title, Institution, Source, Author(s)\" structure, repeating cyclically.\n\nThe list of publication entries continues indefinitely with new research titles appearing, maintaining a bibliography/database format throughout.\n\nFinal token \"argon\" begins a specific technical parameter listing (argon described in terms of gas type or pressure contexts, e.g., \"argon pressure\" or \"argon flow rate\"), requiring a noun or quantity completing this experimental variable in the sputter coatings context.\n</explanation>",
+  "resp_len": 113,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 122,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEncyclopedic/dictionary reference format pattern: the text shifts from a war game description to a side reference to \"Atomic Bomb Bombings,\" expecting a Wikipedia-style entry or article summary.\n\nHistorical subject matter: having just defined \"War Game (board game)\" and introduced the atomic bomb bombings as an example, the next tokens will elaborate on World War II atomic bomb history.\n\n\"Atom\" is the start of \"Atomic Bomb\" or \"Atomic Bombings\" \u2014 either a truncated title or the beginning of a term, strongly constraining the next token to \"ic\" or \" Bomb\" completing the phrase.\n</explanation>",
+  "resp_len": 137,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 123,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBiblical theology curriculum context (Fuller Seminary) demands scriptural, theological language continuing the definition of holiness/Christian living.\n\nThe phrase \"personal and\" sets up a paired noun structure common in faith proclamation, strongly suggesting \"professional\" or \"communal/relational\" contexts completing the compound.\n\nFinal token \"and\" is a coordinating conjunction mid-phrase within the definition of \"Christian Holiness,\" requiring an immediate parallel noun (e.g., \"professional,\" \"communal\") to complete the paired list of relational contexts.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 124,
+  "text": "<think>\n\n</think>\n\n<explanation>\nContinuation of a pattern listing Cold Mountain's farming activities, each paragraph expanding on specific operations (chop-and-drop, non-GMO, organic, compost). \"Lettuces\" introduces the next specific crop example.\n\nThe article follows a narrative structure of farm owner interviews, building a comprehensive picture \u2014 new details about production methods are expected.\n\n\"Lettuces\" ends mid-sentence after a subject, demanding an immediate predicate\u2014a verb or description of how lettuces are cultivated or grown at Cold Mountain (e.g., \"they are among...\" or \"at Cold Mountain you see...\").\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 125,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article reporting format with established structure: event, significant discovery, expert reaction quoted, now elaborating methodology and implications.\n\nThe sentence ending \"Formation of the nanowire layer was what differentiated the method...\" has completed a noun clause, now transitioning to what else the reduction achieved or enabled, likely another TU colleague's statement or a technical advancement detail.\n\n\"and\" is a coordinating conjunction mid-sentence, requiring a parallel clause completing the list of achievements; next tokens must continue with a verb or noun phrase describing another benefit or outcome of the UCLA findings.\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 126,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct catalog/listing pattern: bullets describing compatible accessory parts for factory lighting products, establishing a clear continuation format.\n\nSales/recommendation momentum: the page transitions from explainer content to a bonus section (\"Well, we got you covered\"), signaling a curated parts compatibility list with \"More compatible parts:\" and the first compatibility description just begun.\n\nFinal token \"Headlights\" is the beginning of a product name (crafting_analogy Headlight part), mid-category-description; next tokens must complete the product name and its compatible accessories/compatibility specifiers, e.g., \"and Boosters for 400W Craftsman\u00ae\".\n</explanation>",
+  "resp_len": 140,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 127,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEnumerating venue types in a list for \"pop-up bars throughout the city,\" establishing continuation of comma-separated enumeration like \"bars, cabaret...\"\n\nThe sentence structure promises a full noun phrase describing concert locations, likely including rooftop venues, street-level, or intimate settings.\n\nFinal token \"cabarets\" ends a comma-separated prepositional phrase \"pop-up bars, cabarets,\" \u2014 a list mid-enumeration, strongly constraining the next token to be another venue type or category (e.g., \"rooftops,\" kitchen bars) or a closing punctuation completing the list.\n</explanation>",
+  "resp_len": 131,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 128,
+  "text": "<think>\n\n</think>\n\n<explanation>\nList of video game titles in a collection/observer post, establishing a pattern of \"- Title Description\" entries throughout. Titles have been appearing in a structured series with brief descriptions.\n\nThe date \"06/17/2012\" signals a news/blog post about a library collection announcement, implying the next tokens will be another titled game entry continuing the list.\n\nFinal token \"With\" is mid-title within \"Winter's Blade: With,\" requiring immediate completion of the game title \u2014 almost certainly \"Warlords\" (corrected from \"Whit\" formatting error) followed by parenthetical release info or a brief descriptive sentence.\n</explanation>",
+  "resp_len": 141,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 129,
+  "text": "<think>\n\n</think>\n\n<explanation>\nA list/series of party representatives and Malayalee superstars is being enumerated, creating expectation of continuation with more names or elaboration.\n\nThe text is a political commentary article analyzing the AAP's debate, maintaining an analytical but accessible tone throughout, now pivoting to a specific parliamentary context.\n\n\"Agy\" is an incomplete word clearly beginning with \"Agya\" (Agya Mathew/Agya Hridayam; recently AAP'sppe advocate), constrained to complete this proper noun before continuing with his role or constraints.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 130,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPolitical critique essay building toward a call to action against neoliberalism, arguing schools should reject failure vs. success ideologies.\n\nRepetition/continuation pattern: the phrase \"a re-invention of yourself through freedom and imagination and solidarity\" was just stated in full, now being abridged mid-list \u2014 the truncated phrase \"re-invention\" signals a list continuation requiring other parallel noun phrases like \"of the human community.\"\n\nFinal token \"re-invention\" is the beginning of a repeated or extended list mid-thought (\"re-invention of the human community\"), requiring continuation with comma-separated parallel nouns or elaboration completing the rhetorical flourish.\n</explanation>",
+  "resp_len": 139,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 131,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical report on water supply efficiency, establishing cause-effect reasoning around municipal water network pressure and leakage reduction findings.\n\nThe phrase \"not only...but also\" construction is an incomplete logical structure requiring two parallel outcomes completing the efficiency benefits of reducing water supply pressure at water distribution points.\n\n\"not only\" is the start of a correlative conjunction pair mid-clause, demanding an immediate parallel \"but also\" clause listing additional consequences of pressure reduction, e.g., cost savings, durability, or environmental benefits.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 132,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFormal technical/academic register with precise terminology (\"ortho-photography,\" \"terrain corrections\") establishes domain-specific register throughout.\n\nSentence structure requires completion of a list begun with \"the grid lines and the map's realisation,\" suggesting continuation with additional technical purposes/functions of aerial photographic surveying.\n\nThe final word \"for the\" opens a prepositional phrase requiring a noun phrase specifying a technical purpose \u2014 likely \"production of topographic maps,\" \" creation of...\" or similar surveying application noun phrase.\n</explanation>",
+  "resp_len": 113,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 133,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSports match report genre following chronological game narrative structure, driving toward completing the tactical/scoring details.\n\nThe sequence describes a \"wasted opportunity\" (after completing 65% of shots), now delivering the payoff \u2014 the \"tie-breaker in the\" signals a specific time or minute descriptor is immediately required (e.g., \"69th minute\" or \"late 70s\").\n\n\"the\" is the final token, an article beginning a noun phrase that must specify a temporal locative \u2014 a minute, moment, or stage in the game (e.g., \"the 69th minute,\" \"the final stretch\"), completing the sentence about who scored after the missed opportunity.\n</explanation>",
+  "resp_len": 152,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 134,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEncyclopedic/informational health article structure \u2014 systematic description of body systems, each paragraph covering a distinct organ system ( heart, lungs, muscles).\n\nList completion pattern: the biological functions paragraph is mid-enumeration, describing the liver's functions; \"storing fat, vitamins and minerals\" establishes a comma-separated list of stored substances, requiring additional items (\"carbohydrates,\" \"nutrients,\" \"glycogen\") to complete it.\n\nFinal token \"fat,\" is part of an ongoing comma-separated list of stored substances inside the liver; the next token must be another noun/compound noun continuing the list, likely \"vitamins,\" \"minerals,\" or a new list item.\n</explanation>",
+  "resp_len": 153,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 135,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInstructional guide tone with checklist format, establishing technical rules for a modem/poster. Next tokens complete the parallel structure begun with \"include as much detail as.\"\n\nList/enumeration continuation expected: \"as much detail as [possible/convenient/you can]\" completes the idiomatic phrase \"as much detail as possible\" \u2014 a fixed collocation strongly constraining the next word.\n\nFinal token \"as\" opens the idiomatic construction \"as much [detail] as [adjective/noun]\" \u2014 the word \"possible\" is the near-certain completion, followed by a period closing the sentence.\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 136,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBiographical narrative momentum: article profiles Ruzanna and examines her career in Yugoslavia, building toward describing her performance qualities.\n\nContrast/continuation structure established: \"privileged with freedom in the West, yet on stage\" sets up the counterpoint about Ruzanna's artistic persona/qualities as a soloist.\n\n\"On stage,\" is a transitional clause mid-construction, requiring a verb phrase describing Ruzanna's stage performances, likely praising her artistry, intensity, or mastery of dramaturgy in Mahler's voice.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 137,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic/institutional profile genre introducing a research group, establishing credentials and expertise in perception-action systems for robotics.\n\nThe phrase \"In the\" sets up a continuation describing a specific domain, category, or context \u2014 likely \"reality,\" \"lab,\" \"development,\" or a technical research area \u2014 where the lab operates or specializes.\n\n\"In the\" is an incomplete prepositional phrase requiring a noun phrase to immediately follow, almost certainly a specific research field, setting, or context (e.g., \"real world,\" \"context of,\" \"area of\") consistent with the formal academic style established.\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 138,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCritical evaluation pattern: article systematically pointing out preferred layouts but bridging shooter limitations, building toward solution.\n\nThe phrase \"This\" begins a concluding summary or problem statement, referencing the directional circulation issue (\"In each hammer direction, the player's feet can end up near the edges\"), signaling a transitional pivot toward explaining a forward-looking solution or recommendation for error-proof layouts.\n\n\"This\" is a demonstrative pronoun opening a new sentence, requiring a noun phrase or verb phrase immediately following, likely referencing the directional circulation problem just described as a reason or challenge.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 139,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDomain/genre signals: industrial/economic content about lead processing, following factual,encyclopedic register with technical economic terms.\n\nNarrative/argumentative momentum: \"Processing lead from ore\" sets up a description of a complex multi-step procedure, with \"a\" signaling an adjective or noun phrase describing the complexity or difficulty involved (e.g., \"a multistep process\").\n\nFinal token \"a\" is an indefinite article opening a noun phrase, requiring an adjective or noun immediately next, almost certainly a descriptor of complexity or difficulty related to lead ore processing (e.g., \"a complex,\" \"a multi-step,\" \"an intricate\").\n</explanation>",
+  "resp_len": 142,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 140,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSpam/SEO promotional content pattern: repetitive keyword stuffing of \"free slot poker games\" and casino-related terms throughout.\n\nList/continuation momentum: the text is mid-sentence describing Free Burning Poker, implying more details about platforms or availability will follow.\n\nFinal token \"many\" is part of an incomplete phrase \"available at many,\" requiring a noun phrase specifying where \u2014 most likely \"casino sites\" or \"online platforms/sites\" to complete the prepositional phrase.\n</explanation>",
+  "resp_len": 108,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 141,
+  "text": "<think>\n\n</think>\n\n<explanation>\nList-style blog/post format with consistent naming convention: item caption followed by source descriptor (e.g., \"Getty Images,\" \"Not that famous.\"). Another item in a sequence is expected.\n\nPersonal Pinterest shopping/social media style, mixing jewelry and fashion items with casual asides and notable:\n\nThe pattern established pairs a visual item caption with a source/maker description, strongly predicting \"Zadig & Voltaire\" will follow with a descriptor like \"Not that famous\" or \"Photo by XCZZ.\"\n\nFinal token \"Zadig & Voltaire\" is the start of a new item's caption, requiring an image source identifier or \"Not that famous\" style attribution next.\n</explanation>",
+  "resp_len": 147,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 142,
+  "text": "<think>\n\n</think>\n\n<explanation>\nListicle/roundup format with consistent structure: bold section headers followed by descriptions of styles, occasions, and outfits \u2014 the pattern strongly predicts similar content continues.\n\nContent momentum: the showmanship section is mid-explanation, detailing wardrobe simplification for dated prints; the reasoning (\"don't want to\u2026\") sets up a conclusion or recommendation about easy replacements.\n\nFinal token \"Shop\" opens a call-to-action phrase \u2014 \"Shop [the style/outfit/item]\" is an almost-certain next token, likely followed by a product link, directory, or source recommendation fitting the \"cheap and smart\" vibe.\n</explanation>",
+  "resp_len": 134,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 143,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSpam/SEO content pattern: incoherent, run-together promotional text mixing product features, phrases like \"SUVs\" and \"Fashion jewelry\" serve as boilerplate filler.\n\nIncomplete truncated phrase \"If you're looking for top quality and best price FarFetched Deals,\" establishing a conditional sales incentive appeal typical of affiliate/retail spam.\n\nFinal token \"Tr\" is the beginning of \"Trusted\" or a truncated word (likely \"Treasure,\" \"Tradition,\" or another headword in a closing promotional clause), requiring completion of that word within a brand-footer endorsement phrase like \"Trusted deals at FarFetched!\"\n</explanation>",
+  "resp_len": 142,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 144,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing news report narrative structure: incident described, response given, now detailing official procedures/next steps.\n\nFormal press-release/journalistic register with attributed statements continuing ex-post-facto technical and safety protocol descriptions.\n\nFinal token \"checks\" begins an incomplete phrase \u2014 \"will undergo the required/mandatory safety checks\" is the near-certain next syntactic phrase, specifying the type of technical audits/inspections being conducted at the airport.\n</explanation>",
+  "resp_len": 102,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 145,
+  "text": "<think>\n\n</think>\n\n<explanation>\nWeather forecast genre with structured regional breakdown pattern \u2014 each area gets separate analysis following consistent format.\n\nNarrative momentum: the west has been covered completely, so the north/South East continuation is expected next, following \"the cold weather will continue\" phrase implying the next day or period.\n\nFinal token \"continue\" is mid-clause in a temporal or conditional construction (\"will continue [tomorrow/throughout the week]\"), requiring an adverbial phrase specifying duration, likely \"throughout the week\" or \"into Wednesday.\"\n</explanation>",
+  "resp_len": 118,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 146,
+  "text": "<think>\n\n</think>\n\n<explanation>\nOngoing political/legal debate about a rally's legitimacy, requiring a factual statement to follow the word \"was.\"\n\nContrast/defense momentum: the article emphasized legitimacy and rejection of \"personal vengeance,\" so the description of the rally must align with peaceful, constitutional framing.\n\n\"was\" is an incomplete predicate requiring a nominal or adjective phrase \u2014 expected next tokens likely include terms like \"peaceful,\" \"a legitimate demand,\" \"non-violent,\" or \"against the amendment.\"\n</explanation>",
+  "resp_len": 107,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 147,
+  "text": "<think>\n\n</think>\n\n<explanation>\nMarketing/promotional tone establishing product superiority, building argument that EDEN2 Factor is the best option (Beyond Brand, Kirk's Argentum Gold already mentioned).\n\nRepetition/continuation pattern: the sentence structure highlights product qualities (\"not only...but\"), implying an additive clause listing value, quality, or sustainable features will follow.\n\nFinal token \"but\" is a coordinating conjunction completing \"not only...but,\" requiring an immediate contrasting or additive clause describing another benefit, likely sustainability or material quality consistent with the previous sentence.\n</explanation>",
+  "resp_len": 117,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 148,
+  "text": "<think>\n\n</think>\n\n<explanation>\nLegal disclaimer boilerplate pattern: formal regulatory/case management document with standard disclaimer language covering liability, accuracy, and jurisdiction.\n\nList continuation momentum: the disclaimer text lists exceptions to liability (\"errors, delays, interruptions, cancellations, loss of use of any hotel or information on these web sites\"), suggesting the list may close with additional disclaimers or conclude the legal notice.\n\nFinal token \"sites\" ends a list item mid-clause, requiring grammatical closure \u2014 likely a period or continuation of additional disclaimer terms, as this disclaimer follows formal legal document templates.\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 149,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct description genre/prescription drug listing format, mixing promotional claims with clinical/pharmaceutical messaging throughout.\n\nStorage requirements continuation: \"store away from heat, moisture\" is a standard pharmaceutical storage instruction list, strongly predicting additional physical/environmental conditions like \"and light\" or \"and excessive light.\"\n\nThe final token \"moisture\" is mid-list within a storage instructions sentence (\"away from heat, moisture\"), requiring immediate continuation of the comma-separated storage conditions list, most likely \"and direct sunlight\" or \"and light.\"\n</explanation>",
+  "resp_len": 118,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 150,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTechnical product description of a Canon camera lens, requiring precise specification details (number of compatible lenses, aperture compatibility).\n\nThe sentence structure \"fully compatible with more than 7\" sets up a specific numerical figure \u2014 the next token must be a number completing \"more than 7...\" which almost certainly translates to \"more than 700\" or \"more than 700 lenses.\"\n\nThe final token \"7\" is the beginning of an incomplete numeric quantity (\"more than 7___\"), immediately constraining the next token to a digit completing the figure, most likely \"0\" based on Canon's lens catalog size.\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 151,
+  "text": "<think>\n\n</think>\n\n<explanation>\nGeographic/list expansion pattern: \"California\" begins an enumeration of U.S. states opening cannabis extractaries, implying more states follow with commas.\n\nBusiness/service description genre: promotional text detailing services and scope, maintaining a formal but accessible marketing register throughout.\n\nFinal token \"California\" is the first item in an incomplete state list \u2014 the sentence structure requires continuation with additional U.S. states or regions, likely connected by commas.\n</explanation>",
+  "resp_len": 97,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 152,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNews article style with journalistic reporting tone, presenting multiple stakeholders' reactions on solar policy and tax credit privatization.\n\nNarrative momentum building through quotes from Greg Abbott, Gregorio Becerra, and now a contrasting focus on private sector priorities over community benefits.\n\n\"focused\" is the final word, part of a passive construction (\"has focused\") describing what the private sector has prioritized; next tokens must complete this with an object, likely \"on\" followed by a phrase like \"on large-scale commercial\" developments rather than local community projects.\n</explanation>",
+  "resp_len": 120,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 153,
+  "text": "<think>\n\n</think>\n\n<explanation>\nRepetition/continuation pattern: \"BMW 1 Series Sc 450i\" phrase is being repeated consistently throughout the text, cycling through structured listings with date-stamped headers.\n\nAlt/descriptive title list format: the text follows a pattern of \"Vehicle Name + anomaly sounds/failure symptoms + '1 Series Sc 450i'\" as a combined subject-line descriptor, suggesting continuation of that pattern.\n\nFinal token \"BMW 1 Series Sc\" is the beginning of a repeated phrase, requiring immediate completion as \"450i\" followed by \"automatic transmission warning light\" \u2014 mirroring the exact phrase used throughout the document.\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 154,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCorporate overview pattern: text is describing BWG's business operations and services, establishing company profile, services, and affiliations.\n\nContinuation of BWG's facts: the text has covered history, services (water, core, well service), and affiliated companies; more factual corporate details are expected next.\n\nFinal token \"BWG\" opens a new sentence with the company name, functioning as the subject; it immediately expects a verb phrase completing BWG's description, likely \"is also known as,\" \"operates,\" or \"provides additional...\" continuing the formal corporate profile.\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 155,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSpiritual/energy-themed prose style: poetic, metaphorical language describing emotional release and healing in a non-religious spiritual register.\n\nNarrative momentum of completing a long chain of metaphors about releasing sorrow and grief \u2014 \"web,\" \"tapestry,\" \"flooding,\" \"pulsing light\" all building toward a shared communal spiritual offering.\n\n\"ready to offer to\" is an incomplete infinitive phrase requiring a prepositional object \u2014 most likely a collective noun like \"others,\" \"the world,\" or \"all living things,\" consistent with the communal, universal tone established throughout.\n</explanation>",
+  "resp_len": 130,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 156,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum: article describes a reveal of Normani Karabo Collins in various hairstyles designs, now showing behind-the-scenes process.\n\nVisual/photographic description: the sentence introduces \"images of Normani\" implying upcoming descriptions of her appearance/in the process of styling.\n\nFinal token \"Normani Karabo Collins\" is the grammatical subject mid-relative clause \"of Normani Karabo Collins,\" requiring a verb phrase describing what she was doing (e.g., \"trying out,\" \"wearing,\" \"transformed into\") before images are attributed.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 157,
+  "text": "<think>\n\n</think>\n\n<explanation>\nAcademic/journalistic report tone establishing contextual background before detailing specific findings about Federal Building lifeline certification.\n\nNarrative momentum: a broad introduction has been given (\"when lifeline structures was used...\"), now shifting to a specific case study, expecting a geographic or institutional detail to follow.\n\nThe final token \"In\" is an adverb/preposition beginning a new sentence or clause, immediately requiring a noun phrase or location (e.g., \"In California,\" \"In 1974\", or \"In April\") to continue the report's introductory framing.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 158,
+  "text": "<think>\n\n</think>\n\n<explanation>\nWeather forecast bulletin format establishes pattern of structured regional coverage shifting to local/area-specific details.\n\nNarrative momentum: after covering today's broader outlook, a sensory/location shift (\"possible light showers\") signals imminent geography specificity \u2014 \"particularly\" or named locations like \"the west end\" expected to follow.\n\nFinal token \"showers\" ends an incomplete clause \"possible light showers,\" part of a standard meteorological warning phrase; immediate next tokens must completing this with a prepositional phrase or geographic qualifier, e.g., \"along the southeastern shore\" or \"in the west.\"\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 159,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEmbedded video player embed code is being inserted, following a strict technical template pattern requiring closing `px``` syntax completion.\n\nThe structured event listing format (when, how, where) has been fully completed, and the text has shifted to a video embedding reference, signaling media integration into the event description.\n\nThe final token `720` is part of the YouTube embed code attribute `width=\"720\" height=\"` \u2014 immediately expects a `height` value in pixels, almost certainly `405\"` or `406\"` (typical YouTube embed dimensions), followed by closing embed code tags.\n</explanation>",
+  "resp_len": 136,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 160,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPromotional campaign content pattern: headline followed by benefit description, expecting a specific offer/value phrase.\n\nThe campaign's structured format alternates between benefit categories and promotional headers, establishing a clear template for upcoming content.\n\nFinal token \"Up to\" opens a common retail promotional structure requiring a dollar amount or percentage discount (e.g., \"Up to $200 Off,\" \"Up to 50% Off\"), completing the \"Browse and Save\" banner claim.\n</explanation>",
+  "resp_len": 105,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 161,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFarm blog narrative establishing planting success, building toward a conclusion about crop yield expectations. The phrase \"looks like\" signals an upcoming positive assessment or forecast about productivity/abundance.\n\nList-of-pleasures-to-come framing (\"plenty more pleasurable things\") and the planting success establishes an optimistic, proactive forward-looking tone.\n\n\"looks like\" is an incomplete thought opener, syntactically requiring a noun phrase, clause, or number to follow \u2014 most likely a quantified prediction such as \"a great/bountiful harvest\" or \"tonnes of plants.\"\n</explanation>",
+  "resp_len": 126,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 162,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEncyclopedia/wikipedia-style article structure with navigational sidebar elements and article body sections, mid-content.\n\nNavigation section pattern: \"Other Disciples of Jesus:\" lists multiple parallel references in a consistent format, suggesting another category or heading follows.\n\nThe final token \"Dev\" is a truncated word, almost certainly \"Devotional\" continuing a list entry format like \"She's His Daily Waterproof Bible Devotional\" \u2014 the incomplete word requires immediate completion as \"otional\" followed by a parallel phrasing such as \"of the Day\" or similar devotional reference style.\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 163,
+  "text": "<think>\n\n</think>\n\n<explanation>\nExplanatory science/biology content establishing cause-effect relationships about cold weather physiology; next tokens will likely continue this health/science context.\n\nThe phrase \"feels colder\" sets up an incomplete explanation; the text is mid-definition of \"wind chill effect\" and expects elaboration on how wind increases cold perception beyond actual temperature.\n\nFinal token \"colder\" ends a clause explaining the physiological/cognitive perception of wind + cold together; immediate expectation is continuation with a period, then further explanation of wind chill mechanisms or additional related effects.\n</explanation>",
+  "resp_len": 119,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 164,
+  "text": "<think>\n\n</think>\n\n<explanation>\nGame description genre following a structured catalog format, with bullet points and a story blurb section now transitioning to gameplay/characters dialogue.\n\nThe sentence \"You'll roll on a motorcycle\u2026with your trust\" sets up a classic Call of Duty-style tagline (\"ride with your trusty marksman\"), requiring completion of a collocated/idomatic phrase about a sidekick or partner.\n\nFinal token \"trust\" is mid-phrase, part of \"your trust[ee]\" or \"your trust[y X]\"; the immediate next word is almost certainly \"ee\" completing \"trustee,\" or directly \"s\" continuing \"trusthorn Mark\" \u2014 referencing Scarlett's namesake trusthorn accessory from the Aliens universe.\n</explanation>",
+  "resp_len": 156,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 165,
+  "text": "<think>\n\n</think>\n\n<explanation>\nLow-quality, SEO/spam autogenerated casino content with repetitive licensing/bonus phrase constructions dominating throughout (\"free spin no deposit casino parts,\" \"real money online casino games\")\n\nThe text is enumerating a long list of casino-related topics, phrases, and keywords, suggesting continuation with more topic/snippet fragments.\n\nFinal token \"slot\" ends a phrase \"slot machine payout in\" \u2014 this is the start of a keyword or phrase fragment mid-construction, likely continuing as \"payout chart,\" \"slot machine pay table,\" or similar casino gaming terminology completing the incomplete noun phrase.\n</explanation>",
+  "resp_len": 127,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 166,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific exposition explaining a celestial motion formula, establishing formal technical register with precise terminology (rotation, stars, angles, vector math).\n\nThe sentence describes a spinning coordinate system tied to the galactic center, requiring completion of \"co-[_]\" \u2014 almost certainly \"co-rotates\" or \"co-rotating,\" describing how the coordinate system rotates with the galaxy.\n\nFinal token \"co\" is the truncated beginning of a compound word (co-rotates/coordinate system), immediately constrained to complete as \"rotates\" or \"ordinates,\" describing the rotating reference frame used in the motion equation.\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 167,
+  "text": "<think>\n\n</think>\n\n<explanation>\nGame description genre with technical platform/gameplay details, establishing skill-based tower defense format with zombie survivors and points objective.\n\nList of in-game elements being enumerated (\"zombies... hide... collect spare parts,\" traps), implying continued gameplay mechanics description.\n\nFinal phrase \"runs perfectly in all\" is a standard developer-style compatibility/firmware boilerplate, strongly constraining next tokens to \"modern browsers\" or \"supported browsers/operating systems.\"\n</explanation>",
+  "resp_len": 99,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 168,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDomain/genre signals: pet health/Wikipedia-style article about dogs, establishing factual encyclopedic tone with medical/breeding terminology throughout.\n\nContent momentum: the paragraph is listing genetic and breeding concerns in dogs, with \"\u0434\u0430\u0442\u044c \u043f\u043e\u043c\u0435\u0442\" already named, strongly implying continuation of the related conditions list (infertility, urinary tract issues, behavioral problems).\n\nFinal token: \"Py\" is the beginning of a medical/technical word, almost certainly \"Pyometra\" \u2014 a common canine reproductive disease \u2014 requiring immediate completion of this medical term before the sentence resumes describing its incidence or implications.\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 169,
+  "text": "<think>\n\n</think>\n\n<explanation>\nThe article is building toward a call-to-action encouraging reader interaction, following the video description script pattern.\n\nThe phrase \"better yet\" is a common idiom signaling an even more appealing option is about to be proposed, requiring a more dramatic incentive or action phrase.\n\nThe final token \"better\" ends an incomplete \"better yet\" construction, syntactically and stylistically demanding an immediate continuation with a verb or noun phrase like \"better yet, come to the event\" or \"better yet, share your support.\"\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 170,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative continuation of a \"find out more\" trailer structure, listing celebrity parodies in sequence (\"Paris Hilton,\" \"Teri Hatcher,\" \"Tonya Harding\"), each with a setup clause followed by a punchline reveal.\n\nThe pattern of setup-punchline revelations for each celebrity requires a comedic payoff sentence for Teri Hatcher's storyline.\n\nThe final token \"wing\" completes the phrase \"put under her wing,\" which is a standard metaphor meaning mentorship \u2014 the next tokens must complete this clause, likely naming who she mentors and delivering the joke.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 171,
+  "text": "<think>\n\n</think>\n\n<explanation>\nArgumentative momentum: essay argues slot machines are addictive, \"addictive in how engaging\" sets up continuation of this claim with examples or elaboration.\n\nRepetitive paragraph structure: each resembles a new item in a list of addictive qualities, suggesting descriptions of slot machine \"engaging\" nature (e.g., challenge, variety, sound effects).\n\nFinal token \"engaging\" is mid-clause, part of \"addictive in how engaging,\" requiring a complement or elaborating clause \u2014 likely \"they are\" or \"for players,\" followed by specific instances of what makes slots addictive.\n</explanation>",
+  "resp_len": 132,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 172,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPersonal anecdote structure: Kim poses a direct question about MDI MDRT early on, then introduces \"her\" story, establishing an inspirational, first-person narrative about a medical triumph.\n\nThe \"so I thought\" pivot signals Kim will recount a personal story of overcoming prohibited medicines (54 unmet needs), likely leading to describes a miracle or breakthrough reversed by the initiative.\n\nFinal token \"thought\" closes a first-person past tense clause (\"Didn't think\"), immediately constraining what follows to a contrasting turn \u2014 a rejection/additional pointing toward a miraculous result, e.g., \"I'd ever...\"\n</explanation>",
+  "resp_len": 133,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 173,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPersonal diary/blog tone established (\"blissfully busy,\" \"Wednesday has been\"), expecting casual conversational continuation about weekend preparations and shopping plans.\n\nNarrative momentum: the writer is mid-sentence listing a plan (\"make a rough idea of what we need to buy\"), implying the next tokens complete this thought and justify the preposition \"shop\" \u2014 likely followed by a destination, time phrase (\"this weekend\"), or verb phrase.\n\nFinal token \"shop\" is mid-phrase under \"our Tesco shop\" or \"Tesco shop,\" almost certainly requiring a location qualifier or prepositional completion, e.g., \"shop this weekend\" or \"shop for.\"\n</explanation>",
+  "resp_len": 145,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 174,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct listing/e-commerce style copy, describing fashion items with qualifications and variety promises.\n\nThe narrative has built toward showcasing variety and range of options, with \"in\" beginning a specific enumeration of shoe styles, colors, or sizes \u2014 completing the thought that options abound for any shopper.\n\n\"in\" is a preposition beginning a prepositional phrase, requiring a noun phrase immediately following \u2014 likely listing specific categories such as \"a wide range of styles/colors/sizes\" or \"assorted\" to complete the promotional description.\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 175,
+  "text": "<think>\n\n</think>\n\n<explanation>\nSpammy/aggregated web content mixing exhortations, Bible snippets, and casual writing, continuing this incoherent blend with no clear narrative thread.\n\nThe text is a list of loosely connected paragraphs, each introducing a new thought or fragment, suggesting another brief snippet or sentence follows.\n\n\"Brothers,\" is the final word, mid-sentence, part of an abrupt address beginning a new paragraph or rhetorical fragment, expecting a continuation such as \"I urge you,\" \"let's not\" \u2014 typical of agitated or distress-based Bible-based writing.\n</explanation>",
+  "resp_len": 123,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 176,
+  "text": "<think>\n\n</think>\n\n<explanation>\nContinuation of a list/series pattern: \"three major areas\" introduced specific categories (environmental resources, municipal tree programs), now completing the \"Goal Nine Achieving Star Ratings\" description.\n\nOrganizational description maintaining formal promotional/informational register throughout, detailingTREE AWARD's standards and judging criteria systematically.\n\nFinal token \"its\" is a possessive pronoun mid-clause describing what qualifies a municipal tree program for STAR Ratings \u2014 immediately expects a noun phrase detailing program characteristics, e.g., \"commitment to urban forestry,\" \"dedication to tree care,\" or \"municipal tree management practices.\"\n</explanation>",
+  "resp_len": 135,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 177,
+  "text": "<think>\n\n</think>\n\n<explanation>\nBilingual dual-language business services document (English in translation phase) describing NordZone's cloud-care offering and technical architecture.\n\nContinuation of a structured list of clauses about NordZone's responsibilities \u2014 \"Responsible for the implementation of the solution and the technical outputs... Responsible for monitoring...\" pattern expects a parallel continuation listing NordZone's remaining obligations or a closing sentence.\n\nThe phrase \"in regard to\" is a prepositional phrase requiring its object \u2014 almost certainly referencing \"the solution,\" \"the cloud platform,\" or \"the technical monitoring,\" completing the noun phrase before a verb like \"providing\" or \"ensuring.\"\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 178,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum of personal quote: Rev. Archbold is mid-speech, quoting his sentiments toward Hamilton County leadership, building toward addressing elected officials directly.\n\nPolitical/civic commentary context: The article develops a \"we are paying triple\" argument for equity in infrastructure spending, so his quote will likely deliver an urgent appeal about equity, justice, or accountability.\n\nFinal token \"elected\" begins a compound noun phrase, almost certainly completing as \"elected officials\" \u2014 a standard bureaucratic/interview target for criticism or appeal, strongly constraining the next word to \"officials.\"\n</explanation>",
+  "resp_len": 128,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 179,
+  "text": "<think>\n\n</think>\n\n<explanation>\nPolitical speech continuing a pattern of sharp criticism of Hindu Right party, Anant Raje, and Modi's BJP leadership as oppressive and criminalizing Muslim communities.\n\nThe text is building toward a political statement about violence targeting Muslims, referencing missing Muslims in Chichli village as part of a larger injustice argument demanding accountability and legal redress.\n\nFinal phrase \"game of\" ends mid-intransitive construction referencing \"game of lynching\" or \"game of eliminates\" \u2014 a direct quote from the article's source requires completing this idiomatic expression, almost certainly \"lynching\" or \"elimination\" related to anti-Muslim violence, as per the missing Muslims narrative.\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 180,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific/medical journal abstract continuing a structured description of correlation study findings, with methodological detail establishing expectation of statistical outcome reporting.\n\nThe abstract follows a standard IMRaD structure: Introduction (hypothesis) \u2192 Methods \u2192 Results pattern; \"positive correlation of physical fitness with improved daily mood and QOL\" sets up quantitative elaboration.\n\nThe final token is an opening parenthesis in a correlation coefficient expression (\"r\"), immediately requiring a statistical value/number (e.g., \"r = 0.45\u20130.60\") followed by closing parenthesis and likely threshold detail, consistent with the numeric range pattern established earlier (\"decreased by 50% to complete sedentary lifestyle\").\n</explanation>",
+  "resp_len": 154,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 181,
+  "text": "<think>\n\n</think>\n\n<explanation>\nCasual conversational tone with self-deprecating humor (\" nuts,\" \"I just love my madness\") signals informal social commentary.\n\nThe author is building a graded argument with \"at first, I didn't like\" establishing a nostalgic pivot toward accepting \"the dark ending\" as better than the initial bright one.\n\n\"I actually like\" is the opening of a contrasting clause completing the thought \u2014 the next tokens must complete what specific aspect the author now enjoys about the season's dark ending, likely referencing it directly.\n</explanation>",
+  "resp_len": 114,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 182,
+  "text": "<think>\n\n</think>\n\n<explanation>\nTravel/experiential content pattern: enumerated activities are building toward a description of overall appeal or accessibility.\n\nListicle-style enumeration momentum: \"skiing, rock climbing, crack climbing, ice climbing, belay more\" establishes varied outdoor activity options, suggesting continuation with a \"for all levels/year-round\" qualifier common in snow/Alpine tourism copy.\n\nFinal token \"to\" opens an infinitive or descriptive clause completing \"there are so many routes to [ski, explore, enjoy, choose from],\" requiring a verb phrase describing what primary adventurers can do.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 183,
+  "text": "<think>\n\n</think>\n\n<explanation>\nEducational hunting blog post maintaining an informal, enthusiastic tone (\"gazoo,\" \"cooler weather,\" \"Reference Book\"), guiding readers through rifle selection advice piece by piece.\n\nList-like progression of rifle selection criteria: stock type, caliber, barrel length already established, now moving through user types (beginner, seasoned hunter), classic rifles (marlin, lever, bolt action), and current rifles (AR, rimfire).\n\nFinal phrase \"If you just newly getting into the\" is mid-sentence, setting up the standard introductory phrase \"if you are new to hunting\" or similar beginner-by-step advice statement, requiring completion of this conditional clause.\n</explanation>",
+  "resp_len": 143,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 184,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct catalog/listing format: structured medical equipment entry with contact information and company name, transition now to a list of offerings/categories.\n\n\"Hand Held Instruments\" signals a comma-separated list of product categories is in progress, implying at least one more category follows (e.g., \"Contact Lenses,\" \"Ophthalmic Products\").\n\nFinal token \"Instruments\" is the second item in an incomplete list introduced by \"Headsets, Hand Held Instruments,\" requiring continuation with additional category names joined by commas.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 185,
+  "text": "<think>\n\n</think>\n\n<explanation>\nService/listicle structure: the text alternates between service offers (\"we offer \u2605\"), feature descriptions, and navigation links, maintaining a consistent promotional-commercial tone throughout.\n\nCorporate customer support website pattern: sequential navigation menu links (\"Find information about...,\" \"Technical support\") suggest another link, call-to-action button, or partner referral list follows.\n\nFinal token \"partners\" ends a navigation menu item (\"Find EBMs or accessories through our partners\"), acting as a clickable link label or menu entry, strongly predicting a period, comma, or new hyperlink/list item continuation.\n</explanation>",
+  "resp_len": 124,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 186,
+  "text": "<think>\n\n</think>\n\n<explanation>\nChronological narrative momentum: the article explains Union Carbide's past fee changes, building toward a specific event or statistic about prior payments.\n\nDetailed financial/regulatory context: prior paragraph covered CAS issues and oversee4 corruption, now pivoting to Union Carbide's payment history with specific figures and dates expected.\n\n\"Last time\" is a temporal pivot phrase mid-sentence, requiring a past event reference \u2014 almost certainly referring to \"the last time the CERCLA fee was increased/revised,\" followed by a year or contextual detail about prior payment history.\n</explanation>",
+  "resp_len": 122,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 187,
+  "text": "<think>\n\n</think>\n\n<explanation>\nNarrative momentum: a young boy's emotional journey toward his estranged father is being set up, with the sentence structure promising elaboration on their absent relationship.\n\nGrammatical and syntactic requirement: \"he never\" opens a past-perfect construction needing a verb phrase describing what he never experienced \u2014 likely \"knew,\" \"saw,\" \"spoke to,\" or \"came to know.\"\n\nFinal token \"never\" is mid-clause, part of the relative clause \"the father he never,\" requiring an immediate past-tense verb or past-perfect construction describing absence or lack of connection between the child and father.\n</explanation>",
+  "resp_len": 138,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 188,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInformational/promotional slot-gambling FAQs pattern, providing structured answers to reader questions in a user-support template format on online casino sites.\n\nNumerical and regulatory detail context: \"a minimum wagering of\" introduces a specific legal/compliance figure typically followed by a multiplier or percentage (e.g., \"x50\" or \"200%\"), as online gambling regulations consistently specify minimum wagering requirements.\n\nFinal token \"wagering\" is the first part of a noun phrase ending in \"of,\" requiring an immediate completion: a multiplier, percentage, or conditional clause (e.g., \"of the deposit\" or \"x10 on all bets\").\n</explanation>",
+  "resp_len": 147,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 189,
+  "text": "<think>\n\n</think>\n\n<explanation>\nMedical QA format (question-answer pairs) drives continuation toward veterinary-specific treatment recommendations for vaginal problems in dogs.\n\nThe answer is mid-sentence explaining veterinary approaches for interdigital infections, establishing that \"your vet might recommend\" implies a list of treatments follows \u2014 topical antifungals, craft salves/dilutions already mentioned \u2014 likely continuing with specific products or methods.\n\nFinal token \"recommend\" is a verb initiating a direct object clause in a veterinary advice context; the immediate next tokens must be a noun phrase or gerund describing a specific treatment or approach (e.g., \"antifungal creams,\" \"acamprosate,\" \"craft salves\").\n</explanation>",
+  "resp_len": 144,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 190,
+  "text": "<think>\n\n</think>\n\n<explanation>\nWeather forecast newsletter context requires technical meteorological language describing a specific storm/front system.\n\nThe phrase \"a front off the coast is\" sets up a predicate describing the frontal system's behavior, motion, or impact \u2014 a continuation of the cause-effect chain explaining storm formation.\n\nFinal token \"is\" is a linking verb beginning a predicate nominative or descriptive complement, requiring an adjective, verb phrase, or prepositional phrase immediately following (e.g., \"moving west,\" \"approaching,\" \"causing instability\").\n</explanation>",
+  "resp_len": 115,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 191,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProfessional service description pattern: structured list of expertise areas (\"engineering design,\" \"health and safety\"), continuing with more service offerings.\n\nDomain signals: construction/construction management consulting firm portfolio, with technical terminology (\"GPU,\" \"Terms of Reference\") expected throughout.\n\nFinal token \"procurement\" ends an incomplete \"scope including...engineering design...health and safety...projects procurement\" list \u2014 the text must continue with additional items related to procurement activities or close the list with a sentence.\n</explanation>",
+  "resp_len": 107,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 192,
+  "text": "<think>\n\n</think>\n\n<explanation>\nFactual press release/announcement style, using formal corporate language about real estate transaction.\n\nNarrative momentum: the announcement of the deal has been introduced with transaction details (cadre, parcel, Umhlanga Fields), and now the text is building toward a concluding summary statement about the significance/purpose of the investment.\n\n\"This\" is the final word, beginning a new sentence that will grammatically require a predicate \u2014 almost certainly a verb phrase describing the transaction's characteristics, such as \"This acquisition\" or \"This is,\" completing the deal's announced significance.\n</explanation>",
+  "resp_len": 125,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 193,
+  "text": "<think>\n\n</think>\n\n<explanation>\nJournalistic/scientific press release style signals technical biological explanation of research significance follows.\n\nThe phrase \"substantial implications\" directly promises a continuation detailing what those implications are, particularly for drug production or cancer vulnerability contexts established just before.\n\n\"has substantial implications\" is an incomplete clause requiring a noun phrase or prepositional phrase specifying the domain or scope of those implications, most likely \"for future cancer research\" or \"for the development of...\" continuing the oncology/drug-pumping specialization frame.\n</explanation>",
+  "resp_len": 112,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 194,
+  "text": "<think>\n\n</think>\n\n<explanation>\nProduct listing format with bullet-point features over a brand name in store context, establishing casual retail prose tone for e-commerce description.\n\nThe text is listing styling/fit suggestions, building toward a complete practical styling recommendation for the knitting crop top.\n\n\"for\" ends an incomplete prepositional phrase requiring a noun phrase describing appropriate occasions, outfits, or dressing contexts (e.g., \"a casual look,\" \"all-day wear,\" \"a cozy coffee date\").\n</explanation>",
+  "resp_len": 103,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 195,
+  "text": "<think>\n\n</think>\n\n<explanation>\nInformal online forum/camera community context: personal troubleshooting advice exchanged between two members sharing intraocular lens suitability for photography.\n\nThe subject Dawn is asking about intraocular lenses for camera, seeking community advice; her message has just shifted to self-disclosure (\"I am also having trouble doing those lenses. I have a same lens and I am trying it myself have had a lot of luck with reducing the swelling\").\n\n\"Helping for the swelling\" ends mid-sentence/phrase, syntactically incomplete \u2014 a verb phrase requiring completion (e.g., \"helping to reduce the swelling\" or \"helping the swelling reduce\"), likely followed by a question or request to Dawn about her experience or recommendations.\n</explanation>",
+  "resp_len": 153,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 196,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDirectory/inventory listing pattern: bibliographic metadata followed by program announcement, suggesting institutional library communications structure.\n\nLocation statement requires completion: \"North Avenue\" is a street name mid-address, immediately constraining next tokens to a city name (e.g., \"Chicago,\" \"Bloomington\") or further address detail.\n\nFinal token \"Avenue\" is part of an institutional location phrase \"in the North Avenue\" \u2014 this is an incomplete directional/location noun phrase that demands a city name or full address segment next.\n</explanation>",
+  "resp_len": 114,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 197,
+  "text": "<think>\n\n</think>\n\n<explanation>\nRepetition/continuation pattern: The phrase \"Newark Ravens From Previous Weekend in 2018: Newareck Ravens vs. Salisbury\" establishes a consistent article headline format, suggesting another similar \"vs.\" game news item follows.\n\nTeam name completion: \"State Semi-Finalist\" clearly refers to the Hampshire College Ravens, a specific team name completing \"Newark Ravens State Semi-Finalist\" \u2014 the next tokens must finish this noun phrase.\n\nFinal token \"Newareck\" is the all-caps/alternated team name variant mid-noun-phrase, part of a repeated \"Team vs. Opponent\" headline structure; immediately expects \"Ravens\" or contrast wording followed by \"vs.\" and a new opponent.\n</",
+  "resp_len": 160,
+  "content_start": 9,
+  "has_eos": false
+ },
+ {
+  "i": 198,
+  "text": "<think>\n\n</think>\n\n<explanation>\nScientific announcement structure: research findings presented first (\"Scientists have determined\"), then methodology (\"As part of...\"), now detailing institutions involved and their roles.\n\nInstitutional/Collaborative narrative: a partnership between two organizations is being listed; \"Zoological Institute of RAS\" is the first, implying the second partner \"Pacific Marine\" continues the enumeration, likely followed by its full institutional name.\n\nFinal token \"Pacific Marine\" is an incomplete institutional name mid-phrase (\"Pacific Marine [Export]\"), requiring immediate completion with a word like \"Export\" or \"Research Centre\" or similar bureaucratic suffix.\n</explanation>",
+  "resp_len": 135,
+  "content_start": 9,
+  "has_eos": true
+ },
+ {
+  "i": 199,
+  "text": "<think>\n\n</think>\n\n<explanation>\nDating advice article/tip format, with informal self-help tone (\"you may feel,\" \"vj,\" parenthetical asides), guiding readers through personal reflection and action steps.\n\nNarrative momentum toward actionable advice completion \u2014 the text encourages readers to reflect on their readiness, implying next steps about online dating efforts (creation, steps, resources).\n\nFinal phrase \"start dating\" is part of \"you're ready to start dating (on a dating site of course)\" \u2014 the parenthetical qualifier is the immediate next token, closing a self-deprecatingly humorous aside about online dating specifically.\n</explanation>",
+  "resp_len": 130,
+  "content_start": 9,
+  "has_eos": true
+ }
+]

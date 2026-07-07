@@ -1,0 +1,46 @@
+loaded 200 held-out rows from /workspace/data/rl_eval_full.parquet
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 67.57it/s]
+  gen 32/200 (cjk=1)
+  gen 64/200 (cjk=2)
+  gen 96/200 (cjk=3)
+  gen 128/200 (cjk=3)
+  gen 160/200 (cjk=3)
+  gen 192/200 (cjk=3)
+  gen 200/200 (cjk=3)
+gen done: resp len median=125 max=160 eos=199/200 cjk=3
+  KL 25/200
+  KL 50/200
+  KL 75/200
+  KL 100/200
+  KL 125/200
+  KL 150/200
+  KL 175/200
+  KL 200/200
+KL done: mean k3=0.0351 k1=0.0356 exact=0.0351
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 128.04it/s]
+Some weights of Qwen3ForCausalLM were not initialized from the model checkpoint at /workspace/ar and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+critic jobs: 23604 scoreable / 25404
+  critic 0/23604
+  critic 1280/23604
+  critic 2560/23604
+  critic 3840/23604
+  critic 5120/23604
+  critic 6400/23604
+  critic 7680/23604
+  critic 8960/23604
+  critic 10240/23604
+  critic 11520/23604
+  critic 12800/23604
+  critic 14080/23604
+  critic 15360/23604
+  critic 16640/23604
+  critic 17920/23604
+  critic 19200/23604
+  critic 20480/23604
+  critic 21760/23604
+  critic 23040/23604
+critic done: mean full-length reward=-0.2887
+content_start: median=9 never=0
+RKL_DONE
